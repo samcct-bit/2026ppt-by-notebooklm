@@ -22,10 +22,11 @@
   <!-- 客製化暗霓虹美學樣式 -->
   <style>
     :root {
-      --accent:  #ffb74d;   /* 溫慢金黃 (主強調) */
+      --accent:  #ffb74d;   /* 溫暖金黃 (主強調) */
       --accent2: #81c784;   /* 翡翠綠 (智與解脫) */
       --accent3: #e8643a;   /* 橘紅 (殺戒與警示) */
       --accent4: #ce93d8;   /* 亮紫 (自律防線) */
+      --accent5: #4fc3f7;   /* 水藍 (清口真義) */
       --bg-dark: #0d1117;
       --card-bg: rgba(255, 255, 255, 0.03);
       --card-border: rgba(255, 255, 255, 0.06);
@@ -50,7 +51,7 @@
     }
 
     .reveal h1 {
-      font-size: 2.2em;
+      font-size: 2.1em;
       background: linear-gradient(135deg, #fff 30%, var(--accent) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -58,11 +59,11 @@
     }
 
     .reveal h2 {
-      font-size: 1.5em;
+      font-size: 1.45em;
       color: #ffffff;
       border-bottom: 2px solid rgba(255, 183, 77, 0.1);
       padding-bottom: 8px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     /* 卡片式元件設計 */
@@ -70,10 +71,12 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 12px;
-      padding: 20px;
+      padding: 18px;
       box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
       backdrop-filter: blur(8px);
       transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
 
     .card:hover {
@@ -83,38 +86,46 @@
 
     .card-title {
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       display: flex;
       align-items: center;
       gap: 10px;
+      font-size: 0.52em;
     }
 
     .card-content {
       color: #ccc;
-      line-height: 1.6;
+      line-height: 1.5;
       text-align: left;
+      font-size: 0.36em;
     }
 
     /* 警示與金句方塊 */
     .quote-box {
       border-left: 5px solid var(--accent);
       background: rgba(255, 183, 77, 0.04);
-      padding: 15px 20px;
+      padding: 12px 18px;
       border-radius: 0 8px 8px 0;
       text-align: left;
       font-style: italic;
       color: #eee;
-      font-size: 0.85em;
+      font-size: 0.8em;
+      margin-bottom: 15px;
     }
 
     .quote-box.blue {
-      border-left-color: var(--accent2);
-      background: rgba(129, 199, 132, 0.04);
+      border-left-color: var(--accent5);
+      background: rgba(79, 195, 247, 0.04);
     }
     
     .quote-box.purple {
       border-left-color: var(--accent4);
       background: rgba(206, 147, 216, 0.04);
+    }
+
+    .quote-box.green {
+      border-left-color: var(--accent2);
+      background: rgba(129, 199, 132, 0.04);
     }
 
     /* VIZ 滑桿對比元件 */
@@ -154,7 +165,7 @@
     .slider-handle {
       position: absolute;
       top: 0;
-      left: 50%;
+      left: 100%;
       width: 4px;
       height: 100%;
       background: linear-gradient(to bottom, transparent, var(--accent2), transparent);
@@ -195,14 +206,29 @@
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 15px;
     }
 
     .grid-3 {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 15px;
+      gap: 12px;
     }
+
+    /* 醒目小標章 */
+    .badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.35em;
+      font-weight: 700;
+      vertical-align: middle;
+      margin-left: 6px;
+    }
+    .badge.red { background: var(--accent3); color: #fff; }
+    .badge.purple { background: var(--accent4); color: #fff; }
+    .badge.blue { background: var(--accent5); color: #0d1117; }
+    .badge.green { background: var(--accent2); color: #0d1117; }
 
     /* 動畫效果 */
     @keyframes pulse {
@@ -227,9 +253,9 @@
              data-background-size="cover">
       <div style="margin-top: 50px;">
         <span style="color: var(--accent); font-size: 0.7em; font-weight: 800; letter-spacing: 4px; text-transform: uppercase;" class="pulse-text">活佛師尊啟示</span>
-        <h1 style="margin-top: 15px; font-size: 2.2em; font-weight: 900; letter-spacing: 2px;">五戒之真義與現代心法</h1>
-        <div style="width: 80px; height: 3px; background: var(--accent); margin: 30px auto;"></div>
-        <p style="font-size: 0.55em; color: #aaa; letter-spacing: 1px; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+        <h1 style="margin-top: 15px; font-size: 2.1em; font-weight: 900; letter-spacing: 2px;">五戒之真義與現代心法</h1>
+        <div style="width: 80px; height: 3px; background: var(--accent); margin: 25px auto;"></div>
+        <p style="font-size: 0.52em; color: #aaa; letter-spacing: 1px; max-width: 650px; margin: 0 auto; line-height: 1.6;">
           「持戒即是降伏自己，走向無上菩薩道。<br>它不是前行的束縛，而是解脫生死的保護軌道。」
         </p>
       </div>
@@ -294,33 +320,27 @@
 
     <!-- 頁3：何謂戒律 (三學以戒為首) -->
     <section>
-      <h2>何謂戒律：解脫生死的保護軌道</h2>
-      <div class="quote-box" style="margin-bottom: 16px;">
-        「戒律好比火車的軌道，出軌就很危險。它不是束縛，而是安全的界限。」
+      <h2>何謂戒律：解脫生死的無漏軌道</h2>
+      <div class="quote-box" style="margin-bottom: 15px;">
+        「戒律好比火車的軌道，出軌就很危險。求道是入門，持戒才是行善斷惡的根本。」—— 活佛師尊
       </div>
       <div class="grid-3">
         <div class="card">
-          <div class="card-title" style="color: var(--accent); font-size: 0.5em;">
-            <i class="fa-solid fa-train-subway"></i> 軌道與防護
-          </div>
-          <div class="card-content" style="font-size: 0.36em;">
-            「戒」是劃定生命安全的界限。就像地圖上的紅線，指出哪些地方危險不可踰越，減少無形中造業的風險。
+          <div class="card-title" style="color: var(--accent);"><i class="fa-solid fa-glass-water-droplet"></i> 有漏之水杯</div>
+          <div class="card-content">
+            在廚房大汗流、小汗流修福，但不守戒律就像<strong>水杯有漏洞</strong>。漏了功德，來世福報減少，回天終究只是修煉員。
           </div>
         </div>
         <div class="card">
-          <div class="card-title" style="color: var(--accent); font-size: 0.5em;">
-            <i class="fa-solid fa-scale-balanced"></i> 三業清淨為本
-          </div>
-          <div class="card-content" style="font-size: 0.36em;">
-            念頭為諸惡之根。修道必須達到<strong>身、口、意</strong>三業清淨。持戒即是行善斷惡的實質根本，避免漏了功德。
+          <div class="card-title" style="color: var(--accent);"><i class="fa-solid fa-snowflake"></i> 忌發露水道心</div>
+          <div class="card-content">
+            發心不要像清晨的露水，陽光一照射馬上就消失了。修行持戒必須發出<strong>恆久之心</strong>，按部就班調伏習氣。
           </div>
         </div>
         <div class="card">
-          <div class="card-title" style="color: var(--accent); font-size: 0.5em;">
-            <i class="fa-solid fa-shield-halved"></i> 漸修的防線
-          </div>
-          <div class="card-content" style="font-size: 0.36em;">
-            「理可頓悟，事須漸修。」凡夫累世業力習性極深，必須按部就班藉助戒律約束，調伏自我傲慢與狂妄。
+          <div class="card-title" style="color: var(--accent);"><i class="fa-solid fa-compass"></i> 以戒為師</div>
+          <div class="card-content">
+            末法眾生根基較鈍，若不能自性覺照，必須<strong>以戒為師</strong>。戒是劃定生命界限的紅燈，保護我們不受無形業力牽纏。
           </div>
         </div>
       </div>
@@ -330,27 +350,27 @@
     <section data-background-image="assets/images/kill_bg.jpg"
              data-background-opacity="0.15"
              data-background-size="cover">
-      <h2>一、殺戒：不殺生而仁愛 (儒家：仁)</h2>
-      <div class="quote-box" style="margin-bottom: 18px;">
-        「有情所重，莫過性命。菩薩萬行，以大悲為本。」
+      <h2>一、殺戒：不殺生而仁愛 (儒家：仁) <span class="badge red">性戒</span></h2>
+      <div class="quote-box" style="margin-bottom: 12px; border-left-color: var(--accent3);">
+        「毛搓一搓，它瞪著眼看你！動物亦有天倫之樂，殺食之實在殘忍。」—— 活佛師尊
       </div>
-      <div class="grid-2">
+      <div class="grid-3">
         <div class="card">
-          <div class="card-title" style="color: var(--accent3); font-size: 0.55em;">
-            <i class="fa-solid fa-heart-pulse"></i> 助殺業之微細
-          </div>
-          <div class="card-content" style="font-size: 0.36em; line-height: 1.7;">
-            不僅親手殺生犯戒，起心動念的<strong>見斫隨喜</strong>、勸人墮胎、或同意葷宴亦為助殺。
-            甚至穿戴昂貴皮草（如貂皮）、買釣竿、販賣殺生武器，皆在意識中種下暴力種子，冤冤相報。
+          <div class="card-title" style="color: var(--accent3);"><i class="fa-solid fa-bug"></i> 農業共業助殺</div>
+          <div class="card-content">
+            農夫灑農藥、商人賣農藥，雖使五穀豐收，但助殺了無量生命，仍有因果；居家對待蚊蟲，應以打掃清潔代替噴藥撲殺。
           </div>
         </div>
         <div class="card">
-          <div class="card-title" style="color: var(--accent3); font-size: 0.55em;">
-            <i class="fa-solid fa-leaf"></i> 仁愛與同體大悲
+          <div class="card-title" style="color: var(--accent3);"><i class="fa-solid fa-wallet"></i> 所感外物無光澤</div>
+          <div class="card-content">
+            殺業重者，來世外物無光澤。表現為做生意極不順利、投資多虧多，與人無緣。且殺什麼久了臉就變什麼臉（黑黑的）。
           </div>
-          <div class="card-content" style="font-size: 0.36em; line-height: 1.7;">
-            人要將心比心，不能以「雞鴨生來給人吃」自我合理化（若此說成立，則人被蚊吸血、被虎吃亦是天意？）。
-            立愿清口茹素是最大的無畏施。見他人事業不順、累世殺業未完，不可說人家業力深重殺其發心，應以關愛語安慰。
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent3);"><i class="fa-solid fa-moon"></i> 寐覺快樂吉祥臥</div>
+          <div class="card-content">
+            持戒不吃肉的人心無殺氣，能給眾生<strong>無畏施</strong>。睡覺無惡夢，一覺到天亮，善神守護，寐覺快樂。
           </div>
         </div>
       </div>
@@ -358,33 +378,27 @@
 
     <!-- 頁5：第二戒：盜戒 -->
     <section>
-      <h2>二、盜戒：不偷盜而義立 (儒家：義)</h2>
-      <div class="quote-box blue" style="margin-bottom: 16px;">
-        「不屬於自己的東西，一針一線皆不可隨便動用。」
+      <h2>二、盜戒：不偷盜而義立 (儒家：義) <span class="badge red">性戒</span></h2>
+      <div class="quote-box blue" style="margin-bottom: 12px;">
+        「三寶門中好修福，造業也最容易；若貪圖方便，最易漏掉福報。」—— 活佛師尊
       </div>
       <div class="grid-3">
         <div class="card">
-          <div class="card-title" style="color: var(--accent2); font-size: 0.5em;">
-            <i class="fa-solid fa-hands-holding"></i> 佛堂之微細盜
-          </div>
-          <div class="card-content" style="font-size: 0.36em;">
-            燒大把香求佛卻未布施（盜佛物）、供果未供先食、公物私自帶回家、打公共電話不給錢、試吃仙佛供品多嚐幾口，皆是占仙佛便宜的微細盜。
+          <div class="card-title" style="color: var(--accent5);"><i class="fa-solid fa-filter"></i> 專款專用與佛堂清淨</div>
+          <div class="card-content">
+            功德款（月助、開荒、印書）必須分明，不可混用。佛堂掃具勿與廁所混用；供花不可拿鼻子去聞，聞過便不清淨。
           </div>
         </div>
         <div class="card">
-          <div class="card-title" style="color: var(--accent2); font-size: 0.5em;">
-            <i class="fa-solid fa-landmark"></i> 盜取國庫
-          </div>
-          <div class="card-content" style="font-size: 0.36em;">
-            上班將公家信封原子筆帶回家、教人逃漏稅、寄印刷品夾帶私信、坐車船逃票、為了算便宜點買賣講好不開發票，皆屬盜取國庫之罪。
+          <div class="card-title" style="color: var(--accent5);"><i class="fa-solid fa-receipt"></i> 漏稅與盜取國庫</div>
+          <div class="card-content">
+            上班私用公物、坐車船逃票、寄印刷品夾帶信件、買賣為圖便宜講好不開發票逃漏稅，皆屬「盜取國庫」，對全民負債。
           </div>
         </div>
         <div class="card">
-          <div class="card-title" style="color: var(--accent2); font-size: 0.5em;">
-            <i class="fa-solid fa-circle-question"></i> 五種免戒心態
-          </div>
-          <div class="card-content" style="font-size: 0.36em;">
-            <strong>己有想</strong>（拿錯相似物）、<strong>與己想</strong>（誤為送禮）、<strong>畚帚想</strong>（當垃圾撿）、<strong>暫用想</strong>（借用歸還）、<strong>親厚想</strong>（熟友豁免，但需防方便出下流）。
+          <div class="card-title" style="color: var(--accent5);"><i class="fa-solid fa-check-double"></i> 偷盜之五種開緣</div>
+          <div class="card-content">
+            <strong>己有想</strong>、<strong>與己想</strong>（誤為送禮）、<strong>畚帚想</strong>（當垃圾撿）、<strong>暫用想</strong>（借用歸還）、<strong>親厚想</strong>（熟友豁免，但防方便出下流）。
           </div>
         </div>
       </div>
@@ -394,27 +408,27 @@
     <section data-background-image="assets/images/lust_bg.jpg"
              data-background-opacity="0.15"
              data-background-size="cover">
-      <h2>三、淫戒：不邪淫而禮節 (儒家：禮)</h2>
-      <div class="quote-box purple" style="margin-bottom: 18px;">
-        「淫是宇宙間最束縛人的繩索，如割捨不下，則世世輪迴。」
+      <h2>三、淫戒：不邪淫而禮節 (儒家：禮) <span class="badge red">性戒</span></h2>
+      <div class="quote-box purple" style="margin-bottom: 12px;">
+        「宇宙間最束縛人的就是淫。邪淫妄念為社會禍亂之根，修行人必戒。」
       </div>
-      <div class="grid-2">
+      <div class="grid-3">
         <div class="card">
-          <div class="card-title" style="color: var(--accent4); font-size: 0.55em;">
-            <i class="fa-solid fa-user-shield"></i> 正淫以禮，邪淫遠離
-          </div>
-          <div class="card-content" style="font-size: 0.36em; line-height: 1.7;">
-            修道不需斷絕正常夫妻關係（正淫），但需相敬如賓以禮節制。
-            夫妻之外的男女關係、金錢性交易、婚外情則屬<strong>邪淫</strong>，為社會動亂家庭崩潰的源頭，修菩薩行者必戒。
+          <div class="card-title" style="color: var(--accent4);"><i class="fa-solid fa-eye-slash"></i> 守護眼根與淨心</div>
+          <div class="card-content">
+            問題家庭常來自一雙不守規矩的眼睛。遠離遐思書刊電影。淫念升起時，急誦《清靜經》、《心經》或《彌勒真經》降服。
           </div>
         </div>
         <div class="card">
-          <div class="card-title" style="color: var(--accent4); font-size: 0.55em;">
-            <i class="fa-solid fa-eye-slash"></i> 防微杜漸，淨心對治
+          <div class="card-title" style="color: var(--accent4);"><i class="fa-solid fa-wind"></i> 飽暖思淫與腳底涼</div>
+          <div class="card-content">
+            日常切忌暴飲暴食（飽暖思淫慾）。在家建議<strong>打赤腳</strong>，讓腳底板涼涼的，有助於降低生理火氣，淡化慾望。
           </div>
-          <div class="card-content" style="font-size: 0.36em; line-height: 1.7;">
-            「飽暖思淫慾」，日常不可暴飲暴食，遠離誘發遐思的電影、小說與書刊。
-            淫念升起時，應立即<strong>背誦經文</strong>或觀想身體污穢不淨（不淨觀），降低火氣。青年男女應潔身自愛。
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent4);"><i class="fa-solid fa-house-chimney-user"></i> 經營家庭與圓滿因緣</div>
+          <div class="card-content">
+            修道非逃避家累或堅決對立。坤道嫁入非素家庭，要有「我不入地獄誰入地獄」的勇氣與耐心，去承擔成全九玄七祖。
           </div>
         </div>
       </div>
@@ -460,33 +474,27 @@
 
     <!-- 頁8：第四戒：妄語戒 -->
     <section>
-      <h2>四、妄語戒：不妄語而誠信 (儒家：信)</h2>
-      <div class="quote-box" style="margin-bottom: 16px;">
-        「禍從口出，舌頭雖軟，但比刀子還厲害。」
+      <h2>四、妄語戒：不妄語而誠信 (儒家：信) <span class="badge red">性戒</span></h2>
+      <div class="quote-box" style="margin-bottom: 12px;">
+        「妄語是一切罪惡的開端。三世不妄語者，舌頭伸出可觸及鼻子。」—— 活佛師尊
       </div>
       <div class="grid-3">
         <div class="card">
-          <div class="card-title" style="color: var(--accent); font-size: 0.5em;">
-            <i class="fa-solid fa-comment-slash"></i> 遠離四種惡言
-          </div>
-          <div class="card-content" style="font-size: 0.36em;">
-            口業包含：<strong>惡口</strong>（粗俗罵人）、<strong>兩舌</strong>（挑撥是非）、<strong>綺語</strong>（美麗謊言）、<strong>妄言</strong>（說謊與欺騙）。閒談莫論人非，不揭發他人隱私。
+          <div class="card-title" style="color: var(--accent);"><i class="fa-solid fa-comments"></i> 生意與度人的口業</div>
+          <div class="card-content">
+            生意人最易打妄語（哄抬物價）。度人設佛堂不可誇大開空頭支票（如「求道設佛堂癌症就會好」），須腳踏實地成全。
           </div>
         </div>
         <div class="card">
-          <div class="card-title" style="color: var(--accent); font-size: 0.5em;">
-            <i class="fa-solid fa-briefcase"></i> 特殊行業之口業
-          </div>
-          <div class="card-content" style="font-size: 0.36em;">
-            律師、算命師、風水師與不持齋的道士，容易因工作涉及是非偏袒、鐵斷未來刺傷人，若在權勢上草菅人命，其因果將不得了。
+          <div class="card-title" style="color: var(--accent);"><i class="fa-solid fa-scale-unbalanced-flip"></i> 行業是非與惡口</div>
+          <div class="card-content">
+            律師、算命、風水師易在權勢上論是非，鐵斷未來刺傷人，招致惡口之罪；修道人切忌揭發他人隱私或離婚等辛酸史。
           </div>
         </div>
         <div class="card">
-          <div class="card-title" style="color: var(--accent); font-size: 0.5em;">
-            <i class="fa-solid fa-comment-dots"></i> 清口之真正義
-          </div>
-          <div class="card-content" style="font-size: 0.36em;">
-            清口不只是「吃素」（吃齋），更必須做到無惡口兩舌。嘴巴要經常多說讓人受益的「<strong>善思語</strong>」與「<strong>潤益語</strong>」，廣結善緣。
+          <div class="card-title" style="color: var(--accent);"><i class="fa-solid fa-wind"></i> 妄語之感召果報</div>
+          <div class="card-content">
+            犯妄語者來世多被譭謗、名譽受損；生來兔唇、講話漏風不清（語不明瞭）；種不得善果，或感召口氣天生惡臭。
           </div>
         </div>
       </div>
@@ -538,27 +546,27 @@
     <section data-background-image="assets/images/alcohol_bg.jpg"
              data-background-opacity="0.15"
              data-background-size="cover">
-      <h2>五、酒戒：不飲酒而調善身心 (儒家：智)</h2>
-      <div class="quote-box" style="margin-bottom: 18px;">
-        「酒不是葷，但它是一切罪惡的開端，故名遮戒。」
+      <h2>五、酒戒：不飲酒而調善身心 (儒家：智) <span class="badge purple">遮戒</span></h2>
+      <div class="quote-box green" style="margin-bottom: 12px;">
+        「酒能衍生一切諸惡。要正神擁護，身上決不能有酒肉味。」—— 活佛師尊
       </div>
-      <div class="grid-2">
+      <div class="grid-3">
         <div class="card">
-          <div class="card-title" style="color: var(--accent); font-size: 0.55em;">
-            <i class="fa-solid fa-wine-glass-slash"></i> 神智不清，破齋犯戒
-          </div>
-          <div class="card-content" style="font-size: 0.36em; line-height: 1.7;">
-            一喝酒神智不清，殺盜淫妄四重戒皆可能在恍惚中發生。
-            喝醉酒東倒西歪、口出髒話、甚至毀辱父母眷屬、不敬師長、乃至破戒洩漏道中三寶，果報深重。
+          <div class="card-title" style="color: var(--accent2);"><i class="fa-solid fa-ban"></i> 遮戒之首與李白之死</div>
+          <div class="card-content">
+            酒雖非葷，但喝醉喪失理智，殺盜淫妄皆會犯下。唐朝詩人李白，最終就是因昏沉沉跳水抓月而溺死，切莫學時髦。
           </div>
         </div>
         <div class="card">
-          <div class="card-title" style="color: var(--accent); font-size: 0.55em;">
-            <i class="fa-solid fa-brain"></i> 智慧暗昧與身心病苦
+          <div class="card-title" style="color: var(--accent2);"><i class="fa-solid fa-hand-holding-medical"></i> 助人飲酒感召無手</div>
+          <div class="card-content">
+            自己不喝，但買酒送人、勸酒，或出國幫人攜帶酒類過關，此微細漏洞會感召<strong>五百世無手之報</strong>，必須戒絕。
           </div>
-          <div class="card-content" style="font-size: 0.36em; line-height: 1.7;">
-            過度飲酒會導致諸根暗昧、智慧退失，來世易患精神分裂、愚痴之報。
-            持酒戒者來世神智清明、恬靜安寧，做事有條不紊。商務應酬當以茶水、飲料代酒，治病藥酒以不醉為限。
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent2);"><i class="fa-solid fa-martini-glass-empty"></i> 供品避酒與保身</div>
+          <div class="card-content">
+            拜拜用三牲酒禮，正神善神聞到即會遠離。持酒戒、不沾肉者，身心保持清淨，身上常散發檀香，善神容易護庇。
           </div>
         </div>
       </div>
@@ -573,25 +581,25 @@
       <div class="grid-3" style="font-size: 0.9em; gap: 10px;">
         <div class="card" style="padding: 12px;">
           <div style="font-weight: 700; color: var(--accent3); font-size: 0.5em; margin-bottom: 6px;"><i class="fa-solid fa-heart"></i> 不殺生 ➔ 仁</div>
-          <div style="font-size: 0.34em; color: #ccc;">推行無畏施與大悲，仁愛遍及一切生命。</div>
+          <div style="font-size: 0.34em; color: #ccc;">推行無畏施與大悲，仁愛遍及一切生命，少病長壽。</div>
         </div>
         <div class="card" style="padding: 12px;">
           <div style="font-weight: 700; color: var(--accent2); font-size: 0.5em; margin-bottom: 6px;"><i class="fa-solid fa-scale-unbalanced"></i> 不偷盜 ➔ 義</div>
-          <div style="font-size: 0.34em; color: #ccc;">守分安命，不占公家與仙佛的便宜。</div>
+          <div style="font-size: 0.34em; color: #ccc;">守分安命，不占公家與佛堂的便宜，財產盈積。</div>
         </div>
         <div class="card" style="padding: 12px;">
           <div style="font-weight: 700; color: var(--accent4); font-size: 0.5em; margin-bottom: 6px;"><i class="fa-solid fa-hands-praying"></i> 不邪淫 ➔ 禮</div>
-          <div style="font-size: 0.34em; color: #ccc;">端莊自持，相敬如賓，遵守天地倫常。</div>
+          <div style="font-size: 0.34em; color: #ccc;">端莊自持，相敬如賓，遵守家庭人倫與禮節。</div>
         </div>
       </div>
       <div class="grid-2" style="margin-top: 10px; font-size: 0.9em;">
         <div class="card" style="padding: 12px;">
           <div style="font-weight: 700; color: var(--accent); font-size: 0.5em; margin-bottom: 6px;"><i class="fa-solid fa-award"></i> 不妄語 ➔ 信</div>
-          <div style="font-size: 0.34em; color: #ccc;">口出善語言而有信，不挑是非，不傷人尊嚴。</div>
+          <div style="font-size: 0.34em; color: #ccc;">口出善思語，不挑是非，言而有信，敬人敬重。</div>
         </div>
         <div class="card" style="padding: 12px;">
           <div style="font-weight: 700; color: #4fc3f7; font-size: 0.5em; margin-bottom: 6px;"><i class="fa-solid fa-brain"></i> 不飲酒 ➔ 智</div>
-          <div style="font-size: 0.34em; color: #ccc;">遠離昏沉迷惘，神智清明以調善身心。</div>
+          <div style="font-size: 0.34em; color: #ccc;">遠離昏沉迷惘，神智清明以調善身心，不受愚痴果報。</div>
         </div>
       </div>
     </section>
@@ -603,7 +611,7 @@
       <div style="margin-top: 50px;">
         <h2 style="border:none; margin-bottom: 10px; font-size: 1.6em;">持戒即是解脫，降伏自我得清淨</h2>
         <div style="width: 60px; height: 2px; background: var(--accent); margin: 20px auto;"></div>
-        <p style="font-size: 0.52em; color: #ccc; line-height: 1.8; max-width: 600px; margin: 0 auto;">
+        <p style="font-size: 0.52em; color: #ccc; line-height: 1.8; max-width: 650px; margin: 0 auto;">
           修菩薩行的人不怕麻煩，德行的成就始於克己修持。<br>
           每持一戒即有善神守護，願我們共同精進，走向無上菩提道。
         </p>
