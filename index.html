@@ -1,837 +1,253 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>生活中的修行導航：解鎖「孝、悌、忠、信」的現代心法</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/night.css" />
-  <!-- WordCloud JS -->
-  <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.2.2/src/wordcloud2.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>佛堂即時互動簡報導航大廳</title>
+  <meta name="description" content="互動式多媒體課件簡報導航入口">
+  
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <style>
-    /* === 全域變數與主題色 === */
     :root {
-      --accent:  #e8643a; /* 孝 / 橘色脈絡 */
-      --accent2: #4fc3f7; /* 悌 / 藍色霓虹 */
-      --success: #81c784; /* 忠 / 綠色正氣 */
-      --warn:    #ffb74d; /* 信 / 金色信用 */
-      --dark-bg: #0d1117;
+      --primary: #ffb74d;     /* 溫暖金黃 */
+      --secondary: #81c784;   /* 翡翠綠 */
+      --bg-dark: #090d16;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.06);
     }
-
-    /* === 字體與基礎排版 === */
-    .reveal {
-      font-family: 'Segoe UI', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
-      background-color: var(--dark-bg);
-    }
-    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
-      font-family: 'Segoe UI', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      text-transform: none;
-    }
-    .reveal h1 {
-      font-size: 1.8em;
-      line-height: 1.2;
-      text-shadow: 0 0 20px rgba(232,100,58,0.4);
-    }
-    .reveal h2 {
-      font-size: 1.4em;
-      color: var(--accent2);
-      margin-bottom: 0.5em;
-      text-shadow: 0 0 15px rgba(79,195,247,0.3);
-    }
-    .reveal h3 {
-      font-size: 1.0em;
-    }
-
-    /* === 封面樣式 === */
-    .title-slide {
-      text-align: center;
-      padding: 20px;
-    }
-    .title-slide .tag {
-      display: inline-block;
-      background: rgba(232,100,58,0.15);
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      padding: 6px 18px;
-      border-radius: 30px;
-      font-size: 0.45em;
-      letter-spacing: 0.1em;
-      margin-bottom: 1.2em;
-      font-weight: 700;
-      text-shadow: 0 0 8px rgba(232,100,58,0.5);
-    }
-    .title-slide .subtitle {
-      font-size: 0.75em;
-      color: #ccc;
-      margin-top: 0.6em;
-      font-weight: 300;
-    }
-    .title-slide .author {
-      margin-top: 2.2em;
-      font-size: 0.5em;
-      color: #999;
-      letter-spacing: 0.05em;
-    }
-
-    /* === 區塊卡片與排版格線 === */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 0.8em;
-      align-items: stretch;
-    }
-    .card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
-      padding: 24px;
-      text-align: left;
-      transition: transform 0.3s, border-color 0.3s;
-    }
-    .card:hover {
-      border-color: rgba(255,255,255,0.2);
-      background: rgba(255,255,255,0.06);
-    }
-    .card-title {
-      font-size: 0.65em;
-      font-weight: 700;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .card-content {
-      font-size: 0.45em;
-      color: #ccc;
-      line-height: 1.7;
-    }
-
-    /* === 引用金句盒 === */
-    .quote-box {
-      background: rgba(255,255,255,0.03);
-      border-left: 5px solid var(--accent);
-      border-radius: 4px 12px 12px 4px;
-      padding: 20px 28px;
-      margin: 0.8em 0;
-      font-size: 0.65em;
-      color: #eee;
-      font-style: italic;
-      line-height: 1.7;
-      text-align: left;
-      box-shadow: inset 5px 0 20px rgba(0,0,0,0.3);
-    }
-    .quote-box.blue { border-left-color: var(--accent2); }
-    .quote-box.green { border-left-color: var(--success); }
-    .quote-box.warn { border-left-color: var(--warn); }
     
-    .list-style {
-      font-size: 0.5em;
-      line-height: 1.8;
-      color: #ddd;
-      text-align: left;
-      margin-top: 0.6em;
-    }
-    .list-style li {
-      margin-bottom: 10px;
-      list-style-type: none;
-      position: relative;
-      padding-left: 25px;
-    }
-    .list-style li::before {
-      content: "✦";
-      position: absolute;
-      left: 0;
-      color: var(--accent2);
-    }
-    .list-style.xiao li::before { color: var(--accent); }
-    .list-style.zhong li::before { color: var(--success); }
-    .list-style.xin li::before { color: var(--warn); }
-
-    /* === VIZ 滑桿對比樣式 === */
-    .slider-container {
-      position: relative;
-      width: 100%;
-      height: 400px;
-      background: #111;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
-    .slider-pane {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      padding: 30px 40px;
+    * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(at 10% 10%, rgba(255, 183, 77, 0.05) 0px, transparent 50%),
+        radial-gradient(at 90% 90%, rgba(129, 199, 132, 0.05) 0px, transparent 50%);
+      color: #f5f6f7;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      text-align: left;
+      align-items: center;
+      padding: 40px 20px;
+      overflow-x: hidden;
     }
-    .slider-pane.left {
-      background: rgba(232,100,58,0.06);
+    
+    header {
+      text-align: center;
+      margin-bottom: 50px;
     }
-    .slider-pane.right {
-      background: rgba(79,195,247,0.12);
-      clip-path: inset(0 0 0 50%);
+    
+    header span {
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 12px;
+      animation: pulse 2.5s infinite ease-in-out;
     }
-    .slider-handle {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      width: 4px;
-      background: var(--accent2);
-      box-shadow: 0 0 15px var(--accent2);
-      cursor: ew-resize;
-      z-index: 10;
+    
+    header h1 {
+      font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      background: linear-gradient(135deg, #ffffff 40%, var(--primary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
     }
-    .slider-knob {
-      position: absolute;
-      top: 50%;
-      left: -12px;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: #fff;
-      border: 4px solid var(--accent2);
-      transform: translateY(-50%);
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    
+    header p {
+      color: #8892b0;
+      font-size: 1rem;
+      max-width: 600px;
+      line-height: 1.6;
     }
-    .slider-range-input {
+    
+    .dashboard-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 960px;
+      margin-bottom: 50px;
+    }
+    
+    .deck-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 35px 30px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .deck-card::before {
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
       opacity: 0;
-      cursor: ew-resize;
-      z-index: 20;
+      transition: opacity 0.4s ease;
     }
-
-    /* === LIVE 動畫 === */
+    
+    .deck-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255, 183, 77, 0.3);
+      box-shadow: 0 20px 40px rgba(255, 183, 77, 0.08);
+    }
+    
+    .deck-card:hover::before {
+      opacity: 1;
+    }
+    
+    .deck-card .icon-wrapper {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      background: rgba(255, 183, 77, 0.1);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      transition: all 0.3s ease;
+    }
+    
+    .deck-card:nth-child(2) .icon-wrapper {
+      background: rgba(129, 199, 132, 0.1);
+      color: var(--secondary);
+    }
+    
+    .deck-card:hover .icon-wrapper {
+      transform: scale(1.1);
+    }
+    
+    .deck-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    
+    .deck-card p {
+      color: #8892b0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      flex-grow: 1;
+    }
+    
+    .enter-btn {
+      width: 100%;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .deck-card:hover .enter-btn {
+      background: var(--primary);
+      color: #090d16;
+      border-color: var(--primary);
+      box-shadow: 0 5px 15px rgba(255, 183, 77, 0.2);
+    }
+    
+    .deck-card:nth-child(2):hover .enter-btn {
+      background: var(--secondary);
+      color: #090d16;
+      border-color: var(--secondary);
+      box-shadow: 0 5px 15px rgba(129, 199, 132, 0.2);
+    }
+    
+    footer {
+      text-align: center;
+      color: #555;
+      font-size: 0.8rem;
+    }
+    
     @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.6; }
-    }
-
-    /* === 滾動條美化 === */
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: rgba(255,255,255,0.02);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: rgba(255,255,255,0.15);
-      border-radius: 3px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(255,255,255,0.3);
+      0% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.03); opacity: 1; text-shadow: 0 0 10px var(--primary); }
+      100% { transform: scale(1); opacity: 0.9; }
     }
   </style>
 </head>
 <body>
-<div class="reveal">
-  <div class="slides">
 
-    <!-- 頁1：主標題頁 -->
-    <section data-background-image="assets/images/cover_bg.png"
-             data-background-opacity="0.4"
-             data-background-size="cover">
-      <div class="title-slide">
-        <div class="tag">白陽新道親專題 · 儒釋道智慧</div>
-        <h1>生活中的修行導航</h1>
-        <h2 style="color: var(--accent); margin-top: 0.2em; font-size: 0.9em;">解鎖「孝、悌、忠、信」的現代心法</h2>
-        <p class="subtitle">從日常行持到明心見性</p>
-        <p class="author">蔡金成講師 學講</p>
-      </div>
-    </section>
+  <header>
+    <span>智慧課堂 • 即時互動</span>
+    <h1>多媒體簡報導航大廳</h1>
+    <p>點選下方課件卡片即可進入 Reveal.js 線上簡報。簡報中配有 AI 視覺背景、即時文字雲與問卷投票，提供極致的授課與學習體驗。</p>
+  </header>
 
-    <!-- 頁2：引言 -->
-    <section data-background-image="assets/images/cover_bg.png"
-             data-background-opacity="0.15"
-             data-background-size="cover">
-      <h2>現代人的四面鏡子</h2>
-      <div style="display: grid; grid-template-columns: 260px 1fr; gap: 20px; height: 450px;">
-        <!-- 左欄：說明與引導 -->
-        <div style="display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
-          <div class="card" style="padding: 18px; background: rgba(255,255,255,0.03);">
-            <div class="card-title" style="color: var(--accent2); font-size: 0.55em;">🧭 心理導航</div>
-            <div class="card-content" style="font-size: 0.38em;">
-              「八德」絕非古代束縛，而是安頓現代人身心的心理學導航。
-              <br><br>
-              求道是修行的起點，而「孝悌忠信」就是我們在紅塵中最好的行持。
-            </div>
-          </div>
-          
-          <!-- 文字雲控制端 -->
-          <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(79,195,247,0.2); border-radius: 10px; padding: 12px; margin-top: 10px; position: relative; z-index: 1000;">
-            <div style="font-size: 0.34em; color: var(--accent2); font-weight: 700; margin-bottom: 6px;">提交你的感受</div>
-            <input id="wc-input" type="text" placeholder="例：焦慮、孤單、冷漠..." maxlength="15"
-              style="width:100%; padding:6px 10px; border-radius:6px; border:1px solid rgba(255,255,255,0.15);
-                     background:rgba(255,255,255,0.08); color:#fff; font-size:12px;
-                     box-sizing:border-box; outline:none; position: relative; z-index: 1000;" />
-            <button id="wc-btn"
-              style="width:100%; margin-top:6px; padding:7px; background:var(--accent2); color:#0d1117;
-                     border:none; border-radius:6px; font-weight:700; font-size:12px; cursor:pointer; position: relative; z-index: 1000;">
-              送出 ↵
-            </button>
-          </div>
-        </div>
-
-        <!-- 右欄：文字雲畫布 -->
-        <div style="background: rgba(255,255,255,0.03); border-radius: 12px; overflow: hidden;
-                    position: relative; border: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column;">
-          <div style="padding: 10px 16px; background: rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.4em; color: #aaa; font-weight: 600;">如果生活中失去了這四個字，我們會變成多孤單焦慮的人？</span>
-            <span style="background: #ff4757; color: #fff; padding: 2px 6px; border-radius: 8px; font-size: 0.35em; font-weight: 700; animation: pulse 1.5s infinite;">LIVE</span>
-          </div>
-          <div style="flex: 1; position: relative;">
-            <canvas id="wc-canvas" style="width:100%; height:100%; display:block;"></canvas>
-            <div id="wc-empty" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-                                       color: #555; font-size: 0.45em; text-align: center; line-height: 1.8;">
-              輸入第一個答案<br>即時文字雲就會在此浮現 ✨
-            </div>
-          </div>
-          <div style="padding: 6px 16px; background: rgba(0,0,0,0.2); font-size: 0.3em; color: #777; display: flex; justify-content: space-between;">
-            <span>提交總數：<span id="wc-total" style="color: var(--accent); font-weight:700;">0</span></span>
-            <span>不同答案：<span id="wc-unique" style="color: var(--accent2); font-weight:700;">0</span></span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 頁3：【孝】生命源頭的感恩 -->
-    <section data-background-image="assets/images/xiao_bg.png"
-             data-background-opacity="0.15"
-             data-background-size="cover">
-      <h2>【孝】生命源頭的感恩</h2>
-      <div class="quote-box">
-        「孝，是看見父母的軟弱，並與自己的源頭和解。」
-      </div>
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-title" style="color: var(--accent);"><span style="font-size: 1.2em;">🌾</span> 子路百里負米</div>
-          <div class="card-content">
-            <strong>行孝不能等。</strong><br>
-            子路年輕時為父母奔波百里負米，晚年富貴時感嘆父母已逝，無法再盡孝。提醒我們莫留「子欲養而親不待」的終身遺憾。
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-title" style="color: var(--accent);"><span style="font-size: 1.2em;">🪔</span> 目連尊者救母</div>
-          <div class="card-content">
-            <strong>大孝顯心性。</strong><br>
-            物質上的奉養僅是行孝的初階；真正的孝道，是引導父母明心見性，點亮他們心中的智慧明燈，脫離心靈的痛苦與黑暗。
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 頁4：【孝】現代日常的練習 -->
-    <section data-background-image="assets/images/xiao_bg.png"
-             data-background-opacity="0.15"
-             data-background-size="cover">
-      <h2>【孝】日常的功課與難題</h2>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; margin-top: 0.4em;">
-        
-        <!-- 左側內容 -->
-        <div style="text-align: left;">
-          <div class="quote-box" style="margin-top: 0; font-size: 0.58em; border-left-color: var(--accent);">
-            「孝順，是給父母最好的臉色；大孝，是點亮父母心中的那盞明燈。」
-          </div>
-          <ul class="list-style xiao" style="font-size: 0.42em; margin-top: 15px;">
-            <li><strong>現代痛點</strong>：給了足夠的孝親費，卻在對話中充滿不耐煩。</li>
-            <li><strong>本週練習</strong>：回家對父母微笑，安靜聽他們講完同一個老故事。</li>
-          </ul>
-        </div>
-
-        <!-- 右側互動投票 -->
-        <div class="card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(232,100,58,0.25);">
-          <div style="font-size: 0.55em; color: var(--accent); font-weight: 700; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
-            <span>你在行孝中最大的挑戰是？</span>
-            <span style="background: #ff4757; color:#fff; padding: 2px 6px; border-radius:8px; font-size: 0.65em; animation: pulse 1.5s infinite;">LIVE</span>
-          </div>
-          <div id="poll-options" style="display: flex; flex-direction: column; gap: 8px;">
-            <!-- 由 JS 動態生成投票按鈕 -->
-          </div>
-          <div style="font-size: 0.36em; color: #888; text-align: center; margin-top: 10px;">
-            已投票：<span id="poll-total" style="color: var(--accent); font-weight: 700;">0</span> 人
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 頁5：【悌】手足關係的魔鏡 -->
-    <section data-background-image="assets/images/ti_bg.png"
-             data-background-opacity="0.15"
-             data-background-size="cover">
-      <h2>【悌】手足關係的魔鏡</h2>
-      <div class="quote-box blue">
-        「悌，是從手足的鏡子中，照見自己的自私與大度。」
-      </div>
-      <div class="card" style="margin-top: 0.8em;">
-        <div class="card-title" style="color: var(--accent2); font-size: 0.65em;">🚲 記恨家族：消失的腳踏車</div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 10px;">
-          <div class="card-content" style="font-size: 0.38em; border-right: 1px solid rgba(255,255,255,0.06); padding-right: 15px;">
-            <strong>二哥的付出：</strong><br>
-            為了幫三哥找回心愛的腳踏車，奔波數日冷落女友導致分手，承擔了巨大代價，卻從不邀功賭氣不說。
-          </div>
-          <div class="card-content" style="font-size: 0.38em;">
-            <strong>三哥的誤解：</strong><br>
-            只看見車丟了、二哥交女友，便私下猜忌「二哥一定是自私，為了交女友賣了我的車」，為此怨恨了一輩子。
-          </div>
-        </div>
-        <div style="margin-top: 12px; font-size: 0.38em; color: #ff8a80; text-align: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 10px; font-weight: 600;">
-          手足黃金歲月在「沉默」與「猜忌」中被消磨，直到真相大白時，早已無法挽回。
-        </div>
-      </div>
-    </section>
-
-    <!-- 頁6：【悌】拆解計較，學習放下 -->
-    <section data-background-image="assets/images/ti_bg.png"
-             data-background-opacity="0.15"
-             data-background-size="cover">
-      <h2>【悌】拆解計較，學習放下</h2>
-      <div class="quote-box blue" style="margin-bottom: 12px;">
-        「一個不問，一個不說，悌道就在沉默中死去了。」
-      </div>
-      
-      <!-- VIZ 滑桿對比元件 -->
-      <div class="slider-container">
-        <!-- 下層：左側內容 (沉默與計較) -->
-        <div class="slider-pane left">
-          <div style="width: 42%; text-align: left;">
-            <h3 style="color: var(--accent); font-size: 0.85em; margin-bottom: 8px;">🛑 猜忌與誤解的牢籠</h3>
-            <p style="font-size: 0.45em; line-height: 1.6; color: #ddd; margin: 0;">
-              一個帶著「受害者情結」不問，另一個拉不下臉「賭氣」不說。<br>
-              偷走手足情誼的不是外在的小偷，而是自以為是的線索與深埋心中的猜忌。
-            </p>
-          </div>
-        </div>
-        <!-- 上層：右側內容 (六祖壇經大包容) -->
-        <div class="slider-pane right" id="slider-reveal-pane" style="background-color: #1a2332;">
-          <div style="margin-left: auto; width: 42%; text-align: left;">
-            <h3 style="color: var(--accent2); font-size: 0.85em; margin-bottom: 8px;">✨ 壇經的大包容法門</h3>
-            <p style="font-size: 0.45em; line-height: 1.6; color: #ddd; margin: 0;">
-              六祖惠能大師面對加害與追殺的刺客，心中毫無恨意，反而以德報怨，開導並渡化對方。<br>
-              放下心中對錯人我的計較，才是「悌」道的終極昇華。
-            </p>
-          </div>
-        </div>
-        <!-- 分隔線與滑軌 -->
-        <div class="slider-handle" id="slider-handle">
-          <div class="slider-knob"></div>
-        </div>
-        <!-- 控制範圍（隱形） -->
-        <input type="range" min="0" max="100" value="50" class="slider-range-input" id="slider-range" />
-      </div>
-      
-      <div style="font-size: 0.36em; color: #888; text-align: center; margin-top: 6px;">
-        💡 左右拉動上方滑桿，對比「猜忌」與「包容」的心境轉變
-      </div>
-    </section>
-
-    <!-- 頁7：【忠】盡己之心的正氣 -->
-    <section data-background-image="assets/images/zhong_xin_bg.png"
-             data-background-opacity="0.15"
-             data-background-size="cover">
-      <h2>【忠】盡己之心的正氣</h2>
-      <div class="quote-box green">
-        「忠，是心放在正中間。當沒有人看見你時，你依然對得起天地良心。」
-      </div>
-      <div class="grid-2">
-        <div class="card" style="border-top: 4px solid var(--success);">
-          <div class="card-title" style="color: var(--success);"><span style="font-size: 1.1em;">⚖️</span> 文天祥與正氣歌</div>
-          <div class="card-content">
-            文天祥忠的不是皇帝或政權，而是心中的<strong>「良知」與「浩然正氣」</strong>。縱使身處嚴寒牢籠，其正氣依然感天動地。
-          </div>
-        </div>
-        <div class="card" style="border-top: 4px solid var(--success);">
-          <div class="card-title" style="color: var(--success);"><span style="font-size: 1.1em;">🍃</span> 惠能隱居獵人隊</div>
-          <div class="card-content">
-            六祖大師得法後，在獵人隊中隱居避難長達十五年。面對外界的重重考驗與質疑，依然<strong>忠於自性、守護法脈</strong>，這才是大忠。
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 頁8：【忠】日常本分的實踐 -->
-    <section data-background-image="assets/images/zhong_xin_bg.png"
-             data-background-opacity="0.15"
-             data-background-size="cover">
-      <h2>【忠】日常本分的實踐</h2>
-      <div class="grid-2" style="margin-top: 1.0em;">
-        <!-- 左卡：現代盲點 -->
-        <div class="card">
-          <div class="card-title" style="color: #ffb74d;"><span style="font-size:1.1em;">⚠️</span> 現代人的「敷衍」</div>
-          <div class="card-content" style="font-size: 0.44em;">
-            老闆不在就偷懶、沒人看見就馬虎行事。
-            這種「盲忠」或「敷衍」，實際上是忽略了內在的良知。
-          </div>
-        </div>
-        <!-- 右卡：白陽修行 -->
-        <div class="card">
-          <div class="card-title" style="color: var(--success);"><span style="font-size:1.1em;">🙏</span> 白陽道場修持</div>
-          <div class="card-content" style="font-size: 0.44em;">
-            無論是在佛堂承擔公聖業，或是在社會日常工作中。
-            捫心自問：我們做事是做給人看的，還是真正<strong>盡己之心</strong>？
-          </div>
-        </div>
-      </div>
-      <div class="quote-box green" style="font-size: 0.52em; margin-top: 20px; text-align: center;">
-        ❓ 當我們面對考驗、遇到挫折想退縮時，能不能想想求道那一刻，對上天發出的那顆赤誠的心？
-      </div>
-    </section>
-
-    <!-- 頁9：【信】立身處世的基石 -->
-    <section data-background-image="assets/images/zhong_xin_bg.png"
-             data-background-opacity="0.15"
-             data-background-size="cover">
-      <h2>【信】立身處世的基石</h2>
-      <div class="quote-box warn">
-        「信，是人字旁加一個言。人說出來的話，就要像大山一樣穩重。」
-      </div>
-      <div class="grid-2" style="align-items: center; margin-top: 1.0em;">
-        <div class="card" style="border-top: 4px solid var(--warn);">
-          <div class="card-title" style="color: var(--warn); font-size: 0.65em;">🗡 季札掛劍的極致信用</div>
-          <div class="card-content" style="font-size: 0.42em;">
-            季札出使各國，心中默許將佩劍贈予徐國國君。
-            出使歸來，徐君已逝。季札仍將佩劍掛於徐君墓前樹上。
-            <br><br>
-            手足問起，他回答：<strong>「我心已許，豈可因其人逝世而背信？」</strong>
-          </div>
-        </div>
-        <div style="text-align: left;">
-          <h3 style="color: var(--warn); font-size: 0.8em; margin-bottom: 8px;">內心的道德法庭</h3>
-          <p style="font-size: 0.46em; line-height: 1.8; color: #ccc;">
-            對人言而有信，是立身處世的根本。<br><br>
-            這叫作：<br>
-            <span style="color: var(--warn); font-weight: 700;">「欺人易，欺天難；欺天易，欺自心更難。」</span>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 頁10：【信】對因果與愿力的敬畏 -->
-    <section data-background-image="assets/images/zhong_xin_bg.png"
-             data-background-opacity="0.15"
-             data-background-size="cover">
-      <h2>【信】對因果與愿力的敬畏</h2>
-      <div class="grid-2" style="margin-top: 1.0em;">
-        <!-- 左卡：現代痛點 -->
-        <div class="card">
-          <div class="card-title" style="color: #ff8a80;"><span style="font-size:1.1em;">❌</span> 隨口承諾，隨便忘記</div>
-          <div class="card-content" style="font-size: 0.44em;">
-            「改天再聚」、「等一下幫你」……
-            現代人習慣隨口答應，事後又拋諸腦後。
-            這些看似微不足道的小事，實際上是在透支我們的「宇宙信用存款」。
-          </div>
-        </div>
-        <!-- 右卡：信即是通行證 -->
-        <div class="card">
-          <div class="card-title" style="color: var(--warn);"><span style="font-size:1.1em;">💳</span> 修道的通行證</div>
-          <div class="card-content" style="font-size: 0.44em;">
-            <strong>信有因果，信有愿力。</strong><br>
-            我們對承諾的敬畏，決定了心靈的寬度。<br><br>
-            建立信用的第一步：<strong>「答應別人的小事，一定做到。」</strong>
-          </div>
-        </div>
-      </div>
-      <div style="margin-top: 20px; font-size: 0.48em; color: #aaa; text-align: center;">
-        🙋‍♂️ 想想身邊是否有某位同修，只要他開口答應，你就 100% 放心的？
-      </div>
-    </section>
-
-    <!-- 頁11：總結——六祖壇經的無相智慧 -->
-    <section data-background-image="assets/images/cover_bg.png"
-             data-background-opacity="0.15"
-             data-background-size="cover">
-      <h2>六祖壇經的無相智慧</h2>
-      
-      <div class="quote-box" style="border-left-color: var(--accent2); background: rgba(255,255,255,0.02); font-size: 0.6em;">
-        <strong>【無相頌】經典對照</strong>
-        <ul style="list-style: none; padding: 0; margin: 15px 0 0 0; line-height: 2.0; font-size: 0.9em;">
-          <li><span style="color: var(--accent); font-weight:700;">恩則孝養父母</span> — 即是<strong>【孝】</strong>的實踐（感恩源頭）</li>
-          <li><span style="color: var(--accent2); font-weight:700;">義則上下相憐，讓則尊卑和睦</span> — 即是<strong>【悌】</strong>的昇華（化解計較）</li>
-          <li><span style="color: var(--success); font-weight:700;">心平、行直</span> — 即是<strong>【忠】</strong>與<strong>【信】</strong>的無上心法</li>
-        </ul>
-      </div>
-      
-      <div style="font-size: 0.44em; color: #888; margin-top: 15px;">
-        修道不必向外尋求神奇，自性中的佛法，皆從「日常生活的德行」中圓滿。
-      </div>
-    </section>
-
-    <!-- 頁12：結語與行動呼籲 -->
-    <section data-background-image="assets/images/cover_bg.png"
-             data-background-opacity="0.4"
-             data-background-size="cover">
-      <div class="title-slide">
-        <div class="tag" style="background: var(--accent2); color:#0d1117; border-color:var(--accent2);">行動指南 (CTA)</div>
-        <h2 style="color: #fff; font-size: 1.3em;">在紅塵世間修行，明心見性</h2>
-        <div class="card" style="margin-top: 1.0em; background: rgba(0,0,0,0.4); text-align: center; border-color: rgba(255,255,255,0.1);">
-          <div style="font-size: 0.48em; color: var(--accent2); font-weight: 700; margin-bottom: 8px;">本日課後功課</div>
-          <div style="font-size: 0.42em; color: #ccc; line-height: 1.6;">
-            請在心中為自己許下一個本週要實踐的具體小行動：<br>
-            <span style="color: var(--accent); font-weight: 700;">「跟吵架的手足傳一則關心的訊息」</span> 或 <span style="color: var(--accent); font-weight: 700;">「回家對父母微笑並傾聽他們」</span>
-          </div>
-        </div>
-        <p style="font-size: 0.48em; color: var(--accent); margin-top: 1.5em; font-weight: 700; text-shadow: 0 0 10px rgba(232,100,58,0.5);">
-          祝各位前賢法喜充滿，福慧雙修！
-        </p>
-      </div>
-    </section>
-
-  </div>
-</div>
-
-<!-- Reveal.js CDN JS -->
-<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
-<script>
-  Reveal.initialize({
-    hash: true,
-    transition: 'slide',
-    transitionSpeed: 'default',
-    backgroundTransition: 'fade',
-    center: true,
-    progress: true,
-    controls: true,
-    slideNumber: 'c/t',
-    plugins: []
-  });
-</script>
-
-<!-- Firebase SDK 引入與互動元件 JavaScript -->
-<script type="module">
-  // 初始化 Firebase
-  import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js';
-  import {
-    getFirestore, doc, setDoc, onSnapshot, collection, addDoc, query, orderBy
-  } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js';
-
-  // 使用使用者專屬 Firebase 專案配置 (my-teaching-tools-01)
-  const firebaseConfig = {
-    apiKey: ["AIzaSy", "C48oAqalT77SPpYVtCupYfV5hd6_ZrD2I"].join(""),
-    authDomain: "my-teaching-tools-01.firebaseapp.com",
-    projectId: "my-teaching-tools-01",
-    storageBucket: "my-teaching-tools-01.firebasestorage.app",
-    messagingSenderId: "552535919921",
-    appId: "1:552535919921:web:95b4c1288edbae9572b410"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const fdb = getFirestore(app);
-
-  // ==========================================
-  // 1. VIZ 滑桿對比元件實作
-  // ==========================================
-  const rangeInput = document.getElementById('slider-range');
-  const revealPane = document.getElementById('slider-reveal-pane');
-  const handle = document.getElementById('slider-handle');
-
-  if (rangeInput && revealPane && handle) {
-    rangeInput.addEventListener('input', (e) => {
-      const val = e.target.value;
-      revealPane.style.clipPath = `inset(0 0 0 ${val}%)`;
-      handle.style.left = `${val}%`;
-    });
-  }
-
-  // ==========================================
-  // 2. 互動文字雲 (WordCloud)
-  // ==========================================
-  const wordsRef = collection(fdb, 'filial_piety_wordcloud');
-  const COLORS = ['#4fc3f7','#e8643a','#ffb74d','#81c784','#ce93d8','#80deea','#f48fb1'];
-  let wcData = [];
-
-  window.wcSubmit = async function() {
-    const input = document.getElementById('wc-input');
-    const word = input.value.trim();
-    if (!word) return;
-    const btn = document.getElementById('wc-btn');
-    btn.disabled = true;
-    try {
-      await addDoc(wordsRef, { word, created_at: new Date() });
-      input.value = '';
-    } catch(e) {
-      console.error("提交文字失敗:", e);
-    } finally {
-      btn.disabled = false;
-    }
-  };
-
-  document.getElementById('wc-input')?.addEventListener('keypress', e => {
-    if (e.key === 'Enter') window.wcSubmit();
-  });
-  document.getElementById('wc-btn')?.addEventListener('click', window.wcSubmit);
-
-  // 阻止 Reveal.js 攔截鍵盤輸入
-  document.querySelectorAll('input, textarea').forEach(el => {
-    ['keydown', 'keyup', 'keypress'].forEach(event => {
-      el.addEventListener(event, e => {
-        e.stopPropagation();
-      });
-    });
-  });
-
-  onSnapshot(query(wordsRef, orderBy('created_at', 'asc')), snap => {
-    const words = [];
-    snap.forEach(doc => words.push(doc.data().word));
-    const counts = {};
-    words.forEach(w => counts[w] = (counts[w] || 0) + 1);
-    wcData = Object.entries(counts).sort((a, b) => b[1] - a[1]);
-
-    document.getElementById('wc-total').textContent = words.length;
-    document.getElementById('wc-unique').textContent = wcData.length;
-
-    const empty = document.getElementById('wc-empty');
-    if (empty) empty.style.display = wcData.length > 0 ? 'none' : '';
-    drawWordCloud();
-  });
-
-  function drawWordCloud() {
-    const canvas = document.getElementById('wc-canvas');
-    if (!canvas || typeof WordCloud === 'undefined') return;
-    const rect = canvas.getBoundingClientRect();
-    if (rect.width < 10 || rect.height < 10) return;
-    canvas.width = rect.width;
-    canvas.height = rect.height;
-    if (wcData.length === 0) return;
-    const maxCount = wcData[0][1];
+  <div class="dashboard-container">
     
-    // 渲染文字雲
-    WordCloud(canvas, {
-      list: wcData.map(([w, c]) => [w, Math.max(16, Math.round((c / maxCount) * 45))]),
-      gridSize: 8,
-      weightFactor: 1,
-      fontFamily: '"Microsoft JhengHei", "Noto Sans TC", sans-serif',
-      color: () => COLORS[Math.floor(Math.random() * COLORS.length)],
-      backgroundColor: 'transparent',
-      rotateRatio: 0.2,
-      shuffle: true,
-    });
-  }
-
-  // ==========================================
-  // 3. 即時單選投票 (Poll)
-  // ==========================================
-  const OPTIONS = [
-    { id: 'a', label: '對父母口氣不耐煩 (好的給外人，壞的給父母)' },
-    { id: 'b', label: '忙於工作，疏於陪伴與傾聽父母' },
-    { id: 'c', label: '溝通代溝，不知道要跟父母聊什麼' },
-    { id: 'd', label: '只有物質奉養，缺乏心靈與道義交流' }
-  ];
-  const pollRef = doc(fdb, 'filial_piety_poll', 'results');
-  const userId = 'user_' + Math.random().toString(36).slice(2, 9);
-  let myVote = null;
-
-  // 渲染投票按鈕
-  const pollContainer = document.getElementById('poll-options');
-  if (pollContainer) {
-    OPTIONS.forEach(opt => {
-      const btn = document.createElement('button');
-      btn.id = `poll-btn-${opt.id}`;
-      btn.innerHTML = `
-        <div style="display:flex;align-items:center;gap:12px;width:100%;height:100%;">
-          <span style="flex:0 0 20px;height:20px;border-radius:50%;border:2px solid rgba(255,255,255,0.3);
-                       display:flex;align-items:center;justify-content:center;font-size:10px;box-sizing:border-box;"
-                id="poll-check-${opt.id}"></span>
-          <span style="flex:1;text-align:left;font-size:0.9em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${opt.label}</span>
-          <span id="poll-bar-wrap-${opt.id}"
-                style="flex:0 0 100px;height:8px;background:rgba(255,255,255,0.1);border-radius:4px;overflow:hidden;">
-            <div id="poll-bar-${opt.id}" style="height:100%;width:0;background:var(--accent);border-radius:4px;transition:width 0.4s;"></div>
-          </span>
-          <span id="poll-pct-${opt.id}" style="flex:0 0 36px;text-align:right;font-size:0.85em;color:#888;">0%</span>
+    <!-- 卡片1：孝悌忠信 -->
+    <div class="deck-card">
+      <div>
+        <div class="icon-wrapper">
+          <i class="fa-solid fa-compass"></i>
         </div>
-      `;
-      btn.style.cssText = `width:100%;padding:10px 14px;background:rgba(255,255,255,0.04);
-        border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;
-        font-size:0.42em;cursor:pointer;font-family:inherit;text-align:left;outline:none;
-        position: relative; z-index: 1000;`;
-      btn.onclick = () => vote(opt.id);
-      pollContainer.appendChild(btn);
-    });
-  }
+        <h3>孝悌忠信互動簡報</h3>
+        <p>以現代禪學與心理學視角重新詮釋傳統德育。內含學員情緒字詞雲、行孝痛點投票以及悌道「猜忌與寬恕」心境對比滑桿。</p>
+      </div>
+      <a href="filial-piety/" class="enter-btn">
+        開始放映 <i class="fa-solid fa-chevron-right"></i>
+      </a>
+    </div>
+    
+    <!-- 卡片2：五戒 -->
+    <div class="deck-card">
+      <div>
+        <div class="icon-wrapper">
+          <i class="fa-solid fa-dharmachakra"></i>
+        </div>
+        <h3>五戒之真義與現代心法</h3>
+        <p>降伏自我的解脫防護軌道。結合儒家五常（仁義禮智信），設有戒律直覺文字雲、現代物質與精神誘惑投票及「顏回食粥」對比滑桿。</p>
+      </div>
+      <a href="five-precepts/" class="enter-btn">
+        開始放映 <i class="fa-solid fa-chevron-right"></i>
+      </a>
+    </div>
+    
+  </div>
 
-  async function vote(optId) {
-    myVote = optId;
-    const data = {
-      votes: {
-        [userId]: optId
-      },
-      updated_at: new Date()
-    };
-    try {
-      await setDoc(pollRef, data, { merge: true });
-    } catch (err) {
-      console.error("投票失敗:", err);
-    }
-  }
+  <footer>
+    <p>© 2026 佛堂智慧多媒體課堂系統 • 降伏自心 漸修菩提</p>
+  </footer>
 
-  onSnapshot(pollRef, snap => {
-    const data = snap.data() || {};
-    const votes = data.votes || {};
-    const counts = {};
-    OPTIONS.forEach(o => counts[o.id] = 0);
-    Object.values(votes).forEach(v => {
-      if (counts[v] !== undefined) counts[v]++;
-    });
-    const total = Object.values(counts).reduce((a, b) => a + b, 0);
-
-    document.getElementById('poll-total').textContent = total;
-    OPTIONS.forEach(opt => {
-      const pct = total > 0 ? Math.round((counts[opt.id] / total) * 100) : 0;
-      const bar = document.getElementById(`poll-bar-${opt.id}`);
-      const pctTxt = document.getElementById(`poll-pct-${opt.id}`);
-      const check = document.getElementById(`poll-check-${opt.id}`);
-      const btn = document.getElementById(`poll-btn-${opt.id}`);
-
-      if (bar) bar.style.width = pct + '%';
-      if (pctTxt) pctTxt.textContent = pct + '%';
-      
-      if (check && btn) {
-        if (myVote === opt.id) {
-          check.innerHTML = '✓';
-          check.style.background = 'var(--accent)';
-          check.style.borderColor = 'var(--accent)';
-          btn.style.borderColor = 'var(--accent)';
-          btn.style.background = 'rgba(232,100,58,0.08)';
-        } else {
-          check.innerHTML = '';
-          check.style.background = 'transparent';
-          check.style.borderColor = 'rgba(255,255,255,0.3)';
-          btn.style.borderColor = 'rgba(255,255,255,0.1)';
-          btn.style.background = 'rgba(255,255,255,0.04)';
-        }
-      }
-    });
-  });
-
-  // ==========================================
-  // 4. Reveal.js 切換頁面重繪監聽
-  // ==========================================
-  Reveal.on('slidechanged', e => {
-    // 當切換到文字雲頁面，重新繪製以確保 Canvas 尺寸正確
-    if (e.currentSlide?.id === 'slide-wordcloud' || e.currentSlide?.querySelector('#wc-canvas')) {
-      setTimeout(drawWordCloud, 250);
-    }
-  });
-
-  // 視窗 resize 重繪文字雲
-  window.addEventListener('resize', () => {
-    if (document.querySelector('.present canvas#wc-canvas')) {
-      drawWordCloud();
-    }
-  });
-</script>
 </body>
 </html>
