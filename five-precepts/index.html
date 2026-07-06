@@ -148,7 +148,7 @@
 
     .slider-pane.right {
       background: rgba(129, 199, 132, 0.1);
-      clip-path: inset(0 0 0 50%);
+      clip-path: inset(0 0 0 100%);
     }
 
     .slider-handle {
@@ -522,11 +522,11 @@
           </div>
         </div>
         <!-- 分隔線與滑軌 -->
-        <div class="slider-handle" id="slider-handle">
+        <div class="slider-handle" id="slider-handle" style="left: 100%;">
           <div class="slider-knob"><i class="fa-solid fa-arrows-left-right"></i></div>
         </div>
         <!-- 控制範圍（隱形） -->
-        <input type="range" min="0" max="100" value="50" class="slider-range-input" id="slider-range" />
+        <input type="range" min="0" max="100" value="100" class="slider-range-input" id="slider-range" />
       </div>
       
       <div style="font-size: 0.36em; color: #888; text-align: center; margin-top: 6px;">
