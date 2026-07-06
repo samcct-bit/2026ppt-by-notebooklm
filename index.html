@@ -273,15 +273,15 @@
           </div>
           
           <!-- 文字雲控制端 -->
-          <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(79,195,247,0.2); border-radius: 10px; padding: 12px; margin-top: 10px;">
+          <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(79,195,247,0.2); border-radius: 10px; padding: 12px; margin-top: 10px; position: relative; z-index: 1000;">
             <div style="font-size: 0.34em; color: var(--accent2); font-weight: 700; margin-bottom: 6px;">提交你的感受</div>
             <input id="wc-input" type="text" placeholder="例：焦慮、孤單、冷漠..." maxlength="15"
               style="width:100%; padding:6px 10px; border-radius:6px; border:1px solid rgba(255,255,255,0.15);
                      background:rgba(255,255,255,0.08); color:#fff; font-size:12px;
-                     box-sizing:border-box; outline:none;" />
+                     box-sizing:border-box; outline:none; position: relative; z-index: 1000;" />
             <button id="wc-btn"
               style="width:100%; margin-top:6px; padding:7px; background:var(--accent2); color:#0d1117;
-                     border:none; border-radius:6px; font-weight:700; font-size:12px; cursor:pointer;">
+                     border:none; border-radius:6px; font-weight:700; font-size:12px; cursor:pointer; position: relative; z-index: 1000;">
               送出 ↵
             </button>
           </div>
@@ -409,19 +409,23 @@
       <div class="slider-container">
         <!-- 下層：左側內容 (沉默與計較) -->
         <div class="slider-pane left">
-          <h3 style="color: var(--accent); font-size: 0.85em; margin-bottom: 8px;">🛑 猜忌與誤解的牢籠</h3>
-          <p style="font-size: 0.45em; line-height: 1.6; color: #ddd; max-width: 80%;">
-            一個帶著「受害者情結」不問，另一個拉不下臉「賭氣」不說。<br>
-            偷走手足情誼的不是外在的小偷，而是自以為是的線索與深埋心中的猜忌。
-          </p>
+          <div style="width: 42%; text-align: left;">
+            <h3 style="color: var(--accent); font-size: 0.85em; margin-bottom: 8px;">🛑 猜忌與誤解的牢籠</h3>
+            <p style="font-size: 0.45em; line-height: 1.6; color: #ddd; margin: 0;">
+              一個帶著「受害者情結」不問，另一個拉不下臉「賭氣」不說。<br>
+              偷走手足情誼的不是外在的小偷，而是自以為是的線索與深埋心中的猜忌。
+            </p>
+          </div>
         </div>
         <!-- 上層：右側內容 (六祖壇經大包容) -->
-        <div class="slider-pane right" id="slider-reveal-pane">
-          <h3 style="color: var(--accent2); font-size: 0.85em; margin-bottom: 8px;">✨ 壇經的大包容法門</h3>
-          <p style="font-size: 0.45em; line-height: 1.6; color: #ddd; max-width: 80%;">
-            六祖惠能大師面對加害與追殺的刺客，心中毫無恨意，反而以德報怨，開導並渡化對方。<br>
-            放下心中對錯人我的計較，才是「悌」道的終極昇華。
-          </p>
+        <div class="slider-pane right" id="slider-reveal-pane" style="background-color: #1a2332;">
+          <div style="margin-left: auto; width: 42%; text-align: left;">
+            <h3 style="color: var(--accent2); font-size: 0.85em; margin-bottom: 8px;">✨ 壇經的大包容法門</h3>
+            <p style="font-size: 0.45em; line-height: 1.6; color: #ddd; margin: 0;">
+              六祖惠能大師面對加害與追殺的刺客，心中毫無恨意，反而以德報怨，開導並渡化對方。<br>
+              放下心中對錯人我的計較，才是「悌」道的終極昇華。
+            </p>
+          </div>
         </div>
         <!-- 分隔線與滑軌 -->
         <div class="slider-handle" id="slider-handle">
@@ -670,6 +674,15 @@
   });
   document.getElementById('wc-btn')?.addEventListener('click', window.wcSubmit);
 
+  // 阻止 Reveal.js 攔截鍵盤輸入
+  document.querySelectorAll('input, textarea').forEach(el => {
+    ['keydown', 'keyup', 'keypress'].forEach(event => {
+      el.addEventListener(event, e => {
+        e.stopPropagation();
+      });
+    });
+  });
+
   onSnapshot(query(wordsRef, orderBy('created_at', 'asc')), snap => {
     const words = [];
     snap.forEach(doc => words.push(doc.data().word));
@@ -742,7 +755,8 @@
       `;
       btn.style.cssText = `width:100%;padding:10px 14px;background:rgba(255,255,255,0.04);
         border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;
-        font-size:0.42em;cursor:pointer;font-family:inherit;text-align:left;outline:none;`;
+        font-size:0.42em;cursor:pointer;font-family:inherit;text-align:left;outline:none;
+        position: relative; z-index: 1000;`;
       btn.onclick = () => vote(opt.id);
       pollContainer.appendChild(btn);
     });
