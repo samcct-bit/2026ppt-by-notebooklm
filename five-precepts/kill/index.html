@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>五戒專題：不殺生而仁愛</title>
+  <meta name="description" content="一貫道五戒專題課件 - 殺生因果與慈悲仁愛之道">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/night.css" id="theme">
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.2.2/src/wordcloud2.min.js"></script>
+
+  <style>
+    :root {
+      --accent:  #ffb74d;   /* 溫暖金黃 */
+      --accent-kill: #e8643a; /* 暖橘紅 (警示) */
+      --accent-green: #81c784; /* 翡翠綠 */
+      --bg-dark: #0d1117;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.06);
+    }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: var(--bg-dark);
+      color: #f5f6f7;
+    }
+    .reveal {
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+      font-weight: 700;
+      text-transform: none;
+      text-shadow: 0 0 15px rgba(232, 100, 58, 0.2);
+    }
+    .reveal h1 {
+      font-size: 2.1em;
+      background: linear-gradient(135deg, #fff 30%, var(--accent-kill) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+    .reveal h2 {
+      font-size: 1.45em;
+      color: #ffffff;
+      border-bottom: 2px solid rgba(232, 100, 58, 0.1);
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      border-color: rgba(232, 100, 58, 0.25);
+      box-shadow: 0 8px 32px 0 rgba(232, 100, 58, 0.05);
+    }
+    .card-title {
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.52em;
+    }
+    .card-content {
+      color: #ccc;
+      line-height: 1.5;
+      text-align: left;
+      font-size: 0.36em;
+    }
+    .quote-box {
+      border-left: 5px solid var(--accent-kill);
+      background: rgba(232, 100, 58, 0.04);
+      padding: 12px 18px;
+      border-radius: 0 8px 8px 0;
+      text-align: left;
+      font-style: italic;
+      color: #eee;
+      font-size: 0.8em;
+      margin-bottom: 15px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.35em;
+      font-weight: 700;
+      vertical-align: middle;
+      margin-left: 6px;
+    }
+    .badge.red { background: var(--accent-kill); color: #fff; }
+    .badge.green { background: var(--accent-green); color: #0d1117; }
+    .pulse-text {
+      animation: pulse 2s infinite ease-in-out;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.05); opacity: 1; text-shadow: 0 0 15px var(--accent-kill); }
+      100% { transform: scale(1); opacity: 0.9; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="reveal">
+  <div class="slides">
+
+    <!-- 頁1：封面 -->
+    <section data-background-image="../assets/images/kill_bg.jpg"
+             data-background-opacity="0.35"
+             data-background-size="cover">
+      <div style="margin-top: 50px;">
+        <span style="color: var(--accent-kill); font-size: 0.7em; font-weight: 800; letter-spacing: 4px;" class="pulse-text">五戒專題研討 • 第一戒</span>
+        <h1 style="margin-top: 15px; font-size: 2.1em; font-weight: 900; letter-spacing: 2px;">不殺生而仁愛</h1>
+        <div style="width: 80px; height: 3px; background: var(--accent-kill); margin: 25px auto;"></div>
+        <p style="font-size: 0.52em; color: #aaa; letter-spacing: 1px; max-width: 650px; margin: 0 auto; line-height: 1.6;">
+          「非僅親手奪取生命才算犯殺，起心動念與助緣之處不注意，皆屬助殺之業。」
+        </p>
+      </div>
+    </section>
+
+    <!-- 頁2：課前破冰 (文字雲) -->
+    <section id="slide-wordcloud"
+             data-background-image="../assets/images/kill_bg.jpg"
+             data-background-opacity="0.08"
+             data-background-size="cover">
+      <h2>聽到「生命與慈悲」，你聯想到什麼？</h2>
+      <div style="display: grid; grid-template-columns: 260px 1fr; gap: 20px; height: 450px;">
+        <div style="display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
+          <div class="card" style="padding: 16px; background: rgba(255,255,255,0.02);">
+            <div class="card-title" style="color: var(--accent-kill); font-size: 0.52em;"><i class="fa-solid fa-heart"></i> 大悲根本</div>
+            <div class="card-content" style="font-size: 0.36em; line-height: 1.5;">
+              不殺生是仁心的起點。請送出您直覺想到的詞彙（如：茹素、護生、尊重、同理心...），讓我們共同築起慈悲圖譜。
+            </div>
+          </div>
+          <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(232, 100, 58, 0.2); border-radius: 10px; padding: 12px; margin-top: 10px;">
+            <div style="font-size: 0.34em; color: var(--accent-kill); font-weight: 700; margin-bottom: 6px;">提交你的直覺</div>
+            <input id="wc-input" type="text" placeholder="例：茹素、護生、愛心..." maxlength="15"
+              style="width:100%; padding:6px 10px; border-radius:6px; border:1px solid rgba(255,255,255,0.15);
+                     background:rgba(255,255,255,0.08); color:#fff; font-size:12px; box-sizing:border-box; outline:none;" />
+            <button id="wc-btn"
+              style="width:100%; margin-top:6px; padding:7px; background:var(--accent-kill); color:#fff;
+                     border:none; border-radius:6px; font-weight:700; font-size:12px; cursor:pointer;">
+              送出 ↵
+            </button>
+          </div>
+        </div>
+        <div style="background: rgba(255,255,255,0.02); border-radius: 12px; overflow: hidden;
+                    position: relative; border: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column;">
+          <div style="padding: 10px 16px; background: rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 0.4em; color: #aaa; font-weight: 600;">慈悲意念即時圖譜</span>
+            <span style="background: #ff4757; color: #fff; padding: 2px 6px; border-radius: 8px; font-size: 0.35em; font-weight: 700; animation: pulse 1.5s infinite;">LIVE</span>
+          </div>
+          <div style="flex: 1; position: relative;">
+            <canvas id="wc-canvas" style="width:100%; height:100%; display:block;"></canvas>
+            <div id="wc-empty" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); color: #555; font-size: 0.45em; text-align: center;">
+              <i class="fa-solid fa-cloud" style="font-size: 2em; margin-bottom: 10px; color: #333;"></i><br>
+              等待第一筆資料提交...
+            </div>
+          </div>
+          <div style="padding: 8px 16px; background: rgba(0,0,0,0.2); border-top: 1px solid rgba(255,255,255,0.03); display: flex; justify-content: space-around; font-size: 0.35em; color: #888;">
+            <span>提交總數: <strong id="wc-total" style="color:var(--accent-kill);">0</strong></span>
+            <span>觀點數: <strong id="wc-unique" style="color:var(--accent-kill);">0</strong></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁3：核心精神 -->
+    <section>
+      <h2>不殺生之核心：仁德與防護軌道</h2>
+      <div class="quote-box">
+        「戒律好比火車的軌道，出了軌道就危險了。不殺生對應儒家的仁，是修菩薩大悲心的根基。」—— 活佛師尊
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-kill);"><i class="fa-solid fa-circle-nodes"></i> 防護非束縛</div>
+          <div class="card-content">
+            戒律不是限制自由的框框，而是明亮安全界線的紅燈。持戒是為了「降伏自己」，防止自性因微細惡業而墮落。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-kill);"><i class="fa-solid fa-seedling"></i> 長養大悲根</div>
+          <div class="card-content">
+            南海古佛慈訓：「不殺生而仁愛，慈悲包容，少病長壽」。菩薩萬行以大悲為本，戒殺是清淨慧命的起點。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-kill);"><i class="fa-solid fa-shield-halved"></i> 斷除輪迴鎖</div>
+          <div class="card-content">
+            殺因生殺果，生生死死冤冤相報。清口茹素能從源頭切斷這條沉重的業力鎖鏈，不帶殺氣過生活。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁4：口腹之欲與微細助殺 -->
+    <section>
+      <h2>口腹之欲與起心動念的「助殺」</h2>
+      <div class="quote-box">
+        「看見他人宰殺動物時，若隨口讚歎『這肉看起來很好吃』，在心理上即屬『見斫隨喜』。」
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-kill);"><i class="fa-solid fa-wand-sparkles"></i> 見斫隨喜（讚歎殺）</div>
+          <div class="card-content">
+            看見市場殺雞宰羊、海產店抓魚，心生附和「新鮮、美味、很補喔」，在意識田便種下同謀助殺的種子，感召共業。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-kill);"><i class="fa-solid fa-shirt"></i> 穿戴珍貴皮草</div>
+          <div class="card-content">
+            購買貂皮大衣、真皮皮草等非生存必須之奢華衣物，為了虛榮間接鼓舞了捕殺業，皆在冥冥中承擔被剝皮眾生的怨氣。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁5：助緣之過與婚喜宴 -->
+    <section>
+      <h2>助緣之過：生活中的因果共業</h2>
+      <div class="quote-box">
+        「兒女喜宴，若明知辦理葷食會殘害千百生命，仍點頭同意，此為共同承擔共業。」
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-kill);"><i class="fa-solid fa-cake-candles"></i> 辦理葷喜宴</div>
+          <div class="card-content">
+            修道父母為順應世俗面子，同意在婚禮辦理葷食宴客，致使無數生命因這場婚禮被殺，新人與父母皆須分擔因果。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-kill);"><i class="fa-solid fa-child-reaching"></i> 同意他人墮胎</div>
+          <div class="card-content">
+            當親友詢問是否該拿掉小孩時，隨口同意「拿掉吧」，在因果中屬極嚴重的「助殺」大罪，折損陽壽福報。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-kill);"><i class="fa-solid fa-money-bill-transfer"></i> 借貸未明用途</div>
+          <div class="card-content">
+            借錢給他人，若明知對方將用於不法殺害、買藥墮胎或購置捕殺器具卻不加查問，即構成因果上的助緣過失。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁6：農業共業與日常防治 -->
+    <section>
+      <h2>農業共業與日常生活的殺害心態</h2>
+      <div class="quote-box">
+        「如果全省道親都能戒殺吃素，不用兩年，天地正氣感應，五穀豐收，根本不需要使用任何農藥。」
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-kill);"><i class="fa-solid fa-spray-can"></i> 農藥與除蟲劑</div>
+          <div class="card-content">
+            農夫灑藥、商人賣藥，雖為生存，但殘害無量蟲蟻。道親居家若遇蟲蟻，應以打掃整潔代替噴藥毒殺，避開滅絕式殺害。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-kill);"><i class="fa-solid fa-hand-holding-heart"></i> 尊重生存權利</div>
+          <div class="card-content">
+            殺雞拔毛時，它瞪眼看你。它也有天倫之樂與求生本能。體悟萬物同體，學習以善意引導或保持距離。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-kill);"><i class="fa-solid fa-comment-slash"></i> 言語殺菩提心</div>
+          <div class="card-content">
+            最微細的殺業是「言語冷嘲熱諷」。見同修生病或挫折時批評「業力深重」，導致他人退道心，這便是殺害了人家的法身慧命。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁7：殺生果報 -->
+    <section>
+      <h2>放縱殺害的四重果報</h2>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-kill);"><i class="fa-solid fa-heart-crack"></i> 1. 短命多病與橫災</div>
+          <div class="card-content">
+            眾生臨死前的怨恨痛苦，化為冤欠如影隨形。感召自身多病、短壽、無名病痛纏身，多遇意外橫禍。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-kill);"><i class="fa-solid fa-ghost"></i> 2. 恐怖障礙與心毒</div>
+          <div class="card-content">
+            殺生重者嗔心常起，睡不安穩，易做惡夢；且靈性被陰暗磁場包圍，鬼神避之，甚至殺什麼久了臉就變什麼臉。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-kill);"><i class="fa-solid fa-money-bill-trend-up"></i> 3. 外物無光，投資必虧</div>
+          <div class="card-content">
+            師尊開示，殺生重者福報削減，感召來生「外物無光澤」——投資必定虧損、做生意多阻礙，交際不順。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-kill);"><i class="fa-solid fa-route"></i> 4. 地獄清算，墮入惡道</div>
+          <div class="card-content">
+            魂歸陰司後，須在枉死城或地獄償還命債，依所犯輕重受刀山、鑊湯之苦，百千萬劫難復人身。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁8：戒殺之善報 (無畏施) -->
+    <section>
+      <h2>持守戒殺的無量善報</h2>
+      <div class="quote-box" style="border-left-color: var(--accent-green);">
+        「給眾生沒有恐懼感，這叫無畏施。無畏施者，常得善神親近護持。」
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-green);"><i class="fa-solid fa-briefcase-medical"></i> 康壽無病，寐覺快樂</div>
+          <div class="card-content">
+            斷除肉食不沾殺生，身心沒有暴戾之氣。常無惡夢，一覺到天亮（吉祥臥），睡覺踏實，少病長壽。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-green);"><i class="fa-solid fa-hands-holding-child"></i> 慈心安樂，善神擁護</div>
+          <div class="card-content">
+            慈悲磁場自然吸引善神、正神親近護庇，避開意外災難。身上常自然散發吉祥清香。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁9：即時問卷 -->
+    <section id="slide-poll"
+             data-background-image="../assets/images/kill_bg.jpg"
+             data-background-opacity="0.08"
+             data-background-size="cover">
+      <h2>生活微細殺業大調查</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; height: 430px;">
+        <div class="card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(232, 100, 58, 0.25);">
+          <div style="font-size: 0.52em; color: var(--accent-kill); font-weight: 700; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+            <span>在日常中，你覺得最難徹底防範的微細殺業是？</span>
+            <span style="background: #ff4757; color:#fff; padding: 2px 6px; border-radius:8px; font-size: 0.65em; animation: pulse 1.5s infinite;">LIVE</span>
+          </div>
+          <div id="poll-options" style="display: flex; flex-direction: column; gap: 8px;">
+            <!-- JS 動態生成投票按鈕 -->
+          </div>
+        </div>
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
+          <div>
+            <div class="card-title" style="color: var(--accent-green); font-size: 0.55em;"><i class="fa-solid fa-chart-simple"></i> 即時慈悲共鳴數據</div>
+            <div class="card-content" style="font-size: 0.38em; margin-bottom: 15px;">
+              持守戒殺並非一日之功。透過匿名的集體檢視，我們能看見同修在紅塵中最普遍面臨的微細考驗。
+              <br><br>
+              看清漏洞，方能事須漸修，以清淨行持圓滿本性。
+            </div>
+          </div>
+          <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center;">
+            <div style="font-size: 0.36em; color: #888;">當前投票總人數</div>
+            <div style="font-size: 1.1em; font-weight: 800; color: var(--accent-green);" id="poll-total">0</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁10：總結與勉勵 -->
+    <section data-background-image="../assets/images/kill_bg.jpg"
+             data-background-opacity="0.35"
+             data-background-size="cover">
+      <div style="margin-top: 50px;">
+        <h2 style="border:none; margin-bottom: 10px; font-size: 1.6em;">清口茹素 • 萬物同體</h2>
+        <div style="width: 60px; height: 2px; background: var(--accent-kill); margin: 20px auto;"></div>
+        <p style="font-size: 0.52em; color: #ccc; line-height: 1.8; max-width: 650px; margin: 0 auto;">
+          不殺生是修行的第一步，更是最直接的慈悲實踐。<br>
+          在起心動念處給予一切生命無畏施，即是修無上菩提道。
+        </p>
+        <div style="margin-top: 35px; font-size: 0.42em; color: var(--accent-kill); font-weight: 800; letter-spacing: 2px;">
+          理可頓悟 • 事須漸修
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    transition: 'slide',
+    transitionSpeed: 'default',
+    backgroundTransition: 'fade',
+    center: true,
+    progress: true,
+    controls: true,
+    slideNumber: 'c/t'
+  });
+</script>
+
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js';
+  import { getFirestore, doc, setDoc, onSnapshot, collection, addDoc, query, orderBy } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js';
+
+  const firebaseConfig = {
+    apiKey: ["AIzaSy", "C48oAqalT77SPpYVtCupYfV5hd6_ZrD2I"].join(""),
+    authDomain: "my-teaching-tools-01.firebaseapp.com",
+    projectId: "my-teaching-tools-01",
+    storageBucket: "my-teaching-tools-01.firebasestorage.app",
+    messagingSenderId: "552535919921",
+    appId: "1:552535919921:web:95b4c1288edbae9572b410"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const fdb = getFirestore(app);
+
+  // ==========================================
+  // 1. 文字雲 (kill_wordcloud)
+  // ==========================================
+  const wordsRef = collection(fdb, 'kill_wordcloud');
+  const COLORS = ['#ffb74d','#81c784','#e8643a','#ce93d8','#80deea','#f48fb1','#4fc3f7'];
+  let wcData = [];
+
+  window.wcSubmit = async function() {
+    const input = document.getElementById('wc-input');
+    const word = input.value.trim();
+    if (!word) return;
+    const btn = document.getElementById('wc-btn');
+    btn.disabled = true;
+    try {
+      await addDoc(wordsRef, { word, created_at: new Date() });
+      input.value = '';
+    } catch(e) {
+      console.error(e);
+    } finally {
+      btn.disabled = false;
+    }
+  };
+
+  document.getElementById('wc-input')?.addEventListener('keypress', e => {
+    if (e.key === 'Enter') window.wcSubmit();
+  });
+  document.getElementById('wc-btn')?.addEventListener('click', window.wcSubmit);
+
+  // 阻斷鍵盤事件
+  document.querySelectorAll('input, textarea').forEach(el => {
+    ['keydown', 'keyup', 'keypress'].forEach(event => {
+      el.addEventListener(event, e => e.stopPropagation());
+    });
+  });
+
+  onSnapshot(query(wordsRef, orderBy('created_at', 'asc')), snap => {
+    const words = [];
+    snap.forEach(doc => words.push(doc.data().word));
+    const counts = {};
+    words.forEach(w => counts[w] = (counts[w] || 0) + 1);
+    wcData = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+
+    document.getElementById('wc-total').textContent = words.length;
+    document.getElementById('wc-unique').textContent = wcData.length;
+
+    const empty = document.getElementById('wc-empty');
+    if (empty) empty.style.display = wcData.length > 0 ? 'none' : '';
+    drawWordCloud();
+  });
+
+  function drawWordCloud() {
+    const canvas = document.getElementById('wc-canvas');
+    if (!canvas || typeof WordCloud === 'undefined') return;
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width < 10 || rect.height < 10) return;
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+    if (wcData.length === 0) return;
+    const maxCount = wcData[0][1];
+    
+    WordCloud(canvas, {
+      list: wcData.map(([w, c]) => [w, Math.max(16, Math.round((c / maxCount) * 45))]),
+      gridSize: 8,
+      weightFactor: 1,
+      fontFamily: '"Microsoft JhengHei", "Noto Sans TC", sans-serif',
+      color: () => COLORS[Math.floor(Math.random() * COLORS.length)],
+      backgroundColor: 'transparent',
+      rotateRatio: 0.2,
+      shuffle: true,
+    });
+  }
+
+  // ==========================================
+  // 2. 即時投票 (kill_poll)
+  // ==========================================
+  const OPTIONS = [
+    { id: 'a', label: '口腹見斫隨喜 (讚歎肉食美味)' },
+    { id: 'b', label: '喜慶宴客葷食 (順應世俗面子)' },
+    { id: 'c', label: '日常蚊蟲撲殺 (因貪圖便利而殺)' },
+    { id: 'd', label: '言語殺菩提心 (冷言考退同修)' }
+  ];
+  const pollRef = doc(fdb, 'kill_poll', 'results');
+  const userId = 'user_kill_' + Math.random().toString(36).slice(2, 9);
+  let myVote = null;
+
+  const pollContainer = document.getElementById('poll-options');
+  if (pollContainer) {
+    OPTIONS.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.id = `poll-btn-${opt.id}`;
+      btn.innerHTML = `
+        <div style="display:flex;align-items:center;gap:12px;width:100%;height:100%;">
+          <span style="flex:0 0 20px;height:20px;border-radius:50%;border:2px solid rgba(255,255,255,0.3);
+                       display:flex;align-items:center;justify-content:center;font-size:10px;box-sizing:border-box;"
+                id="poll-check-${opt.id}"></span>
+          <span style="flex:1;text-align:left;font-size:0.95em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${opt.label}</span>
+          <span id="poll-bar-wrap-${opt.id}"
+                style="flex:0 0 80px;height:8px;background:rgba(255,255,255,0.1);border-radius:4px;overflow:hidden;">
+            <div id="poll-bar-${opt.id}" style="height:100%;width:0;background:var(--accent-kill);border-radius:4px;transition:width 0.4s;"></div>
+          </span>
+          <span id="poll-pct-${opt.id}" style="flex:0 0 32px;text-align:right;font-size:0.85em;color:#888;">0%</span>
+        </div>
+      `;
+      btn.style.cssText = `width:100%;padding:10px 14px;background:rgba(255,255,255,0.04);
+        border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;
+        font-size:0.42em;cursor:pointer;font-family:inherit;text-align:left;outline:none;`;
+      btn.onclick = () => vote(opt.id);
+      pollContainer.appendChild(btn);
+    });
+  }
+
+  async function vote(optId) {
+    myVote = optId;
+    const data = {
+      votes: { [userId]: optId },
+      updated_at: new Date()
+    };
+    try {
+      await setDoc(pollRef, data, { merge: true });
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  onSnapshot(pollRef, snap => {
+    const data = snap.data() || {};
+    const votes = data.votes || {};
+    const counts = {};
+    OPTIONS.forEach(o => counts[o.id] = 0);
+    Object.values(votes).forEach(v => {
+      if (counts[v] !== undefined) counts[v]++;
+    });
+    const total = Object.values(counts).reduce((a, b) => a + b, 0);
+
+    document.getElementById('poll-total').textContent = total;
+    OPTIONS.forEach(opt => {
+      const pct = total > 0 ? Math.round((counts[opt.id] / total) * 100) : 0;
+      const bar = document.getElementById(`poll-bar-${opt.id}`);
+      const pctTxt = document.getElementById(`poll-pct-${opt.id}`);
+      const check = document.getElementById(`poll-check-${opt.id}`);
+      const btn = document.getElementById(`poll-btn-${opt.id}`);
+
+      if (bar) bar.style.width = pct + '%';
+      if (pctTxt) pctTxt.textContent = pct + '%';
+      
+      if (check && btn) {
+        if (myVote === opt.id) {
+          check.innerHTML = '✓';
+          check.style.background = 'var(--accent-kill)';
+          check.style.borderColor = 'var(--accent-kill)';
+          btn.style.borderColor = 'var(--accent-kill)';
+          btn.style.background = 'rgba(232, 100, 58, 0.08)';
+        } else {
+          check.innerHTML = '';
+          check.style.background = 'transparent';
+          check.style.borderColor = 'rgba(255,255,255,0.3)';
+          btn.style.borderColor = 'rgba(255,255,255,0.1)';
+          btn.style.background = 'rgba(255,255,255,0.04)';
+        }
+      }
+    });
+  });
+
+  Reveal.on('slidechanged', e => {
+    if (e.currentSlide?.id === 'slide-wordcloud' || e.currentSlide?.querySelector('#wc-canvas')) {
+      setTimeout(drawWordCloud, 250);
+    }
+  });
+  window.addEventListener('resize', () => {
+    if (document.querySelector('.present canvas#wc-canvas')) {
+      drawWordCloud();
+    }
+  });
+</script>
+</body>
+</html>

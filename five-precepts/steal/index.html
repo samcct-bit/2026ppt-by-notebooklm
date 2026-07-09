@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>五戒專題：不偷盜而義立</title>
+  <meta name="description" content="一貫道五戒專題課件 - 偷盜因果與廉潔守義之道">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/night.css" id="theme">
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.2.2/src/wordcloud2.min.js"></script>
+
+  <style>
+    :root {
+      --accent:  #ffb74d;   /* 溫暖金黃 */
+      --accent-steal: #4fc3f7; /* 水藍 (偷盜警示) */
+      --accent-green: #81c784; /* 翡翠綠 */
+      --bg-dark: #0d1117;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.06);
+    }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: var(--bg-dark);
+      color: #f5f6f7;
+    }
+    .reveal {
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+      font-weight: 700;
+      text-transform: none;
+      text-shadow: 0 0 15px rgba(79, 195, 247, 0.2);
+    }
+    .reveal h1 {
+      font-size: 2.1em;
+      background: linear-gradient(135deg, #fff 30%, var(--accent-steal) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+    .reveal h2 {
+      font-size: 1.45em;
+      color: #ffffff;
+      border-bottom: 2px solid rgba(79, 195, 247, 0.1);
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      border-color: rgba(79, 195, 247, 0.25);
+      box-shadow: 0 8px 32px 0 rgba(79, 195, 247, 0.05);
+    }
+    .card-title {
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.52em;
+    }
+    .card-content {
+      color: #ccc;
+      line-height: 1.5;
+      text-align: left;
+      font-size: 0.36em;
+    }
+    .quote-box {
+      border-left: 5px solid var(--accent-steal);
+      background: rgba(79, 195, 247, 0.04);
+      padding: 12px 18px;
+      border-radius: 0 8px 8px 0;
+      text-align: left;
+      font-style: italic;
+      color: #eee;
+      font-size: 0.8em;
+      margin-bottom: 15px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.35em;
+      font-weight: 700;
+      vertical-align: middle;
+      margin-left: 6px;
+    }
+    .badge.red { background: var(--accent-steal); color: #0d1117; }
+    .badge.green { background: var(--accent-green); color: #0d1117; }
+    .pulse-text {
+      animation: pulse 2s infinite ease-in-out;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.05); opacity: 1; text-shadow: 0 0 15px var(--accent-steal); }
+      100% { transform: scale(1); opacity: 0.9; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="reveal">
+  <div class="slides">
+
+    <!-- 頁1：封面 -->
+    <section data-background-image="../assets/images/cover_bg.jpg"
+             data-background-opacity="0.25"
+             data-background-size="cover">
+      <div style="margin-top: 50px;">
+        <span style="color: var(--accent-steal); font-size: 0.7em; font-weight: 800; letter-spacing: 4px;" class="pulse-text">五戒專題研討 • 第二戒</span>
+        <h1 style="margin-top: 15px; font-size: 2.1em; font-weight: 900; letter-spacing: 2px;">不偷盜而義立</h1>
+        <div style="width: 80px; height: 3px; background: var(--accent-steal); margin: 25px auto;"></div>
+        <p style="font-size: 0.52em; color: #aaa; letter-spacing: 1px; max-width: 650px; margin: 0 auto; line-height: 1.6;">
+          「三寶門中好修福，造業也最容易；若貪圖小便宜，最易漏掉福報。」
+        </p>
+      </div>
+    </section>
+
+    <!-- 頁2：課前破冰 (文字雲) -->
+    <section id="slide-wordcloud"
+             data-background-image="../assets/images/cover_bg.jpg"
+             data-background-opacity="0.08"
+             data-background-size="cover">
+      <h2>聽到「守義與廉潔」，你聯想到什麼？</h2>
+      <div style="display: grid; grid-template-columns: 260px 1fr; gap: 20px; height: 450px;">
+        <div style="display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
+          <div class="card" style="padding: 16px; background: rgba(255,255,255,0.02);">
+            <div class="card-title" style="color: var(--accent-steal); font-size: 0.52em;"><i class="fa-solid fa-scale-balanced"></i> 守分廉潔</div>
+            <div class="card-content" style="font-size: 0.36em; line-height: 1.5;">
+              不偷盜代表行事宜然、不取非分。請提交您的聯想詞（如：知足、誠信、不貪、布施...），共創廉潔意識圖譜。
+            </div>
+          </div>
+          <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(79, 195, 247, 0.2); border-radius: 10px; padding: 12px; margin-top: 10px;">
+            <div style="font-size: 0.34em; color: var(--accent-steal); font-weight: 700; margin-bottom: 6px;">提交你的直覺</div>
+            <input id="wc-input" type="text" placeholder="例：知足、誠信、不貪..." maxlength="15"
+              style="width:100%; padding:6px 10px; border-radius:6px; border:1px solid rgba(255,255,255,0.15);
+                     background:rgba(255,255,255,0.08); color:#fff; font-size:12px; box-sizing:border-box; outline:none;" />
+            <button id="wc-btn"
+              style="width:100%; margin-top:6px; padding:7px; background:var(--accent-steal); color:#0d1117;
+                     border:none; border-radius:6px; font-weight:700; font-size:12px; cursor:pointer;">
+              送出 ↵
+            </button>
+          </div>
+        </div>
+        <div style="background: rgba(255,255,255,0.02); border-radius: 12px; overflow: hidden;
+                    position: relative; border: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column;">
+          <div style="padding: 10px 16px; background: rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 0.4em; color: #aaa; font-weight: 600;">守義思維即時圖譜</span>
+            <span style="background: #ff4757; color: #fff; padding: 2px 6px; border-radius: 8px; font-size: 0.35em; font-weight: 700; animation: pulse 1.5s infinite;">LIVE</span>
+          </div>
+          <div style="flex: 1; position: relative;">
+            <canvas id="wc-canvas" style="width:100%; height:100%; display:block;"></canvas>
+            <div id="wc-empty" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); color: #555; font-size: 0.45em; text-align: center;">
+              <i class="fa-solid fa-cloud" style="font-size: 2em; margin-bottom: 10px; color: #333;"></i><br>
+              等待第一筆資料提交...
+            </div>
+          </div>
+          <div style="padding: 8px 16px; background: rgba(0,0,0,0.2); border-top: 1px solid rgba(255,255,255,0.03); display: flex; justify-content: space-around; font-size: 0.35em; color: #888;">
+            <span>提交總數: <strong id="wc-total" style="color:var(--accent-steal);">0</strong></span>
+            <span>觀點數: <strong id="wc-unique" style="color:var(--accent-steal);">0</strong></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁3：核心精神 -->
+    <section>
+      <h2>不偷盜：義字當頭與防止漏福</h2>
+      <div class="quote-box">
+        「修行守戒律是修一種福報。但不守戒犯了微小偷盜，等同水杯有漏洞，滴水不能滿。」—— 活佛師尊
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-steal);"><i class="fa-solid fa-glass-water-droplet"></i> 有漏之水杯</div>
+          <div class="card-content">
+            在道場大汗流、小汗流修無畏施，卻隨意拿走公家資源。功德雖大，但全因微細偷盜而漏光。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-steal);"><i class="fa-solid fa-heart-circle-check"></i> 儒家「義」德</div>
+          <div class="card-content">
+            義者，宜也。君子愛財取之有道，凡非分之物、不合道理之財，即使一針一線亦決不貪取。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-steal);"><i class="fa-solid fa-shield-halved"></i> 劃清業力界限</div>
+          <div class="card-content">
+            不屬於自己的不要去動它。守好不偷盜防線，靈魂就不會因貪念而染污、下墜。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁4：佛堂中微細偷盜 -->
+    <section>
+      <h2>佛堂中常被忽略的微細侵占</h2>
+      <div class="quote-box">
+        「功德款各有所屬用途，月助的、印書的、開荒的，不可摻雜在一起混用。」
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-steal);"><i class="fa-solid fa-box-open"></i> 專款專用分明</div>
+          <div class="card-content">
+            功德款用途發心在哪就須用在那，不可貪圖記帳方便隨意混用。否則構成虧欠十方善信發心之因果。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-steal);"><i class="fa-solid fa-cookie"></i> 試吃與攜回賸菜</div>
+          <div class="card-content">
+            在佛堂廚房隨便多吃好幾口、法會後大包小包帶剩菜公物回家，卻沒帶等值物品來補，皆屬侵占十方公物。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-steal);"><i class="fa-solid fa-fire"></i> 叩首帶佛香</div>
+          <div class="card-content">
+            來佛堂拜拜，沒出功德金卻抓一大把佛堂的香回家私用，占了仙佛的便宜。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁5：佛堂清淨之細節 -->
+    <section>
+      <h2>佛堂清淨防護的微細漏洞</h2>
+      <div class="quote-box">
+        「佛堂掃帚與拖把不要跟廁所的混在一起，佛堂是仙佛用的要保持清淨。」
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-steal);"><i class="fa-solid fa-broom"></i> 掃具專用專放</div>
+          <div class="card-content">
+            拖地掃地用具若與廚房、廁所的混用，使聖潔之地受染污，在無形中亦屬損福報之過失。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-steal);"><i class="fa-solid fa-eye"></i> 供佛鮮花勿聞</div>
+          <div class="card-content">
+            供佛的鮮花與線香，在正式供佛前不可拿鼻子先去聞。聞過了就不清淨，花香是供佛的，不是供人的。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-steal);"><i class="fa-solid fa-circle-exclamation"></i> 佛像舊經典處理</div>
+          <div class="card-content">
+            老舊佛像與善書經典不可隨便當垃圾燒毀或丟棄。這犯了出佛身血之過，須依規矩恭敬整理妥當。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁6：日常與盜取國庫 -->
+    <section>
+      <h2>日常生活與盜取國庫</h2>
+      <div class="quote-box">
+        「上班把公司的信封、原子筆帶回家，坐車逃票、不開發票避稅，皆是盜國庫。」
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-steal);"><i class="fa-solid fa-pen-nib"></i> 上班公物私用</div>
+          <div class="card-content">
+            順手拿公司的信紙、筆、袋子回家私用；公器私用不投等值金額入公帳，皆是微細偷盜。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-steal);"><i class="fa-solid fa-ticket"></i> 逃票與逃稅</div>
+          <div class="card-content">
+            乘車逃票；買賣東西為省稅而講好不開發票，在陰律中屬盜取國庫，等於欠了全體國民的債務。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-steal);"><i class="fa-solid fa-envelope"></i> 印刷品夾信</div>
+          <div class="card-content">
+            在低資費的印刷品中夾帶私人信件以省郵資，在因果中也算盜國庫之列。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁7：偷盜戒之「五心開緣」 -->
+    <section>
+      <h2>偷盜戒之免犯「五心開緣」</h2>
+      <div class="quote-box" style="border-left-color: var(--accent-green);">
+        「佛法明理開導，這五種心態下拿取東西是不算犯戒的。」
+      </div>
+      <div class="grid-3" style="font-size: 0.9em; gap: 10px;">
+        <div class="card" style="padding: 12px;">
+          <div style="font-weight: 700; color: var(--accent-steal); font-size: 0.5em; margin-bottom: 6px;"><i class="fa-solid fa-circle-question"></i> 己有想 / 與己想</div>
+          <div style="font-size: 0.34em; color: #ccc;">己有想：誤以為是自己物品而拿錯。<br>與己想：誤以為對方是要送給自己的。</div>
+        </div>
+        <div class="card" style="padding: 12px;">
+          <div style="font-weight: 700; color: var(--accent-steal); font-size: 0.5em; margin-bottom: 6px;"><i class="fa-solid fa-trash-can"></i> 畚帚想 (廢物想)</div>
+          <div style="font-size: 0.34em; color: #ccc;">在垃圾堆或廢棄處撿拾他人不要的不值錢雜物。</div>
+        </div>
+        <div class="card" style="padding: 12px;">
+          <div style="font-weight: 700; color: var(--accent-steal); font-size: 0.5em; margin-bottom: 6px;"><i class="fa-solid fa-handshake"></i> 暫用想 / 親厚想</div>
+          <div style="font-size: 0.34em; color: #ccc;">暫用想：借用後即刻奉還。<br>親厚想：極親密且知對方絕對同意，但防「方便出下流」。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁8：偷盜之因果果報 -->
+    <section>
+      <h2>偷盜的因果清算</h2>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-kill);"><i class="fa-solid fa-sack-xmark"></i> 1. 資財耗散，常遭橫禍</div>
+          <div class="card-content">
+            犯盜戒者即使賺了錢也守不住，常莫名丟失、投資必定虧損、遭遇詐騙，或感召敗家子花光。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-kill);"><i class="fa-solid fa-brain"></i> 2. 前世偷盜，今生無名焦慮</div>
+          <div class="card-content">
+            前生偷盜的業力種子，感召今生常無緣無故坐立不安、無名焦慮，聽到警車或異響就發慌。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁9：守持盜戒之善報 -->
+    <section>
+      <h2>嚴持廉潔的無漏福報</h2>
+      <div class="quote-box" style="border-left-color: var(--accent-green);">
+        「財產盈積不散，做事光明磊落，能完整守住你一生積累的福德。」
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-green);"><i class="fa-solid fa-coins"></i> 財富穩固盈積</div>
+          <div class="card-content">
+            持盜戒者資財盈積、不虞耗散。做生意容易賺錢，且所得常保，無小人竊賊侵擾。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-green);"><i class="fa-solid fa-user-shield"></i> 眾人尊敬信賴</div>
+          <div class="card-content">
+            為人坦蕩、信實廉潔，走到哪裡都深受社會尊重與信賴，做生意人緣好。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-green);"><i class="fa-solid fa-rainbow"></i> 福報無漏洞</div>
+          <div class="card-content">
+            守好戒律大門，行善所積累的水滴（福德）就不會漏掉，終能功圓果滿。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁10：即時問卷 -->
+    <section id="slide-poll"
+             data-background-image="../assets/images/cover_bg.jpg"
+             data-background-opacity="0.08"
+             data-background-size="cover">
+      <h2>生活微細偷盜大調查</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; height: 430px;">
+        <div class="card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(79, 195, 247, 0.25);">
+          <div style="font-size: 0.52em; color: var(--accent-steal); font-weight: 700; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+            <span>在佛堂或日常生活中，你覺得最難克服的「微細便宜」是？</span>
+            <span style="background: #ff4757; color:#fff; padding: 2px 6px; border-radius:8px; font-size: 0.65em; animation: pulse 1.5s infinite;">LIVE</span>
+          </div>
+          <div id="poll-options" style="display: flex; flex-direction: column; gap: 8px;">
+            <!-- JS 動態生成投票按鈕 -->
+          </div>
+        </div>
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
+          <div>
+            <div class="card-title" style="color: var(--accent-green); font-size: 0.55em;"><i class="fa-solid fa-chart-simple"></i> 即時持守共鳴數據</div>
+            <div class="card-content" style="font-size: 0.38em; margin-bottom: 15px;">
+              持戒在於誠實面對漏洞。透過匿名的集體檢索，我們看見同修在日常細節中共同面臨的微細貪念考驗。
+              <br><br>
+              克己修持，堵住福報漏洞，自性圓明。
+            </div>
+          </div>
+          <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center;">
+            <div style="font-size: 0.36em; color: #888;">當前投票總人數</div>
+            <div style="font-size: 1.1em; font-weight: 800; color: var(--accent-green);" id="poll-total">0</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁11：總結與勉勵 -->
+    <section data-background-image="../assets/images/cover_bg.jpg"
+             data-background-opacity="0.25"
+             data-background-size="cover">
+      <div style="margin-top: 50px;">
+        <h2 style="border:none; margin-bottom: 10px; font-size: 1.6em;">安分守己 • 堵漏聚福</h2>
+        <div style="width: 60px; height: 2px; background: var(--accent-steal); margin: 20px auto;"></div>
+        <p style="font-size: 0.52em; color: #ccc; line-height: 1.8; max-width: 650px; margin: 0 auto;">
+          不偷盜是人格的起點，也是守住功德的鎖鑰。<br>
+          一針一線皆合宜，自性自然無虧欠，福德圓滿。
+        </p>
+        <div style="margin-top: 35px; font-size: 0.42em; color: var(--accent-steal); font-weight: 800; letter-spacing: 2px;">
+          理可頓悟 • 事須漸修
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    transition: 'slide',
+    transitionSpeed: 'default',
+    backgroundTransition: 'fade',
+    center: true,
+    progress: true,
+    controls: true,
+    slideNumber: 'c/t'
+  });
+</script>
+
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js';
+  import { getFirestore, doc, setDoc, onSnapshot, collection, addDoc, query, orderBy } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js';
+
+  const firebaseConfig = {
+    apiKey: ["AIzaSy", "C48oAqalT77SPpYVtCupYfV5hd6_ZrD2I"].join(""),
+    authDomain: "my-teaching-tools-01.firebaseapp.com",
+    projectId: "my-teaching-tools-01",
+    storageBucket: "my-teaching-tools-01.firebasestorage.app",
+    messagingSenderId: "552535919921",
+    appId: "1:552535919921:web:95b4c1288edbae9572b410"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const fdb = getFirestore(app);
+
+  // ==========================================
+  // 1. 文字雲 (steal_wordcloud)
+  // ==========================================
+  const wordsRef = collection(fdb, 'steal_wordcloud');
+  const COLORS = ['#ffb74d','#81c784','#e8643a','#ce93d8','#80deea','#f48fb1','#4fc3f7'];
+  let wcData = [];
+
+  window.wcSubmit = async function() {
+    const input = document.getElementById('wc-input');
+    const word = input.value.trim();
+    if (!word) return;
+    const btn = document.getElementById('wc-btn');
+    btn.disabled = true;
+    try {
+      await addDoc(wordsRef, { word, created_at: new Date() });
+      input.value = '';
+    } catch(e) {
+      console.error(e);
+    } finally {
+      btn.disabled = false;
+    }
+  };
+
+  document.getElementById('wc-input')?.addEventListener('keypress', e => {
+    if (e.key === 'Enter') window.wcSubmit();
+  });
+  document.getElementById('wc-btn')?.addEventListener('click', window.wcSubmit);
+
+  document.querySelectorAll('input, textarea').forEach(el => {
+    ['keydown', 'keyup', 'keypress'].forEach(event => {
+      el.addEventListener(event, e => e.stopPropagation());
+    });
+  });
+
+  onSnapshot(query(wordsRef, orderBy('created_at', 'asc')), snap => {
+    const words = [];
+    snap.forEach(doc => words.push(doc.data().word));
+    const counts = {};
+    words.forEach(w => counts[w] = (counts[w] || 0) + 1);
+    wcData = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+
+    document.getElementById('wc-total').textContent = words.length;
+    document.getElementById('wc-unique').textContent = wcData.length;
+
+    const empty = document.getElementById('wc-empty');
+    if (empty) empty.style.display = wcData.length > 0 ? 'none' : '';
+    drawWordCloud();
+  });
+
+  function drawWordCloud() {
+    const canvas = document.getElementById('wc-canvas');
+    if (!canvas || typeof WordCloud === 'undefined') return;
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width < 10 || rect.height < 10) return;
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+    if (wcData.length === 0) return;
+    const maxCount = wcData[0][1];
+    
+    WordCloud(canvas, {
+      list: wcData.map(([w, c]) => [w, Math.max(16, Math.round((c / maxCount) * 45))]),
+      gridSize: 8,
+      weightFactor: 1,
+      fontFamily: '"Microsoft JhengHei", "Noto Sans TC", sans-serif',
+      color: () => COLORS[Math.floor(Math.random() * COLORS.length)],
+      backgroundColor: 'transparent',
+      rotateRatio: 0.2,
+      shuffle: true,
+    });
+  }
+
+  // ==========================================
+  // 2. 即時投票 (steal_poll)
+  // ==========================================
+  const OPTIONS = [
+    { id: 'a', label: '佛堂物試吃/攜回不補 (貪小方便)' },
+    { id: 'b', label: '逃票或不開發票避稅 (侵損大眾國庫)' },
+    { id: 'c', label: '公物私用原子筆信封 (順手牽羊習慣)' },
+    { id: 'd', label: '供佛花香先用鼻子聞 (損害供品清淨)' }
+  ];
+  const pollRef = doc(fdb, 'steal_poll', 'results');
+  const userId = 'user_steal_' + Math.random().toString(36).slice(2, 9);
+  let myVote = null;
+
+  const pollContainer = document.getElementById('poll-options');
+  if (pollContainer) {
+    OPTIONS.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.id = `poll-btn-${opt.id}`;
+      btn.innerHTML = `
+        <div style="display:flex;align-items:center;gap:12px;width:100%;height:100%;">
+          <span style="flex:0 0 20px;height:20px;border-radius:50%;border:2px solid rgba(255,255,255,0.3);
+                       display:flex;align-items:center;justify-content:center;font-size:10px;box-sizing:border-box;"
+                id="poll-check-${opt.id}"></span>
+          <span style="flex:1;text-align:left;font-size:0.95em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${opt.label}</span>
+          <span id="poll-bar-wrap-${opt.id}"
+                style="flex:0 0 80px;height:8px;background:rgba(255,255,255,0.1);border-radius:4px;overflow:hidden;">
+            <div id="poll-bar-${opt.id}" style="height:100%;width:0;background:var(--accent-steal);border-radius:4px;transition:width 0.4s;"></div>
+          </span>
+          <span id="poll-pct-${opt.id}" style="flex:0 0 32px;text-align:right;font-size:0.85em;color:#888;">0%</span>
+        </div>
+      `;
+      btn.style.cssText = `width:100%;padding:10px 14px;background:rgba(255,255,255,0.04);
+        border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;
+        font-size:0.42em;cursor:pointer;font-family:inherit;text-align:left;outline:none;`;
+      btn.onclick = () => vote(opt.id);
+      pollContainer.appendChild(btn);
+    });
+  }
+
+  async function vote(optId) {
+    myVote = optId;
+    const data = {
+      votes: { [userId]: optId },
+      updated_at: new Date()
+    };
+    try {
+      await setDoc(pollRef, data, { merge: true });
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  onSnapshot(pollRef, snap => {
+    const data = snap.data() || {};
+    const votes = data.votes || {};
+    const counts = {};
+    OPTIONS.forEach(o => counts[o.id] = 0);
+    Object.values(votes).forEach(v => {
+      if (counts[v] !== undefined) counts[v]++;
+    });
+    const total = Object.values(counts).reduce((a, b) => a + b, 0);
+
+    document.getElementById('poll-total').textContent = total;
+    OPTIONS.forEach(opt => {
+      const pct = total > 0 ? Math.round((counts[opt.id] / total) * 100) : 0;
+      const bar = document.getElementById(`poll-bar-${opt.id}`);
+      const pctTxt = document.getElementById(`poll-pct-${opt.id}`);
+      const check = document.getElementById(`poll-check-${opt.id}`);
+      const btn = document.getElementById(`poll-btn-${opt.id}`);
+
+      if (bar) bar.style.width = pct + '%';
+      if (pctTxt) pctTxt.textContent = pct + '%';
+      
+      if (check && btn) {
+        if (myVote === opt.id) {
+          check.innerHTML = '✓';
+          check.style.background = 'var(--accent-steal)';
+          check.style.borderColor = 'var(--accent-steal)';
+          btn.style.borderColor = 'var(--accent-steal)';
+          btn.style.background = 'rgba(79, 195, 247, 0.08)';
+        } else {
+          check.innerHTML = '';
+          check.style.background = 'transparent';
+          check.style.borderColor = 'rgba(255,255,255,0.3)';
+          btn.style.borderColor = 'rgba(255,255,255,0.1)';
+          btn.style.background = 'rgba(255,255,255,0.04)';
+        }
+      }
+    });
+  });
+
+  Reveal.on('slidechanged', e => {
+    if (e.currentSlide?.id === 'slide-wordcloud' || e.currentSlide?.querySelector('#wc-canvas')) {
+      setTimeout(drawWordCloud, 250);
+    }
+  });
+  window.addEventListener('resize', () => {
+    if (document.querySelector('.present canvas#wc-canvas')) {
+      drawWordCloud();
+    }
+  });
+</script>
+</body>
+</html>

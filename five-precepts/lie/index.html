@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>五戒專題：不妄語而誠信</title>
+  <meta name="description" content="一貫道五戒專題課件 - 妄語因果與真誠守信之道">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/night.css" id="theme">
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.2.2/src/wordcloud2.min.js"></script>
+
+  <style>
+    :root {
+      --accent:  #ffb74d;   /* 溫暖金黃 */
+      --accent-lie: #ffb74d; /* 金黃 (妄語警示) */
+      --accent-blue: #4fc3f7; /* 水藍 */
+      --accent-green: #81c784; /* 翡翠綠 */
+      --bg-dark: #0d1117;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.06);
+    }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: var(--bg-dark);
+      color: #f5f6f7;
+    }
+    .reveal {
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+      font-weight: 700;
+      text-transform: none;
+      text-shadow: 0 0 15px rgba(255, 183, 77, 0.2);
+    }
+    .reveal h1 {
+      font-size: 2.1em;
+      background: linear-gradient(135deg, #fff 30%, var(--accent-lie) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+    .reveal h2 {
+      font-size: 1.45em;
+      color: #ffffff;
+      border-bottom: 2px solid rgba(255, 183, 77, 0.1);
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      border-color: rgba(255, 183, 77, 0.25);
+      box-shadow: 0 8px 32px 0 rgba(255, 183, 77, 0.05);
+    }
+    .card-title {
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.52em;
+    }
+    .card-content {
+      color: #ccc;
+      line-height: 1.5;
+      text-align: left;
+      font-size: 0.36em;
+    }
+    .quote-box {
+      border-left: 5px solid var(--accent-lie);
+      background: rgba(255, 183, 77, 0.04);
+      padding: 12px 18px;
+      border-radius: 0 8px 8px 0;
+      text-align: left;
+      font-style: italic;
+      color: #eee;
+      font-size: 0.8em;
+      margin-bottom: 15px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.35em;
+      font-weight: 700;
+      vertical-align: middle;
+      margin-left: 6px;
+    }
+    .badge.red { background: var(--accent-lie); color: #0d1117; }
+    .badge.green { background: var(--accent-green); color: #0d1117; }
+    .pulse-text {
+      animation: pulse 2s infinite ease-in-out;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.05); opacity: 1; text-shadow: 0 0 15px var(--accent-lie); }
+      100% { transform: scale(1); opacity: 0.9; }
+    }
+
+    /* VIZ 滑桿樣式 */
+    .slider-container {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .slider-pane {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 30px 40px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+    .slider-pane.left {
+      background: rgba(232, 100, 58, 0.05);
+    }
+    .slider-pane.right {
+      background: rgba(129, 199, 132, 0.1);
+      clip-path: inset(0 0 0 100%);
+    }
+    .slider-handle {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, var(--accent-green), transparent);
+      box-shadow: 0 0 10px var(--accent-green);
+      pointer-events: none;
+      transform: translateX(-50%);
+    }
+    .slider-knob {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 28px;
+      height: 28px;
+      background: var(--accent-green);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 15px var(--accent-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0d1117;
+      font-size: 10px;
+    }
+    .slider-range-input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+<div class="reveal">
+  <div class="slides">
+
+    <!-- 頁1：封面 -->
+    <section data-background-image="../assets/images/cover_bg.jpg"
+             data-background-opacity="0.25"
+             data-background-size="cover">
+      <div style="margin-top: 50px;">
+        <span style="color: var(--accent-lie); font-size: 0.7em; font-weight: 800; letter-spacing: 4px;" class="pulse-text">五戒專題研討 • 第四戒</span>
+        <h1 style="margin-top: 15px; font-size: 2.1em; font-weight: 900; letter-spacing: 2px;">不妄語而誠信</h1>
+        <div style="width: 80px; height: 3px; background: var(--accent-lie); margin: 25px auto;"></div>
+        <p style="font-size: 0.52em; color: #aaa; letter-spacing: 1px; max-width: 650px; margin: 0 auto; line-height: 1.6;">
+          「妄語是一切罪惡的開端。口舌是非之過，最易擾亂修行道業。」
+        </p>
+      </div>
+    </section>
+
+    <!-- 頁2：課前破冰 (文字雲) -->
+    <section id="slide-wordcloud"
+             data-background-image="../assets/images/cover_bg.jpg"
+             data-background-opacity="0.08"
+             data-background-size="cover">
+      <h2>對你而言，什麼是「誠信與口德」？</h2>
+      <div style="display: grid; grid-template-columns: 260px 1fr; gap: 20px; height: 450px;">
+        <div style="display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
+          <div class="card" style="padding: 16px; background: rgba(255,255,255,0.02);">
+            <div class="card-title" style="color: var(--accent-lie); font-size: 0.52em;"><i class="fa-solid fa-comments"></i> 語言力量</div>
+            <div class="card-content" style="font-size: 0.36em; line-height: 1.5;">
+              真誠的語言如春風，虛妄的話語如利刃。請提交您的聯想詞（如：守信、老實、愛語、讚歎...），凝聚誠信力量。
+            </div>
+          </div>
+          <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255, 183, 77, 0.2); border-radius: 10px; padding: 12px; margin-top: 10px;">
+            <div style="font-size: 0.34em; color: var(--accent-lie); font-weight: 700; margin-bottom: 6px;">提交你的直覺</div>
+            <input id="wc-input" type="text" placeholder="例：守信、愛語、誠實..." maxlength="15"
+              style="width:100%; padding:6px 10px; border-radius:6px; border:1px solid rgba(255,255,255,0.15);
+                     background:rgba(255,255,255,0.08); color:#fff; font-size:12px; box-sizing:border-box; outline:none;" />
+            <button id="wc-btn"
+              style="width:100%; margin-top:6px; padding:7px; background:var(--accent-lie); color:#0d1117;
+                     border:none; border-radius:6px; font-weight:700; font-size:12px; cursor:pointer;">
+              送出 ↵
+            </button>
+          </div>
+        </div>
+        <div style="background: rgba(255,255,255,0.02); border-radius: 12px; overflow: hidden;
+                    position: relative; border: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column;">
+          <div style="padding: 10px 16px; background: rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 0.4em; color: #aaa; font-weight: 600;">真誠言語即時圖譜</span>
+            <span style="background: #ff4757; color: #fff; padding: 2px 6px; border-radius: 8px; font-size: 0.35em; font-weight: 700; animation: pulse 1.5s infinite;">LIVE</span>
+          </div>
+          <div style="flex: 1; position: relative;">
+            <canvas id="wc-canvas" style="width:100%; height:100%; display:block;"></canvas>
+            <div id="wc-empty" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); color: #555; font-size: 0.45em; text-align: center;">
+              <i class="fa-solid fa-cloud" style="font-size: 2em; margin-bottom: 10px; color: #333;"></i><br>
+              等待第一筆資料提交...
+            </div>
+          </div>
+          <div style="padding: 8px 16px; background: rgba(0,0,0,0.2); border-top: 1px solid rgba(255,255,255,0.03); display: flex; justify-content: space-around; font-size: 0.35em; color: #888;">
+            <span>提交總數: <strong id="wc-total" style="color:var(--accent-lie);">0</strong></span>
+            <span>觀點數: <strong id="wc-unique" style="color:var(--accent-lie);">0</strong></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁3：核心精神 -->
+    <section>
+      <h2>不妄語之核心：防堵口業與四口德</h2>
+      <div class="quote-box">
+        「妄語是一切罪惡的開端。講謊話像吃飯一樣多，會直接擾亂道業。」—— 活佛師尊
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-lie);"><i class="fa-solid fa-triangle-exclamation"></i> 語言的殺傷力</div>
+          <div class="card-content">
+            話講出去像空氣一樣，隨風而逝，但它在意識田中留下的黑影與業力，卻會像滾雪球一樣越來越大。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-lie);"><i class="fa-solid fa-list-check"></i> 妄語之四種類型</div>
+          <div class="card-content">
+            <strong>妄言</strong>（黑說成白）、<strong>綺語</strong>（花言巧語欺色）、<strong>兩舌</strong>（挑撥離間是非）、<strong>惡口</strong>（粗語傷人自尊）。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁4：生活與度人的口業 -->
+    <section>
+      <h2>日常與度人時常犯的口業</h2>
+      <div class="quote-box">
+        「度人要腳踏實地。不可以開空頭支票，否則反而斷人慧命。」
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-lie);"><i class="fa-solid fa-shop"></i> 生意人的妄言</div>
+          <div class="card-content">
+            買賣東西誇大價值，五百元成本說成一千元。若此，應將賺得財富用在行善布施，以彌補口業。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-lie);"><i class="fa-solid fa-heart-crack"></i> 綺語與花言巧語</div>
+          <div class="card-content">
+            對配偶說好聽話是愛語；但對配偶之外的人說甜言蜜語以騙女色，這叫綺麗的語、美麗的謊言，感召惡報。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-lie);"><i class="fa-solid fa-house-medical"></i> 度人設佛堂誇大</div>
+          <div class="card-content">
+            度人求道時，向對方承諾「只要設佛堂病就會好、癌症一定消」，這種鐵斷會使人若病未好便退道，犯下大過。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁5：特殊行業是非業 -->
+    <section>
+      <h2>特殊行業在妄語上的重大業力</h2>
+      <div class="quote-box">
+        「算命、風水、法律，都是在是非與宿命上作裁奪的，必須極其客觀。」
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-lie);"><i class="fa-solid fa-wand-magic-sparkles"></i> 算命師與風水師</div>
+          <div class="card-content">
+            恐嚇人「不改風水會遭報應」，以鐵斷刺傷人。命運可以靠修行改變，算命應客觀引導道心、給予希望。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-lie);"><i class="fa-solid fa-scale-unbalanced-flip"></i> 律師與檢察官</div>
+          <div class="card-content">
+            在權勢上論是非。若顛倒黑白白說成黑，導致冤枉好人、草菅人命，將面臨無量無邊的地獄受苦果報。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-lie);"><i class="fa-solid fa-users-line"></i> 政治家與影星</div>
+          <div class="card-content">
+            政治家為選票斬雞發誓、政見跳票；影歌星誇大其詞、過著虛榮且不踏實的演繹人生。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁6：VIZ 顏回食粥 -->
+    <section>
+      <h2>顏回食粥：親眼所見不一定是真相</h2>
+      <div class="quote-box blue" style="margin-bottom: 12px;">
+        「我親眼所見都會冤枉別人，何況聽別人片面之詞？」—— 孔子
+      </div>
+      
+      <div class="slider-container">
+        <!-- 下層：左側內容 (主觀猜忌) -->
+        <div class="slider-pane left">
+          <div style="width: 42%; text-align: left;">
+            <h3 style="color: var(--accent-kill); font-size: 0.8em; margin-bottom: 8px;"><i class="fa-solid fa-eye-slash"></i> 🛑 主觀猜忌起是非</h3>
+            <p style="font-size: 0.4em; line-height: 1.6; color: #ddd; margin: 0;">
+              孔子親眼看見顏回用手抓起砂鍋裡的飯吃，懷疑顏回不懂禮貌、私自偷吃。<br><br>
+              若當場指責，或在心中留下芥蒂，導致是非傳播與信任崩潰，這便是妄語是非的開端。
+            </p>
+          </div>
+        </div>
+        <!-- 上層：右側內容 (調查真相) -->
+        <div class="slider-pane right" id="slider-reveal-pane" style="background-color: #16222f;">
+          <div style="margin-left: auto; width: 42%; text-align: left;">
+            <h3 style="color: var(--accent-green); font-size: 0.8em; margin-bottom: 8px;"><i class="fa-solid fa-magnifying-glass"></i> ✨ 調查真相見光明</h3>
+            <p style="font-size: 0.4em; line-height: 1.6; color: #ddd; margin: 0;">
+              原來是房頂掉下髒土在飯裡，顏回怕糟蹋糧食，才抓出髒飯自己吃掉。<br><br>
+              了解真相後，孔子感嘆凡夫耳朵容易被扭曲，做判斷前必須先調查，方能止息兩舌。
+            </p>
+          </div>
+        </div>
+        <div class="slider-handle" id="slider-handle" style="left: 100%;">
+          <div class="slider-knob"><i class="fa-solid fa-arrows-left-right"></i></div>
+        </div>
+        <input type="range" min="0" max="100" value="100" class="slider-range-input" id="slider-range" />
+      </div>
+      
+      <div style="font-size: 0.36em; color: #888; text-align: center; margin-top: 6px;">
+        💡 左右拉動上方滑桿，體驗從「主觀猜疑」到「調查真相」的思維轉變
+      </div>
+    </section>
+
+    <!-- 頁7：妄語果報 -->
+    <section>
+      <h2>妄語的因果與現世果報</h2>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-lie);"><i class="fa-solid fa-comments-dollar"></i> 1. 多被毀謗與排擠</div>
+          <div class="card-content">
+            前世妄言是非，今生常招致不白之冤，名譽受損。走到哪裡都不得意、好像被團體排斥。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-lie);"><i class="fa-solid fa-comment-medical"></i> 2. 講話漏風與兔唇</div>
+          <div class="card-content">
+            前世妄語打太多，舌頭的筋被抓得很緊，講話不清漏風，甚或感召生來兔唇、啞巴。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-lie);"><i class="fa-solid fa-poo"></i> 3. 天生嚴重的口臭</div>
+          <div class="card-content">
+            有些人一開口人家就捂嘴巴。治不好的天生口臭，多是前世口業妄語太多帶來的果報。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-lie);"><i class="fa-solid fa-xmark"></i> 4. 修行種不得正果</div>
+          <div class="card-content">
+            黑說成白，不照道理。只要缺此一戒，心口不一，即使打坐參禪也永遠種不得正果。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁8：持守善報 -->
+    <section>
+      <h2>守持真誠的無邊威德</h2>
+      <div class="quote-box" style="border-left-color: var(--accent-green);">
+        「三世不打妄語的人，口齒清香，舌頭伸出可觸及鼻子。」—— 活佛師尊
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-green);"><i class="fa-solid fa-snowflake"></i> 口常清淨奇香</div>
+          <div class="card-content">
+            不妄語的人，牙齒完整三十二顆，口齒常散發如蓮花般的清香（憂缽蘿香），受人喜愛。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-green);"><i class="fa-solid fa-user-check"></i> 自心歡喜信實</div>
+          <div class="card-content">
+            不需要遮遮掩掩、每天活在真實的生活圈中，人人都知道你信實可靠，自心歡喜。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-green);"><i class="fa-solid fa-brain"></i> 得無礙辯才</div>
+          <div class="card-content">
+            持妄語戒能開啟自性無量智慧，使你口若懸河、辯才無礙，講經說法大眾信服。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁9：即時問卷 -->
+    <section id="slide-poll"
+             data-background-image="../assets/images/cover_bg.jpg"
+             data-background-opacity="0.08"
+             data-background-size="cover">
+      <h2>日常生活口業大調查</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; height: 430px;">
+        <div class="card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255, 183, 77, 0.25);">
+          <div style="font-size: 0.52em; color: var(--accent-lie); font-weight: 700; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+            <span>在日常修行中，你覺得最容易隨口犯下的口業是？</span>
+            <span style="background: #ff4757; color:#fff; padding: 2px 6px; border-radius:8px; font-size: 0.65em; animation: pulse 1.5s infinite;">LIVE</span>
+          </div>
+          <div id="poll-options" style="display: flex; flex-direction: column; gap: 8px;">
+            <!-- JS 動態生成投票按鈕 -->
+          </div>
+        </div>
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
+          <div>
+            <div class="card-title" style="color: var(--accent-green); font-size: 0.55em;"><i class="fa-solid fa-chart-simple"></i> 即時口德共鳴數據</div>
+            <div class="card-content" style="font-size: 0.38em; margin-bottom: 15px;">
+              口開神氣散，舌動是非生。透過匿名的集體檢索，我們看見同修在日常閒談中最容易失防的口德漏洞。
+              <br><br>
+              言而有信，老實修行，自性光明。
+            </div>
+          </div>
+          <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center;">
+            <div style="font-size: 0.36em; color: #888;">當前投票總人數</div>
+            <div style="font-size: 1.1em; font-weight: 800; color: var(--accent-green);" id="poll-total">0</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁10：總結與勉勵 -->
+    <section data-background-image="../assets/images/cover_bg.jpg"
+             data-background-opacity="0.25"
+             data-background-size="cover">
+      <div style="margin-top: 50px;">
+        <h2 style="border:none; margin-bottom: 10px; font-size: 1.6em;">心口合一 • 言而有信</h2>
+        <div style="width: 60px; height: 2px; background: var(--accent-lie); margin: 20px auto;"></div>
+        <p style="font-size: 0.52em; color: #ccc; line-height: 1.8; max-width: 650px; margin: 0 auto;">
+          不妄語是誠實人生的根基，也是顯現德行威力的第一步。<br>
+          止息兩舌是非，多說愛語成全，菩提道穩健前行。
+        </p>
+        <div style="margin-top: 35px; font-size: 0.42em; color: var(--accent-lie); font-weight: 800; letter-spacing: 2px;">
+          理可頓悟 • 事須漸修
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    transition: 'slide',
+    transitionSpeed: 'default',
+    backgroundTransition: 'fade',
+    center: true,
+    progress: true,
+    controls: true,
+    slideNumber: 'c/t'
+  });
+</script>
+
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js';
+  import { getFirestore, doc, setDoc, onSnapshot, collection, addDoc, query, orderBy } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js';
+
+  const firebaseConfig = {
+    apiKey: ["AIzaSy", "C48oAqalT77SPpYVtCupYfV5hd6_ZrD2I"].join(""),
+    authDomain: "my-teaching-tools-01.firebaseapp.com",
+    projectId: "my-teaching-tools-01",
+    storageBucket: "my-teaching-tools-01.firebasestorage.app",
+    messagingSenderId: "552535919921",
+    appId: "1:552535919921:web:95b4c1288edbae9572b410"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const fdb = getFirestore(app);
+
+  // ==========================================
+  // 1. VIZ 滑桿對比元件實作
+  // ==========================================
+  const rangeInput = document.getElementById('slider-range');
+  const revealPane = document.getElementById('slider-reveal-pane');
+  const handle = document.getElementById('slider-handle');
+
+  if (rangeInput && revealPane && handle) {
+    rangeInput.addEventListener('input', (e) => {
+      const val = e.target.value;
+      revealPane.style.clipPath = `inset(0 0 0 ${val}%)`;
+      handle.style.left = `${val}%`;
+    });
+  }
+
+  // ==========================================
+  // 2. 文字雲 (lie_wordcloud)
+  // ==========================================
+  const wordsRef = collection(fdb, 'lie_wordcloud');
+  const COLORS = ['#ffb74d','#81c784','#e8643a','#ce93d8','#80deea','#f48fb1','#4fc3f7'];
+  let wcData = [];
+
+  window.wcSubmit = async function() {
+    const input = document.getElementById('wc-input');
+    const word = input.value.trim();
+    if (!word) return;
+    const btn = document.getElementById('wc-btn');
+    btn.disabled = true;
+    try {
+      await addDoc(wordsRef, { word, created_at: new Date() });
+      input.value = '';
+    } catch(e) {
+      console.error(e);
+    } finally {
+      btn.disabled = false;
+    }
+  };
+
+  document.getElementById('wc-input')?.addEventListener('keypress', e => {
+    if (e.key === 'Enter') window.wcSubmit();
+  });
+  document.getElementById('wc-btn')?.addEventListener('click', window.wcSubmit);
+
+  document.querySelectorAll('input, textarea').forEach(el => {
+    ['keydown', 'keyup', 'keypress'].forEach(event => {
+      el.addEventListener(event, e => e.stopPropagation());
+    });
+  });
+
+  onSnapshot(query(wordsRef, orderBy('created_at', 'asc')), snap => {
+    const words = [];
+    snap.forEach(doc => words.push(doc.data().word));
+    const counts = {};
+    words.forEach(w => counts[w] = (counts[w] || 0) + 1);
+    wcData = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+
+    document.getElementById('wc-total').textContent = words.length;
+    document.getElementById('wc-unique').textContent = wcData.length;
+
+    const empty = document.getElementById('wc-empty');
+    if (empty) empty.style.display = wcData.length > 0 ? 'none' : '';
+    drawWordCloud();
+  });
+
+  function drawWordCloud() {
+    const canvas = document.getElementById('wc-canvas');
+    if (!canvas || typeof WordCloud === 'undefined') return;
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width < 10 || rect.height < 10) return;
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+    if (wcData.length === 0) return;
+    const maxCount = wcData[0][1];
+    
+    WordCloud(canvas, {
+      list: wcData.map(([w, c]) => [w, Math.max(16, Math.round((c / maxCount) * 45))]),
+      gridSize: 8,
+      weightFactor: 1,
+      fontFamily: '"Microsoft JhengHei", "Noto Sans TC", sans-serif',
+      color: () => COLORS[Math.floor(Math.random() * COLORS.length)],
+      backgroundColor: 'transparent',
+      rotateRatio: 0.2,
+      shuffle: true,
+    });
+  }
+
+  // ==========================================
+  // 3. 即時投票 (lie_poll)
+  // ==========================================
+  const OPTIONS = [
+    { id: 'a', label: '妄言 (隨口吹牛或開空頭支票)' },
+    { id: 'b', label: '綺語 (諂媚討好或美麗謊言)' },
+    { id: 'c', label: '兩舌 (挑撥是非傳八卦悄悄話)' },
+    { id: 'd', label: '惡口 (開玩笑刺傷人家的自尊)' }
+  ];
+  const pollRef = doc(fdb, 'lie_poll', 'results');
+  const userId = 'user_lie_' + Math.random().toString(36).slice(2, 9);
+  let myVote = null;
+
+  const pollContainer = document.getElementById('poll-options');
+  if (pollContainer) {
+    OPTIONS.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.id = `poll-btn-${opt.id}`;
+      btn.innerHTML = `
+        <div style="display:flex;align-items:center;gap:12px;width:100%;height:100%;">
+          <span style="flex:0 0 20px;height:20px;border-radius:50%;border:2px solid rgba(255,255,255,0.3);
+                       display:flex;align-items:center;justify-content:center;font-size:10px;box-sizing:border-box;"
+                id="poll-check-${opt.id}"></span>
+          <span style="flex:1;text-align:left;font-size:0.95em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${opt.label}</span>
+          <span id="poll-bar-wrap-${opt.id}"
+                style="flex:0 0 80px;height:8px;background:rgba(255,255,255,0.1);border-radius:4px;overflow:hidden;">
+            <div id="poll-bar-${opt.id}" style="height:100%;width:0;background:var(--accent-lie);border-radius:4px;transition:width 0.4s;"></div>
+          </span>
+          <span id="poll-pct-${opt.id}" style="flex:0 0 32px;text-align:right;font-size:0.85em;color:#888;">0%</span>
+        </div>
+      `;
+      btn.style.cssText = `width:100%;padding:10px 14px;background:rgba(255,255,255,0.04);
+        border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;
+        font-size:0.42em;cursor:pointer;font-family:inherit;text-align:left;outline:none;`;
+      btn.onclick = () => vote(opt.id);
+      pollContainer.appendChild(btn);
+    });
+  }
+
+  async function vote(optId) {
+    myVote = optId;
+    const data = {
+      votes: { [userId]: optId },
+      updated_at: new Date()
+    };
+    try {
+      await setDoc(pollRef, data, { merge: true });
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  onSnapshot(pollRef, snap => {
+    const data = snap.data() || {};
+    const votes = data.votes || {};
+    const counts = {};
+    OPTIONS.forEach(o => counts[o.id] = 0);
+    Object.values(votes).forEach(v => {
+      if (counts[v] !== undefined) counts[v]++;
+    });
+    const total = Object.values(counts).reduce((a, b) => a + b, 0);
+
+    document.getElementById('poll-total').textContent = total;
+    OPTIONS.forEach(opt => {
+      const pct = total > 0 ? Math.round((counts[opt.id] / total) * 100) : 0;
+      const bar = document.getElementById(`poll-bar-${opt.id}`);
+      const pctTxt = document.getElementById(`poll-pct-${opt.id}`);
+      const check = document.getElementById(`poll-check-${opt.id}`);
+      const btn = document.getElementById(`poll-btn-${opt.id}`);
+
+      if (bar) bar.style.width = pct + '%';
+      if (pctTxt) pctTxt.textContent = pct + '%';
+      
+      if (check && btn) {
+        if (myVote === opt.id) {
+          check.innerHTML = '✓';
+          check.style.background = 'var(--accent-lie)';
+          check.style.borderColor = 'var(--accent-lie)';
+          btn.style.borderColor = 'var(--accent-lie)';
+          btn.style.background = 'rgba(255, 183, 77, 0.08)';
+        } else {
+          check.innerHTML = '';
+          check.style.background = 'transparent';
+          check.style.borderColor = 'rgba(255,255,255,0.3)';
+          btn.style.borderColor = 'rgba(255,255,255,0.1)';
+          btn.style.background = 'rgba(255,255,255,0.04)';
+        }
+      }
+    });
+  });
+
+  Reveal.on('slidechanged', e => {
+    if (e.currentSlide?.id === 'slide-wordcloud' || e.currentSlide?.querySelector('#wc-canvas')) {
+      setTimeout(drawWordCloud, 250);
+    }
+  });
+  window.addEventListener('resize', () => {
+    if (document.querySelector('.present canvas#wc-canvas')) {
+      drawWordCloud();
+    }
+  });
+</script>
+</body>
+</html>
