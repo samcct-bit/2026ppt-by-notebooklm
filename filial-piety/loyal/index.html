@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>八德專題：忠道——盡己之心與自性忠實</title>
+  <meta name="description" content="一貫道八德專題課件 - 忠道修行與心法">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/night.css" id="theme">
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.2.2/src/wordcloud2.min.js"></script>
+
+  <style>
+    :root {
+      --accent: #81c784; /* 翠綠色 */
+      --accent-light: rgba(129, 199, 132, 0.15);
+      --bg-dark: #0d1117;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.06);
+    }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: var(--bg-dark);
+      color: #f5f6f7;
+    }
+    .reveal {
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+      font-weight: 700;
+      text-transform: none;
+      text-shadow: 0 0 15px rgba(129, 199, 132, 0.2);
+    }
+    .reveal h1 {
+      font-size: 2.1em;
+      background: linear-gradient(135deg, #fff 30%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+    .reveal h2 {
+      font-size: 1.45em;
+      color: #ffffff;
+      border-bottom: 2px solid rgba(129, 199, 132, 0.1);
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      border-color: rgba(129, 199, 132, 0.25);
+      box-shadow: 0 8px 32px 0 rgba(129, 199, 132, 0.05);
+    }
+    .card-title {
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.52em;
+    }
+    .card-content {
+      color: #ccc;
+      line-height: 1.5;
+      text-align: left;
+      font-size: 0.36em;
+    }
+    .quote-box {
+      border-left: 5px solid var(--accent);
+      background: rgba(129, 199, 132, 0.04);
+      padding: 12px 18px;
+      border-radius: 0 8px 8px 0;
+      text-align: left;
+      font-style: italic;
+      color: #eee;
+      font-size: 0.8em;
+      margin-bottom: 15px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.35em;
+      font-weight: 700;
+      vertical-align: middle;
+      margin-left: 6px;
+    }
+    .badge.accent { background: var(--accent); color: #0d1117; }
+    .pulse-text {
+      animation: pulse 2s infinite ease-in-out;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.05); opacity: 1; text-shadow: 0 0 15px var(--accent); }
+      100% { transform: scale(1); opacity: 0.9; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="reveal">
+  <div class="slides">
+
+    <!-- 頁1：封面 -->
+    <section data-background-image="../assets/images/zhong_xin_bg.png"
+             data-background-opacity="0.35"
+             data-background-size="cover">
+      <div style="margin-top: 50px;">
+        <span style="color: var(--accent); font-size: 0.7em; font-weight: 800; letter-spacing: 4px;" class="pulse-text">八德專案研討 • 忠道</span>
+        <h1 style="margin-top: 15px; font-size: 2.1em; font-weight: 900; letter-spacing: 2px;">盡己之心與自性忠實</h1>
+        <div style="width: 80px; height: 3px; background: var(--accent); margin: 25px auto;"></div>
+        <p style="font-size: 0.52em; color: #aaa; letter-spacing: 1px; max-width: 650px; margin: 0 auto; line-height: 1.6;">
+          「忠，是心放在正中間。當沒有人看見你時，你依然對得起天地良心。」
+        </p>
+      </div>
+    </section>
+
+    <!-- 頁2：課前破冰 (文字雲) -->
+    <section id="slide-wordcloud"
+             data-background-image="../assets/images/zhong_xin_bg.png"
+             data-background-opacity="0.08"
+             data-background-size="cover">
+      <h2>聽到「忠誠與本分」，你聯想到什麼？</h2>
+      <div style="display: grid; grid-template-columns: 260px 1fr; gap: 20px; height: 450px;">
+        <div style="display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
+          <div class="card" style="padding: 16px; background: rgba(255,255,255,0.02);">
+            <div class="card-title" style="color: var(--accent); font-size: 0.52em;"><i class="fa-solid fa-scale-balanced"></i> 盡己之心</div>
+            <div class="card-content" style="font-size: 0.36em; line-height: 1.5;">
+              忠是不偏不倚、盡忠職守。請輸入您的直覺詞（如：責任、良知、誠實、盡心、守信...），凝聚班級共鳴。
+            </div>
+          </div>
+          <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(129, 199, 132, 0.2); border-radius: 10px; padding: 12px; margin-top: 10px;">
+            <div style="font-size: 0.34em; color: var(--accent); font-weight: 700; margin-bottom: 6px;">提交你的想法</div>
+            <input id="wc-input" type="text" placeholder="例：責任、良知、盡心..." maxlength="15"
+              style="width:100%; padding:6px 10px; border-radius:6px; border:1px solid rgba(255,255,255,0.15);
+                     background:rgba(255,255,255,0.08); color:#fff; font-size:12px; box-sizing:border-box; outline:none;" />
+            <button id="wc-btn"
+               style="width:100%; margin-top:6px; padding:7px; background:var(--accent); color:#0d1117;
+                      border:none; border-radius:6px; font-weight:700; font-size:12px; cursor:pointer;">
+              送出 ↵
+            </button>
+          </div>
+        </div>
+        <div style="background: rgba(255,255,255,0.02); border-radius: 12px; overflow: hidden;
+                    position: relative; border: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column;">
+          <div style="padding: 10px 16px; background: rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 0.4em; color: #aaa; font-weight: 600;">忠誠品質即時文字雲</span>
+            <span style="background: #ff4757; color: #fff; padding: 2px 6px; border-radius: 8px; font-size: 0.35em; font-weight: 700; animation: pulse 1.5s infinite;">LIVE</span>
+          </div>
+          <div style="flex: 1; position: relative;">
+            <canvas id="wc-canvas" style="width:100%; height:100%; display:block;"></canvas>
+            <div id="wc-empty" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); color: #555; font-size: 0.45em; text-align: center;">
+              <i class="fa-solid fa-cloud" style="font-size: 2em; margin-bottom: 10px; color: #333;"></i><br>
+              等待第一筆資料提交...
+            </div>
+          </div>
+          <div style="padding: 8px 16px; background: rgba(0,0,0,0.2); border-top: 1px solid rgba(255,255,255,0.03); display: flex; justify-content: space-around; font-size: 0.35em; color: #888;">
+            <span>提交總數: <strong id="wc-total" style="color:var(--accent);">0</strong></span>
+            <span>觀點數: <strong id="wc-unique" style="color:var(--accent);">0</strong></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁3：核心精神與忠的本質 -->
+    <section>
+      <h2>何為大忠？忠的真實內涵</h2>
+      <div class="quote-box">
+        「心在正中為忠。忠於天地良心，忠於職守，更忠於當初立下的誓愿。」
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title" style="color: var(--accent);"><i class="fa-solid fa-shield-halved"></i> 盡己之心</div>
+          <div class="card-content">
+            忠不只是對長官的順從，而是做任何事都「問心無愧」，付出百分之百的誠意，不敷衍、不應付。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent);"><i class="fa-solid fa-compass"></i> 慎獨功夫</div>
+          <div class="card-content">
+            在無人看見的暗室，在沒有人監督的崗位上，依然克己復禮，忠於良知，始終如一地遵守天理。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent);"><i class="fa-solid fa-scroll"></i> 忠於誓愿</div>
+          <div class="card-content">
+            白陽修道子，忠於求道那一刻對上天發出的誓愿，面對考驗與挫折，心存抱守，決不退縮。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁4：文天祥與正氣歌 -->
+    <section>
+      <h2>經典故事一：文天祥浩然正氣</h2>
+      <div class="quote-box">
+        「天地有正氣，雜然賦流形。下則為河嶽，上則為日星。」
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title" style="color: var(--accent);"><i class="fa-solid fa-dungeon"></i> 土牢三年</div>
+          <div class="card-content" style="font-size: 0.38em; line-height: 1.6;">
+            南宋末年文天祥被元軍俘虜，元世祖極力勸降，承諾以高官厚祿。文天祥在陰暗潮濕、惡臭難耐的土牢中關押三年，始終堅貞不屈，寫下氣壯山河的《正氣歌》，最終慷慨就義。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent);"><i class="fa-solid fa-heart-pulse"></i> 忠於良知天理</div>
+          <div class="card-content" style="font-size: 0.38em; line-height: 1.6;">
+            文天祥所忠的，不單是一個政權，而是他內心所信仰的「浩然正氣」與「天理良知」。他證明了生命的價值在於堅守道德氣節，縱死亦青史留名。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁5：六祖惠能隱居獵人隊 -->
+    <section>
+      <h2>經典故事二：惠能隱居獵人隊十五年</h2>
+      <div class="quote-box">
+        「真正的忠，是耐得住寂寞與考驗，在逆境中默默守護天命。」
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title" style="color: var(--accent);"><i class="fa-solid fa-leaf"></i> 避難藏形</div>
+          <div class="card-content" style="font-size: 0.38em; line-height: 1.6;">
+            六祖惠能大師在黃梅承接祖師衣缽天命後，因避難隱遁於獵人隊中長達十五年。期間，他為獵人守網放生，吃肉邊菜，不顯露身份，默默修持，忍受了長期的孤獨與危險。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent);"><i class="fa-solid fa-sun"></i> 忠於道統</div>
+          <div class="card-content" style="font-size: 0.38em; line-height: 1.6;">
+            在環境最惡劣的考驗中，大師沒有一絲怨言，忠於自性良知，不忘守護天命法脈的重任，直至時機成熟，方出世大弘佛法。<br><br>
+            這說明：<strong>「忠，是經得起考驗的堅守。」</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁6：白陽修持與十條大愿 -->
+    <section data-background-image="../assets/images/zhong_xin_bg.png"
+             data-background-opacity="0.15"
+             data-background-size="cover">
+      <h2>白陽道場的忠誠實踐</h2>
+      <div class="quote-box">
+        「回想我們求道那一刻，向著上天發出的那一顆赤誠抱守的心。」
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title" style="color: var(--accent);"><i class="fa-solid fa-file-contract"></i> 誠心抱守十條大愿</div>
+          <div class="card-content">
+            修道人的「忠」，最直接體現在對十條大愿的抱守。實心懺悔、實心修煉，在世俗利益與天理道念衝突時，毅然選擇站在道德良知的一邊，不虛心假意。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="color: var(--accent);"><i class="fa-solid fa-hands-praying"></i> 忠於天職與道盤</div>
+          <div class="card-content">
+            身為壇主、講師、辦事人員或行道人員，在佛堂承辦聖事，無論擦佛檯、掃地或引領道親，皆以恭敬心默默付出，無私無求，這便是白陽大忠。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁7：即時互動投票 -->
+    <section id="slide-poll"
+             data-background-image="../assets/images/zhong_xin_bg.png"
+             data-background-opacity="0.12"
+             data-background-size="cover">
+      <h2>慎獨與忠道挑戰調查</h2>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; height: 430px;">
+        <!-- 左側互動投票 -->
+        <div class="card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(129, 199, 132, 0.25);">
+          <div style="font-size: 0.52em; color: var(--accent); font-weight: 700; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+            <span>在日常生活或佛堂中，你覺得最難守護的「忠」是？</span>
+            <span style="background: #ff4757; color:#fff; padding: 2px 6px; border-radius:8px; font-size: 0.65em; animation: pulse 1.5s infinite;">LIVE</span>
+          </div>
+          <div id="poll-options" style="display: flex; flex-direction: column; gap: 8px;">
+            <!-- 由 JS 動態生成投票按鈕 -->
+          </div>
+        </div>
+
+        <!-- 右側投票結果統計 -->
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
+          <div>
+            <div class="card-title" style="color: var(--accent); font-size: 0.55em;"><i class="fa-solid fa-chart-line"></i> 慎獨警醒數據</div>
+            <div class="card-content" style="font-size: 0.38em; margin-bottom: 15px;">
+              「誠於中，形於外。」看見自己是否有敷衍與馬虎的心態，是從盲忠走向自性大忠的第一步。讓我們用最真誠的心面對自己。
+            </div>
+          </div>
+          
+          <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center;">
+            <div style="font-size: 0.36em; color: #888;">當前提交總人數</div>
+            <div style="font-size: 1.1em; font-weight: 800; color: var(--accent);" id="poll-total">0</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁8：結語與行動呼籲 -->
+    <section data-background-image="../assets/images/zhong_xin_bg.png"
+             data-background-opacity="0.35"
+             data-background-size="cover">
+      <div style="margin-top: 50px;">
+        <h2 style="border:none; margin-bottom: 10px; font-size: 1.6em;">無私盡心，正氣浩然</h2>
+        <div style="width: 60px; height: 2px; background: var(--accent); margin: 20px auto;"></div>
+        <p style="font-size: 0.52em; color: #ccc; line-height: 1.8; max-width: 650px; margin: 0 auto;">
+          當我們行直心平，問心無愧時，這股浩然正氣便與宇宙良知合而為一。
+        </p>
+        <div style="margin-top: 30px;">
+          <a href="../#/7" style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: #fff; font-size: 0.38em; text-decoration: none; font-weight: bold; transition: all 0.3s;" onmouseover="this.style.background='#fff'; this.style.color='#0d1117';" onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#fff';">
+            <i class="fa-solid fa-house"></i> 返回八德統整頁面
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    transition: 'slide',
+    transitionSpeed: 'default',
+    backgroundTransition: 'fade',
+    center: true,
+    progress: true,
+    controls: true,
+    slideNumber: 'c/t'
+  });
+</script>
+
+<!-- Firebase SDK 引入與互動元件 JavaScript -->
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js';
+  import {
+    getFirestore, doc, setDoc, onSnapshot, collection, addDoc, query, orderBy
+  } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js';
+
+  const firebaseConfig = {
+    apiKey: ["AIzaSy", "C48oAqalT77SPpYVtCupYfV5hd6_ZrD2I"].join(""),
+    authDomain: "my-teaching-tools-01.firebaseapp.com",
+    projectId: "my-teaching-tools-01",
+    storageBucket: "my-teaching-tools-01.firebasestorage.app",
+    messagingSenderId: "552535919921",
+    appId: "1:552535919921:web:95b4c1288edbae9572b410"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const fdb = getFirestore(app);
+
+  // ==========================================
+  // 1. 互動文字雲 (WordCloud)
+  // ==========================================
+  const wordsRef = collection(fdb, 'loyal_wordcloud');
+  const COLORS = ['#81c784','#a5d6a7','#c8e6c9','#66bb6a','#4caf50','#2e7d32'];
+  let wcData = [];
+
+  window.wcSubmit = async function() {
+    const input = document.getElementById('wc-input');
+    const word = input.value.trim();
+    if (!word) return;
+    const btn = document.getElementById('wc-btn');
+    btn.disabled = true;
+    try {
+      await addDoc(wordsRef, { word, created_at: new Date() });
+      input.value = '';
+    } catch(e) {
+      console.error("提交文字失敗:", e);
+    } finally {
+      btn.disabled = false;
+    }
+  };
+
+  document.getElementById('wc-input')?.addEventListener('keypress', e => {
+    if (e.key === 'Enter') window.wcSubmit();
+  });
+  document.getElementById('wc-btn')?.addEventListener('click', window.wcSubmit);
+
+  document.querySelectorAll('input, textarea').forEach(el => {
+    ['keydown', 'keyup', 'keypress'].forEach(event => {
+      el.addEventListener(event, e => { e.stopPropagation(); });
+    });
+  });
+
+  onSnapshot(query(wordsRef, orderBy('created_at', 'asc')), snap => {
+    const words = [];
+    snap.forEach(doc => words.push(doc.data().word));
+    const counts = {};
+    words.forEach(w => counts[w] = (counts[w] || 0) + 1);
+    wcData = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+
+    document.getElementById('wc-total').textContent = words.length;
+    document.getElementById('wc-unique').textContent = wcData.length;
+
+    const empty = document.getElementById('wc-empty');
+    if (empty) empty.style.display = wcData.length > 0 ? 'none' : '';
+    drawWordCloud();
+  });
+
+  function drawWordCloud() {
+    const canvas = document.getElementById('wc-canvas');
+    if (!canvas || typeof WordCloud === 'undefined') return;
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width < 10 || rect.height < 10) return;
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+    if (wcData.length === 0) return;
+    const maxCount = wcData[0][1];
+    
+    WordCloud(canvas, {
+      list: wcData.map(([w, c]) => [w, Math.max(16, Math.round((c / maxCount) * 45))]),
+      gridSize: 8,
+      weightFactor: 1,
+      fontFamily: '"Microsoft JhengHei", "Noto Sans TC", sans-serif',
+      color: () => COLORS[Math.floor(Math.random() * COLORS.length)],
+      backgroundColor: 'transparent',
+      rotateRatio: 0.2,
+      shuffle: true,
+    });
+  }
+
+  // ==========================================
+  // 2. 即時單選投票 (Poll)
+  // ==========================================
+  const OPTIONS = [
+    { id: 'a', label: '無人監督時容易產生懈怠、馬虎敷衍心態' },
+    { id: 'b', label: '面對道場考驗或挫折時產生退縮、想放棄的心' },
+    { id: 'c', label: '職場或家庭中口是心非，未能做到表裡如一' },
+    { id: 'd', label: '未能完全忠於自己求道時的十條大愿' }
+  ];
+  const pollRef = doc(fdb, 'loyal_poll', 'results');
+  const userId = 'user_' + Math.random().toString(36).slice(2, 9);
+  let myVote = null;
+
+  const pollContainer = document.getElementById('poll-options');
+  if (pollContainer) {
+    OPTIONS.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.id = `poll-btn-${opt.id}`;
+      btn.innerHTML = `
+        <div style="display:flex;align-items:center;gap:12px;width:100%;height:100%;">
+          <span style="flex:0 0 20px;height:20px;border-radius:50%;border:2px solid rgba(255,255,255,0.3);
+                       display:flex;align-items:center;justify-content:center;font-size:10px;box-sizing:border-box;"
+                id="poll-check-${opt.id}"></span>
+          <span style="flex:1;text-align:left;font-size:0.9em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${opt.label}</span>
+          <span id="poll-bar-wrap-${opt.id}"
+                style="flex:0 0 100px;height:8px;background:rgba(255,255,255,0.1);border-radius:4px;overflow:hidden;">
+            <div id="poll-bar-${opt.id}" style="height:100%;width:0;background:var(--accent);border-radius:4px;transition:width 0.4s;"></div>
+          </span>
+          <span id="poll-pct-${opt.id}" style="flex:0 0 36px;text-align:right;font-size:0.85em;color:#888;">0%</span>
+        </div>
+      `;
+      btn.style.cssText = `width:100%;padding:10px 14px;background:rgba(255,255,255,0.04);
+        border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;
+        font-size:0.42em;cursor:pointer;font-family:inherit;text-align:left;outline:none;`;
+      btn.onclick = () => vote(opt.id);
+      pollContainer.appendChild(btn);
+    });
+  }
+
+  async function vote(optId) {
+    myVote = optId;
+    const data = {
+      votes: { [userId]: optId },
+      updated_at: new Date()
+    };
+    try {
+      await setDoc(pollRef, data, { merge: true });
+    } catch (err) {
+      console.error("投票失敗:", err);
+    }
+  }
+
+  onSnapshot(pollRef, snap => {
+    const data = snap.data() || {};
+    const votes = data.votes || {};
+    const counts = {};
+    OPTIONS.forEach(o => counts[o.id] = 0);
+    Object.values(votes).forEach(v => {
+      if (counts[v] !== undefined) counts[v]++;
+    });
+    const total = Object.values(counts).reduce((a, b) => a + b, 0);
+
+    document.getElementById('poll-total').textContent = total;
+    OPTIONS.forEach(opt => {
+      const pct = total > 0 ? Math.round((counts[opt.id] / total) * 100) : 0;
+      const bar = document.getElementById(`poll-bar-${opt.id}`);
+      const pctTxt = document.getElementById(`poll-pct-${opt.id}`);
+      const check = document.getElementById(`poll-check-${opt.id}`);
+      const btn = document.getElementById(`poll-btn-${opt.id}`);
+
+      if (bar) bar.style.width = pct + '%';
+      if (pctTxt) pctTxt.textContent = pct + '%';
+      
+      if (check && btn) {
+        if (myVote === opt.id) {
+          check.innerHTML = '✓';
+          check.style.background = 'var(--accent)';
+          check.style.borderColor = 'var(--accent)';
+          btn.style.borderColor = 'var(--accent)';
+          btn.style.background = 'rgba(129,199,132,0.08)';
+        } else {
+          check.innerHTML = '';
+          check.style.background = 'transparent';
+          check.style.borderColor = 'rgba(255,255,255,0.3)';
+          btn.style.borderColor = 'rgba(255,255,255,0.1)';
+          btn.style.background = 'rgba(255,255,255,0.04)';
+        }
+      }
+    });
+  });
+
+  Reveal.on('slidechanged', e => {
+    if (e.currentSlide?.id === 'slide-wordcloud' || e.currentSlide?.querySelector('#wc-canvas')) {
+      setTimeout(drawWordCloud, 250);
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (document.querySelector('.present canvas#wc-canvas')) {
+      drawWordCloud();
+    }
+  });
+</script>
+</body>
+</html>
