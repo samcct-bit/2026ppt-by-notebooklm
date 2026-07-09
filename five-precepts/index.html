@@ -449,43 +449,7 @@
       </div>
     </section>
 
-    <!-- 頁7：心靈防線投票 -->
-    <section id="slide-poll"
-             data-background-image="assets/images/lust_bg.jpg"
-             data-background-opacity="0.12"
-             data-background-size="cover">
-      <h2>心靈防線大調查</h2>
-      
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; height: 430px;">
-        <!-- 左側互動投票 -->
-        <div class="card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255, 183, 77, 0.25);">
-          <div style="font-size: 0.52em; color: var(--accent); font-weight: 700; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
-            <span>你認為現代世界中，最難防守的誘惑是？</span>
-            <span style="background: #ff4757; color:#fff; padding: 2px 6px; border-radius:8px; font-size: 0.65em; animation: pulse 1.5s infinite;">LIVE</span>
-          </div>
-          <div id="poll-options" style="display: flex; flex-direction: column; gap: 8px;">
-            <!-- 由 JS 動態生成投票按鈕 -->
-          </div>
-        </div>
 
-        <!-- 右側投票結果統計 -->
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
-          <div>
-            <div class="card-title" style="color: var(--accent2); font-size: 0.55em;"><i class="fa-solid fa-chart-simple"></i> 即時心靈共鳴數據</div>
-            <div class="card-content" style="font-size: 0.38em; margin-bottom: 15px;">
-              持戒的本質在於看清誘惑。透過匿名的集體反思，我們可以發現修行人在紅塵中最普遍的挑戰。
-              <br><br>
-              每一位修道人都在與相同的念頭搏鬥，藉著同修力量，我們一同尋求清淨之道。
-            </div>
-          </div>
-          
-          <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center;">
-            <div style="font-size: 0.36em; color: #888;">當前投票總人數</div>
-            <div style="font-size: 1.1em; font-weight: 800; color: var(--accent2);" id="poll-total">0</div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- 頁8：第四戒：妄語戒 -->
     <section>
@@ -520,47 +484,7 @@
       </div>
     </section>
 
-    <!-- 頁9：VIZ 顏回食粥 -->
-    <section>
-      <h2>顏回食粥：眼見不一定為憑</h2>
-      <div class="quote-box blue" style="margin-bottom: 12px;">
-        「我親眼所見都會冤枉別人，何況聽別人片面之詞？」—— 孔子
-      </div>
-      
-      <!-- VIZ 滑桿對比元件 -->
-      <div class="slider-container">
-        <!-- 下層：左側內容 (主觀猜忌) -->
-        <div class="slider-pane left">
-          <div style="width: 42%; text-align: left;">
-            <h3 style="color: var(--accent3); font-size: 0.8em; margin-bottom: 8px;"><i class="fa-solid fa-eye-slash"></i> 🛑 主觀猜忌起是非</h3>
-            <p style="font-size: 0.4em; line-height: 1.6; color: #ddd; margin: 0;">
-              孔子親眼看見顏回用手抓起砂鍋裡的飯吃，懷疑顏回不懂禮貌、私自偷吃。<br><br>
-              若依凡夫心態，可能當場指責，或在心中留下芥蒂，導致是非傳播與信任崩潰。
-            </p>
-          </div>
-        </div>
-        <!-- 上層：右側內容 (調查真相) -->
-        <div class="slider-pane right" id="slider-reveal-pane" style="background-color: #16222f;">
-          <div style="margin-left: auto; width: 42%; text-align: left;">
-            <h3 style="color: var(--accent2); font-size: 0.8em; margin-bottom: 8px;"><i class="fa-solid fa-magnifying-glass"></i> ✨ 調查真相見光明</h3>
-            <p style="font-size: 0.4em; line-height: 1.6; color: #ddd; margin: 0;">
-              原來是房頂掉下髒污到飯裡，顏回怕浪費，才用手抓出髒污自己吃掉。<br><br>
-              了解真相後，孔子感嘆凡夫耳朵容易被扭曲，做判斷前必須先調查，方能止息是非。
-            </p>
-          </div>
-        </div>
-        <!-- 分隔線與滑軌 -->
-        <div class="slider-handle" id="slider-handle" style="left: 100%;">
-          <div class="slider-knob"><i class="fa-solid fa-arrows-left-right"></i></div>
-        </div>
-        <!-- 控制範圍（隱形） -->
-        <input type="range" min="0" max="100" value="100" class="slider-range-input" id="slider-range" />
-      </div>
-      
-      <div style="font-size: 0.36em; color: #888; text-align: center; margin-top: 6px;">
-        💡 左右拉動上方滑桿，體驗從「主觀猜疑」到「調查真相」的思維轉變
-      </div>
-    </section>
+
 
     <!-- 頁10：第五戒：酒戒 -->
     <section data-background-image="assets/images/alcohol_bg.jpg"
