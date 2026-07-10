@@ -339,10 +339,7 @@
 </a>
 
 <div class="reveal">
-  <div class="slides">
-
-    <!-- 頁1：封面 -->
-    <section data-background-image="assets/images/cover_bg.jpg"
+  <div class="slides"><section data-background-image="assets/images/cover_bg.jpg"
              data-background-opacity="0.35"
              data-background-size="cover">
       <div style="margin-top:40px; padding: 0 20px;">
@@ -358,8 +355,7 @@
       </div>
     </section>
 
-    <!-- 頁2：課前破冰 (文字雲) -->
-    <section id="slide-wordcloud"
+<section id="slide-wordcloud"
              data-background-image="assets/images/cover_bg.jpg"
              data-background-opacity="0.1"
              data-background-size="cover">
@@ -412,10 +408,14 @@
           </div>
         </div>
       </div>
+    <div style="margin-top: 15px; text-align: center;" class="print-online-link-container">
+          <a href="https://samcct-bit.github.io/2026ppt-by-notebooklm/five-precepts/index.html#/1" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(255,183,77,0.15); border: 2px solid #ffb74d; border-radius: 30px; color: #ffb74d; font-size: 15px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 15px rgba(255,183,77,0.25); transition: all 0.3s;" onmouseover="this.style.background='#ffb74d'; this.style.color='#0d1117';" onmouseout="this.style.background='rgba(255,183,77,0.15)'; this.style.color='#ffb74d';" class="print-online-link">
+            🔗 點此開啟線上即時文字雲互動
+          </a>
+        </div>
     </section>
 
-    <!-- 頁3：何謂戒律 -->
-    <section>
+<section>
       <h2>何謂戒律：解脫生死的無漏軌道</h2>
       <div class="quote-box" style="margin-bottom:16px;">
         「戒律好比火車的軌道，出軌就很危險。求道是入門，持戒才是行善斷惡的根本。」—— 活佛師尊
@@ -442,8 +442,7 @@
       </div>
     </section>
 
-    <!-- 頁4：第一戒：殺戒 -->
-    <section data-background-image="assets/images/kill_bg.jpg"
+<section data-background-image="assets/images/kill_bg.jpg"
              data-background-opacity="0.15"
              data-background-size="cover">
       <h2>一、殺戒：不殺生而仁愛 (儒家：仁) <span class="badge red">性戒</span></h2>
@@ -474,8 +473,7 @@
       </div>
     </section>
 
-    <!-- 頁5：第二戒：盜戒 -->
-    <section>
+<section>
       <h2>二、盜戒：不偷盜而義立 (儒家：義) <span class="badge red">性戒</span></h2>
       <div class="quote-box blue" style="margin-bottom:12px;">
         「三寶門中好修福，造業也最容易；若貪圖方便，最易漏掉福報。」—— 活佛師尊
@@ -504,8 +502,7 @@
       </div>
     </section>
 
-    <!-- 頁6：第三戒：淫戒 -->
-    <section data-background-image="assets/images/lust_bg.jpg"
+<section data-background-image="assets/images/lust_bg.jpg"
              data-background-opacity="0.15"
              data-background-size="cover">
       <h2>三、淫戒：不邪淫而禮節 (儒家：禮) <span class="badge red">性戒</span></h2>
@@ -536,51 +533,59 @@
       </div>
     </section>
 
-    <!-- 頁7：現代誘惑投票 -->
-    <section>
+<section id="slide-poll">
       <h2>現代修行最大考驗：你的誘惑是哪一個？</h2>
-      <div class="interactive-grid-half">
-        <!-- 左欄：投票 -->
-        <div style="display:flex; flex-direction:column; text-align:left;">
-          <div style="font-size:var(--fs-sm); color:#aaa; margin-bottom:14px;">
-            <i class="fa-solid fa-square-poll-vertical" style="color:var(--accent); margin-right:6px;"></i>
-            選出你認為現代人最難抵擋的誘惑（單選）：
-          </div>
-          <div id="poll-options" style="display:flex; flex-direction:column; gap:8px; position:relative; z-index:100;"></div>
-          <div style="margin-top:16px; font-size:var(--fs-xs); color:#666;">
-            即時投票人數：<strong id="poll-total" style="color:var(--accent);">0</strong> 人
-          </div>
+      <div style="display:flex; flex-direction:column; text-align:left; max-width:800px; margin:0 auto;">
+        <div style="font-size:var(--fs-sm); color:#aaa; margin-bottom:14px;">
+          <i class="fa-solid fa-square-poll-vertical" style="color:var(--accent); margin-right:6px;"></i>
+          選出你認為現代人最難抵擋的誘惑（單選）：
         </div>
-        <!-- 右欄：顏回食粥對比滑桿 -->
-        <div style="display:flex; flex-direction:column;">
-          <div style="font-size:var(--fs-sm); color:#aaa; margin-bottom:10px; text-align:left;">
-            <i class="fa-solid fa-arrows-left-right" style="color:var(--accent2); margin-right:6px;"></i>
-            VIZ 對比：顏回食粥的真義
-          </div>
-          <div class="slider-container" style="flex:1;">
-            <div class="slider-pane left">
-              <div style="font-size:var(--fs-xs); color:var(--accent3); font-weight:700; margin-bottom:10px; text-transform:uppercase; letter-spacing:2px;">❌ 世俗眼光</div>
-              <div style="font-size:var(--fs-sm); color:#ccc; line-height:1.7;">
-                「顏回住破巷陋室，吃的是一簞食、一瓢飲，生活如此貧窮困頓，實在令人同情憐憫！」
-              </div>
-            </div>
-            <div id="slider-reveal-pane" class="slider-pane right">
-              <div style="font-size:var(--fs-xs); color:var(--accent2); font-weight:700; margin-bottom:10px; text-transform:uppercase; letter-spacing:2px;">✅ 孔子眼中</div>
-              <div style="font-size:var(--fs-sm); color:#ccc; line-height:1.7;">
-                「顏回不改其樂！他已突破物質的束縛，心靈中的大富足——道的快樂，遠勝一切享受。」
-              </div>
-            </div>
-            <div id="slider-handle" class="slider-handle">
-              <div class="slider-knob">⟺</div>
-            </div>
-            <input id="slider-range" type="range" min="0" max="100" value="100" class="slider-range-input">
-          </div>
+        <div id="poll-options" style="display:flex; flex-direction:column; gap:8px; position:relative; z-index:100;"></div>
+        <div style="margin-top:16px; font-size:var(--fs-xs); color:#666;">
+          即時投票人數：<strong id="poll-total" style="color:var(--accent);">0</strong> 人
         </div>
       </div>
+    <div style="margin-top: 25px; text-align: center;" class="print-online-link-container">
+          <a href="https://samcct-bit.github.io/2026ppt-by-notebooklm/five-precepts/index.html#/6" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(255,183,77,0.15); border: 2px solid #ffb74d; border-radius: 30px; color: #ffb74d; font-size: 15px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 15px rgba(255,183,77,0.25); transition: all 0.3s;" onmouseover="this.style.background='#ffb74d'; this.style.color='#0d1117';" onmouseout="this.style.background='rgba(255,183,77,0.15)'; this.style.color='#ffb74d';" class="print-online-link">
+            🔗 點此開啟線上即時問卷投票
+          </a>
+        </div>
     </section>
 
-    <!-- 頁8：第四戒：妄語戒 -->
-    <section>
+<section>
+      <h2>對比：顏回食粥的真義</h2>
+      <div style="display:flex; flex-direction:column; max-width:800px; margin:0 auto; height:380px;">
+        <div style="font-size:var(--fs-sm); color:#aaa; margin-bottom:10px; text-align:left;">
+          <i class="fa-solid fa-arrows-left-right" style="color:var(--accent2); margin-right:6px;"></i>
+          左右拖曳滑桿來進行觀點對比：
+        </div>
+        <div class="slider-container" style="flex:1;">
+          <div class="slider-pane left">
+            <div style="font-size:var(--fs-xs); color:var(--accent3); font-weight:700; margin-bottom:10px; text-transform:uppercase; letter-spacing:2px;">❌ 世俗眼光</div>
+            <div style="font-size:var(--fs-sm); color:#ccc; line-height:1.7;">
+              「顏回住破巷陋室，吃的是一簞食、一瓢飲，生活如此貧窮困頓，實在令人同情憐憫！」
+            </div>
+          </div>
+          <div id="slider-reveal-pane" class="slider-pane right">
+            <div style="font-size:var(--fs-xs); color:var(--accent2); font-weight:700; margin-bottom:10px; text-transform:uppercase; letter-spacing:2px;">✅ 孔子眼中</div>
+            <div style="font-size:var(--fs-sm); color:#ccc; line-height:1.7;">
+              「顏回不改其樂！他已突破物質的束縛，心靈中的大富足——道的快樂，遠勝一切享受。」
+            </div>
+          </div>
+          <div id="slider-handle" class="slider-handle">
+            <div class="slider-knob">⟺</div>
+          </div>
+          <input id="slider-range" type="range" min="0" max="100" value="100" class="slider-range-input">
+        </div>
+      </div>
+    <div style="margin-top: 25px; text-align: center;" class="print-online-link-container">
+          <a href="https://samcct-bit.github.io/2026ppt-by-notebooklm/five-precepts/index.html#/7" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(79,195,247,0.15); border: 2px solid #4fc3f7; border-radius: 30px; color: #4fc3f7; font-size: 15px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 15px rgba(79,195,247,0.25); transition: all 0.3s;" onmouseover="this.style.background='#4fc3f7'; this.style.color='#0d1117';" onmouseout="this.style.background='rgba(79,195,247,0.15)'; this.style.color='#4fc3f7';" class="print-online-link">
+            🔗 點此開啟線上拖曳對比互動
+          </a>
+        </div>
+    </section>
+
+<section>
       <h2>四、妄語戒：不妄語而誠信 (儒家：信) <span class="badge red">性戒</span></h2>
       <div class="quote-box" style="margin-bottom:12px;">
         「妄語是一切罪惡的開端。三世不妄語者，舌頭伸出可觸及鼻子。」—— 活佛師尊
@@ -609,8 +614,7 @@
       </div>
     </section>
 
-    <!-- 頁9：第五戒：酒戒 -->
-    <section data-background-image="assets/images/alcohol_bg.jpg"
+<section data-background-image="assets/images/alcohol_bg.jpg"
              data-background-opacity="0.15"
              data-background-size="cover">
       <h2>五、酒戒：不飲酒而調善身心 (儒家：智) <span class="badge purple">遮戒</span></h2>
@@ -641,8 +645,7 @@
       </div>
     </section>
 
-    <!-- 頁10：白陽仙佛聖訓對照 -->
-    <section>
+<section>
       <h2>白陽修辦之戒律證道（五戒總論）</h2>
       <div class="quote-box" style="border-left-color:var(--accent); background:rgba(255,183,77,0.05);">
         「把五戒守好，智慧就會開；把毛病脾氣改掉，善緣就會來。」—— 活佛師尊
@@ -663,8 +666,7 @@
       </div>
     </section>
 
-    <!-- 頁11：結論：五戒與五常 -->
-    <section>
+<section>
       <h2>結論：五戒與五常的圓滿合一</h2>
       <div class="quote-box blue" style="margin-bottom:18px;">
         南海古佛慈訓：「不殺生而仁愛，不偷盜而義立，不邪淫而禮節，不妄語而誠信，不飲酒而調善身心。」
@@ -695,8 +697,7 @@
       </div>
     </section>
 
-    <!-- 頁12：封底 -->
-    <section data-background-image="assets/images/cover_bg.jpg"
+<section data-background-image="assets/images/cover_bg.jpg"
              data-background-opacity="0.38"
              data-background-size="cover">
       <div style="margin-top:40px; padding:0 20px;">
@@ -710,9 +711,7 @@
           理可頓悟 · 事須漸修
         </div>
       </div>
-    </section>
-
-  </div>
+    </section></div>
 </div>
 
 <!-- Reveal.js -->
