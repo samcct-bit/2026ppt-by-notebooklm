@@ -180,6 +180,47 @@
       border-color: #ffb74d;
       color: #ffb74d;
     }
+  
+    /* === 手機端文字雲與投票優化 2026-07-10 === */
+    .interactive-grid {
+      display: grid !important;
+      grid-template-columns: 280px 1fr !important;
+      gap: 16px !important;
+      height: 420px !important;
+    }
+    .interactive-grid-half {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 20px !important;
+      height: 420px !important;
+    }
+    .mobile-large-input input,
+    .mobile-large-input button,
+    .poll-btn,
+    button[id^="poll-btn-"],
+    #wc-input,
+    #wc-btn {
+      font-size: 16px !important; /* 防止 iOS Safari 自動焦距縮放 */
+      padding: 10px 12px !important;
+      min-height: 44px; /* 符合 Apple Tap Target 大小規範 */
+    }
+    @media (max-width: 700px) {
+      .interactive-grid,
+      .interactive-grid-half {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto auto !important;
+        height: auto !important;
+        gap: 10px !important;
+      }
+      /* 手機版文字雲畫布與對比滑桿高度限制以免擠壓 */
+      #wc-canvas {
+        height: 180px !important;
+      }
+      .slider-container {
+        height: 220px !important;
+      }
+    }
+
   </style>
 </head>
 <a href="../" class="back-btn">
@@ -209,7 +250,7 @@
              data-background-opacity="0.08"
              data-background-size="cover">
       <h2>提到「父母與孝順」，你聯想到什麼？</h2>
-      <div style="display: grid; grid-template-columns: 260px 1fr; gap: 20px; height: 450px;">
+      <div class="interactive-grid">
         <div style="display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
           <div class="card" style="padding: 16px; background: rgba(255,255,255,0.02);">
             <div class="card-title" style="color: var(--accent); font-size: 0.52em;"><i class="fa-solid fa-heart"></i> 感恩源頭</div>
@@ -348,7 +389,7 @@
              data-background-size="cover">
       <h2>行孝挑戰大調查</h2>
       
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; height: 430px;">
+      <div class="interactive-grid-half">
         <!-- 左側互動投票 -->
         <div class="card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(232, 100, 58, 0.25);">
           <div style="font-size: 0.52em; color: var(--accent); font-weight: 700; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">

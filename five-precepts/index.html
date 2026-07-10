@@ -288,6 +288,47 @@
       margin: 22px auto;
       border-radius: 2px;
     }
+  
+    /* === 手機端文字雲與投票優化 2026-07-10 === */
+    .interactive-grid {
+      display: grid !important;
+      grid-template-columns: 280px 1fr !important;
+      gap: 16px !important;
+      height: 420px !important;
+    }
+    .interactive-grid-half {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 20px !important;
+      height: 420px !important;
+    }
+    .mobile-large-input input,
+    .mobile-large-input button,
+    .poll-btn,
+    button[id^="poll-btn-"],
+    #wc-input,
+    #wc-btn {
+      font-size: 16px !important; /* 防止 iOS Safari 自動焦距縮放 */
+      padding: 10px 12px !important;
+      min-height: 44px; /* 符合 Apple Tap Target 大小規範 */
+    }
+    @media (max-width: 700px) {
+      .interactive-grid,
+      .interactive-grid-half {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto auto !important;
+        height: auto !important;
+        gap: 10px !important;
+      }
+      /* 手機版文字雲畫布與對比滑桿高度限制以免擠壓 */
+      #wc-canvas {
+        height: 180px !important;
+      }
+      .slider-container {
+        height: 220px !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -324,7 +365,7 @@
              data-background-size="cover">
       <h2>「戒律」對你而言是什麼？</h2>
 
-      <div style="display:grid; grid-template-columns:clamp(200px,28%,280px) 1fr; gap:16px; height:420px;">
+      <div class="interactive-grid">
         <!-- 左欄 -->
         <div style="display:flex; flex-direction:column; gap:12px; text-align:left;">
           <div class="card" style="flex:1; padding:16px;">
@@ -498,7 +539,7 @@
     <!-- 頁7：現代誘惑投票 -->
     <section>
       <h2>現代修行最大考驗：你的誘惑是哪一個？</h2>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; height:420px;">
+      <div class="interactive-grid-half">
         <!-- 左欄：投票 -->
         <div style="display:flex; flex-direction:column; text-align:left;">
           <div style="font-size:var(--fs-sm); color:#aaa; margin-bottom:14px;">
