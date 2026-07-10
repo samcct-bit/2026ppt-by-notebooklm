@@ -771,5 +771,135 @@
     }
   });
 </script>
+
+<!-- 行動端專用非縮放互動控制台 (2026-07-10) -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const isMobile = window.innerWidth <= 700;
+  if (!isMobile) return;
+
+  // 1. 建立文字雲行動端專用浮動輸入條
+  const wcOverlay = document.createElement("div");
+  wcOverlay.id = "mobile-wc-overlay";
+  wcOverlay.style.cssText = "display: none; position: fixed; bottom: 20px; left: 16px; right: 16px; background: rgba(15,20,35,0.96); border: 1px solid rgba(255,183,77,0.35); border-radius: 12px; padding: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); z-index: 99999; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); font-family: 'Microsoft JhengHei', sans-serif;";
+  wcOverlay.innerHTML = `
+    <div style="font-size: 14px; color: #ffb74d; font-weight: bold; margin-bottom: 8px; text-align: left;">提交您的直覺詞彙 (手機專用)：</div>
+    <div style="display: flex; gap: 8px;">
+      <input id="mobile-wc-input" type="text" placeholder="輸入 2-4 字詞彙..." style="flex: 1; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: #fff; font-size: 16px; outline: none; box-sizing: border-box;" />
+      <button id="mobile-wc-btn" style="padding: 0 20px; background: #ffb74d; color: #0d1117; border: none; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer; height: 46px;">送出</button>
+    </div>
+  `;
+  document.body.appendChild(wcOverlay);
+
+  // 綁定送出按鈕代理點擊
+  const mobBtn = document.getElementById("mobile-wc-btn");
+  const mobInput = document.getElementById("mobile-wc-input");
+  if (mobBtn && mobInput) {
+    mobBtn.addEventListener("click", () => {
+      const word = mobInput.value.trim();
+      if (!word) return;
+      const origInput = document.getElementById("wc-input");
+      const origBtn = document.getElementById("wc-btn");
+      if (origInput && origBtn) {
+        origInput.value = word;
+        origBtn.click();
+        mobInput.value = "";
+        // 點擊後收合鍵盤
+        mobInput.blur();
+      }
+    });
+    // 阻斷 RevealJS 的按鍵攔截
+    ['keydown', 'keyup', 'keypress'].forEach(ev => {
+      mobInput.addEventListener(ev, e => e.stopPropagation());
+    });
+  }
+
+  // 2. 建立投票專用行動端浮動開關
+  const pollOverlay = document.createElement("div");
+  pollOverlay.id = "mobile-poll-overlay";
+  pollOverlay.style.cssText = "display: none; position: fixed; bottom: 20px; left: 16px; right: 16px; z-index: 99999; font-family: 'Microsoft JhengHei', sans-serif;";
+  pollOverlay.innerHTML = `
+    <button id="mobile-poll-open-btn" style="width: 100%; padding: 14px; background: #ffb74d; color: #0d1117; border: none; border-radius: 12px; font-weight: bold; font-size: 16px; cursor: pointer; box-shadow: 0 6px 20px rgba(255,183,77,0.35);">
+      🗳️ 開啟即時投票控制台
+    </button>
+  `;
+  document.body.appendChild(pollOverlay);
+
+  // 建立投票彈出視窗 (Modal)
+  const pollModal = document.createElement("div");
+  pollModal.id = "mobile-poll-modal";
+  pollModal.style.cssText = "display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(13,17,23,0.98); z-index: 100000; padding: 24px; box-sizing: border-box; overflow-y: auto; font-family: 'Microsoft JhengHei', sans-serif; color: #fff;";
+  pollModal.innerHTML = `
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 24px;">
+      <h3 style="margin:0; font-size:18px; color:#ffb74d;">即時投票控制台</h3>
+      <button id="mobile-poll-close-btn" style="background:transparent; border:none; color:#aaa; font-size:28px; cursor:pointer;">&times;</button>
+    </div>
+    <div id="mobile-poll-list" style="display:flex; flex-direction:column; gap:14px;"></div>
+  `;
+  document.body.appendChild(pollModal);
+
+  const openBtn = document.getElementById("mobile-poll-open-btn");
+  const closeBtn = document.getElementById("mobile-poll-close-btn");
+  if (openBtn && closeBtn) {
+    openBtn.addEventListener("click", () => {
+      const pollList = document.getElementById("mobile-poll-list");
+      pollList.innerHTML = ""; // 清空
+      
+      const origButtons = document.querySelectorAll(".reveal .present .poll-btn, .reveal .present button[id^='poll-btn-']");
+      if (origButtons.length === 0) {
+        pollList.innerHTML = "<p style='color:#888; text-align:center;'>目前沒有可用的投票選項</p>";
+      }
+      
+      origButtons.forEach((btn) => {
+        const clone = btn.cloneNode(true);
+        // 設定手機大尺寸樣式
+        clone.style.cssText = "width: 100%; padding: 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; color: #fff; text-align: left; font-size: 16px; margin-bottom: 8px; cursor: pointer; display: block; box-sizing: border-box;";
+        
+        // 調整 Check 圖示
+        const check = clone.querySelector("span[id^='poll-check-']");
+        if (check) {
+          check.style.width = "20px";
+          check.style.height = "20px";
+          check.style.fontSize = "12px";
+        }
+        
+        clone.addEventListener("click", () => {
+          btn.click(); // 觸發原始投影片按鈕
+          setTimeout(() => {
+            pollModal.style.display = "none";
+          }, 300);
+        });
+        pollList.appendChild(clone);
+      });
+      pollModal.style.display = "block";
+    });
+    
+    closeBtn.addEventListener("click", () => {
+      pollModal.style.display = "none";
+    });
+  }
+
+  // 監聽簡報頁面切換以開啟或隱藏控制台
+  if (typeof Reveal !== 'undefined') {
+    Reveal.on("slidechanged", event => {
+      const isWc = event.currentSlide?.id === "slide-wordcloud" || event.currentSlide?.querySelector("#wc-canvas");
+      const isPoll = event.currentSlide?.id === "slide-poll" || event.currentSlide?.querySelector("#poll-options");
+      
+      wcOverlay.style.display = isWc ? "block" : "none";
+      pollOverlay.style.display = isPoll ? "block" : "none";
+      pollModal.style.display = "none";
+    });
+
+    Reveal.on("ready", event => {
+      const isWc = event.currentSlide?.id === "slide-wordcloud" || event.currentSlide?.querySelector("#wc-canvas");
+      const isPoll = event.currentSlide?.id === "slide-poll" || event.currentSlide?.querySelector("#poll-options");
+      
+      wcOverlay.style.display = isWc ? "block" : "none";
+      pollOverlay.style.display = isPoll ? "block" : "none";
+    });
+  }
+});
+</script>
+
 </body>
 </html>
