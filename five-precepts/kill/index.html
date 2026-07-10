@@ -2,14 +2,14 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>五戒專題：不殺生而仁愛</title>
   <meta name="description" content="一貫道五戒專題課件 - 殺生因果與慈悲仁愛之道">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/night.css" id="theme">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/night.css" id="theme">
 
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -23,6 +23,10 @@
       --bg-dark: #0d1117;
       --card-bg: rgba(255, 255, 255, 0.03);
       --card-border: rgba(255, 255, 255, 0.06);
+      --fs-xs:   clamp(11px, 1.5vw, 13px);
+      --fs-sm:   clamp(12px, 1.8vw, 14px);
+      --fs-base: clamp(14px, 2vw, 16px);
+      --fs-md:   clamp(15px, 2.2vw, 18px);
     }
     body {
       font-family: 'Noto Sans TC', sans-serif;
@@ -31,6 +35,7 @@
     }
     .reveal {
       font-family: 'Noto Sans TC', sans-serif;
+      font-size: 24px;
     }
     .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
       font-family: 'Outfit', 'Noto Sans TC', sans-serif;
@@ -39,14 +44,14 @@
       text-shadow: 0 0 15px rgba(232, 100, 58, 0.2);
     }
     .reveal h1 {
-      font-size: 2.1em;
+      font-size: clamp(22px, 4vw, 46px) !important;
       background: linear-gradient(135deg, #fff 30%, var(--accent-kill) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin-bottom: 20px;
     }
     .reveal h2 {
-      font-size: 1.45em;
+      font-size: clamp(17px, 3vw, 32px) !important;
       color: #ffffff;
       border-bottom: 2px solid rgba(232, 100, 58, 0.1);
       padding-bottom: 8px;
@@ -73,13 +78,14 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 0.52em;
+      font-size: var(--fs-md) !important;
+      line-height: 1.3;
     }
     .card-content {
-      color: #ccc;
-      line-height: 1.5;
+      color: #cdd5e0 !important;
+      line-height: 1.75 !important;
       text-align: left;
-      font-size: 0.36em;
+      font-size: var(--fs-sm) !important;
     }
     .quote-box {
       border-left: 5px solid var(--accent-kill);
@@ -89,7 +95,8 @@
       text-align: left;
       font-style: italic;
       color: #eee;
-      font-size: 0.8em;
+      font-size: var(--fs-base) !important;
+      line-height: 1.8 !important;
       margin-bottom: 15px;
     }
     .grid-2 {
@@ -121,20 +128,55 @@
       50% { transform: scale(1.05); opacity: 1; text-shadow: 0 0 15px var(--accent-kill); }
       100% { transform: scale(1); opacity: 0.9; }
     }
+
+    @media (max-width:700px) {
+      .grid-3 { grid-template-columns: 1fr !important; }
+      .grid-2 { grid-template-columns: 1fr !important; }
+    }
+    .back-btn {
+      position: fixed;
+      bottom: 24px; left: 24px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: rgba(15,20,35,0.88);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 30px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Noto Sans TC', sans-serif;
+      text-decoration: none;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .back-btn:hover {
+      background: rgba(255,183,77,0.2);
+      border-color: #ffb74d;
+      color: #ffb74d;
+    }
   </style>
 </head>
 <body>
+
+<a href="../" class="back-btn">
+  &#9001; 返回五戒總覽
+</a>
 
 <div class="reveal">
   <div class="slides">
 
     <!-- 頁1：封面 -->
-    <section data-background-image="../assets/images/kill_bg.jpg"
-             data-background-opacity="0.35"
+    <section data-background-image="assets/images/kill_cover.jpg"
+             data-background-opacity="0.3"
              data-background-size="cover">
       <div style="margin-top: 50px;">
         <span style="color: var(--accent-kill); font-size: 0.7em; font-weight: 800; letter-spacing: 4px;" class="pulse-text">五戒專題研討 • 第一戒</span>
-        <h1 style="margin-top: 15px; font-size: 2.1em; font-weight: 900; letter-spacing: 2px;">不殺生而仁愛</h1>
+        <h1>不殺生而仁愛</h1>
         <div style="width: 80px; height: 3px; background: var(--accent-kill); margin: 25px auto;"></div>
         <p style="font-size: 0.52em; color: #aaa; letter-spacing: 1px; max-width: 650px; margin: 0 auto; line-height: 1.6;">
           「非僅親手奪取生命才算犯殺，起心動念與助緣之處不注意，皆屬助殺之業。」
@@ -144,15 +186,15 @@
 
     <!-- 頁2：課前破冰 (文字雲) -->
     <section id="slide-wordcloud"
-             data-background-image="../assets/images/kill_bg.jpg"
+             data-background-image="assets/images/kill_cover.jpg"
              data-background-opacity="0.08"
              data-background-size="cover">
       <h2>聽到「生命與慈悲」，你聯想到什麼？</h2>
       <div style="display: grid; grid-template-columns: 260px 1fr; gap: 20px; height: 450px;">
         <div style="display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
           <div class="card" style="padding: 16px; background: rgba(255,255,255,0.02);">
-            <div class="card-title" style="color: var(--accent-kill); font-size: 0.52em;"><i class="fa-solid fa-heart"></i> 大悲根本</div>
-            <div class="card-content" style="font-size: 0.36em; line-height: 1.5;">
+            <div class="card-title" style="color: var(--accent-kill);"><i class="fa-solid fa-heart"></i> 大悲根本</div>
+            <div class="card-content">
               不殺生是仁心的起點。請送出您直覺想到的詞彙（如：茹素、護生、尊重、同理心...），讓我們共同築起慈悲圖譜。
             </div>
           </div>
@@ -348,7 +390,7 @@
       </div>
     </section>
 
-        <!-- 頁8-2：仙佛聖訓證道 -->
+    <!-- 頁8-2：仙佛聖訓證道 -->
     <section>
       <h2>仙佛聖訓證道：不殺生而仁愛</h2>
       <div class="quote-box" style="border-left-color: var(--accent-kill); background: rgba(232, 100, 58, 0.04);">
@@ -356,19 +398,15 @@
       </div>
       <div class="grid-2">
         <div class="card" style="border-color: rgba(232, 100, 58, 0.25);">
-          <div class="card-title" style="color: var(--accent-kill); font-size: 0.52em;">
-            <i class="fa-solid fa-heart"></i> 濟公活佛慈語
-          </div>
-          <div class="card-content" style="font-size: 0.35em; line-height: 1.6;">
+          <div class="card-title" style="color: var(--accent-kill);"><i class="fa-solid fa-heart"></i> 濟公活佛慈語</div>
+          <div class="card-content">
             「有的人小時候有殺過雞，你是不是要懺悔殺生害命？要啊！你有沒有去過田裡耕田？你不知道踩死多少隻小魚，也不知道，那個田螺被人家踩死了，那也是生命啊！那叫殺生害命...在老蓮前五百叩首懺悔！」
             <br><span style="color: var(--accent); font-weight: bold; font-size: 0.85em;">— [11仙佛聖訓談省思-13頁.pdf 第10頁]</span>
           </div>
         </div>
         <div class="card" style="border-color: rgba(232, 100, 58, 0.25);">
-          <div class="card-title" style="color: var(--accent-kill); font-size: 0.52em;">
-            <i class="fa-solid fa-circle-exclamation"></i> 仙佛慈訓（止殺細行）
-          </div>
-          <div class="card-content" style="font-size: 0.35em; line-height: 1.6;">
+          <div class="card-title" style="color: var(--accent-kill);"><i class="fa-solid fa-circle-exclamation"></i> 仙佛慈訓（止殺細行）</div>
+          <div class="card-content">
             「止殺戒；就是不吃動物肉、不殺動物...自己清口，但卻買動物肉，給孩子吃，或為了要孝順父母親，就買動物肉給父母親吃...這種行為、想法也是不可以...自己清口，但卻買動物肉，給人造殺業，這就不夠慈悲。」
             <br><span style="color: var(--accent); font-weight: bold; font-size: 0.85em;">— [77佛規戒律--仙佛慈訓-17頁.pdf 第17頁]</span>
           </div>
@@ -381,19 +419,15 @@
       <h2>三天主考與諸佛菩薩談戒殺</h2>
       <div class="grid-2">
         <div class="card" style="border-color: rgba(129, 199, 132, 0.25);">
-          <div class="card-title" style="color: var(--accent-green); font-size: 0.52em;">
-            <i class="fa-solid fa-triangle-exclamation"></i> 三天主考慈訓
-          </div>
-          <div class="card-content" style="font-size: 0.35em; line-height: 1.6;">
+          <div class="card-title" style="color: var(--accent-green);"><i class="fa-solid fa-triangle-exclamation"></i> 三天主考慈訓</div>
+          <div class="card-content">
             「懺悔『殺』生未戒：有心或無意中傷害物命，雖不至殺人放火，但侵害干擾自身之蟲蟻鳥獸，以殘忍手段對付之。」
             <br><span style="color: var(--accent); font-weight: bold; font-size: 0.85em;">— [11仙佛聖訓談省思-13頁.pdf 第11頁]</span>
           </div>
         </div>
         <div class="card" style="border-color: rgba(129, 199, 132, 0.25);">
-          <div class="card-title" style="color: var(--accent-green); font-size: 0.52em;">
-            <i class="fa-solid fa-seedling"></i> 諸佛菩薩慈語
-          </div>
-          <div class="card-content" style="font-size: 0.35em; line-height: 1.6;">
+          <div class="card-title" style="color: var(--accent-green);"><i class="fa-solid fa-seedling"></i> 諸佛菩薩慈語</div>
+          <div class="card-content">
             「所謂的福德，即是不殺生、不食肉，所累積來的福報；有留福德，給後代子孫之人，後代的子孫，大部分都比較有智慧，也比較賢孝，善根比較顯現。」
             <br><span style="color: var(--accent); font-weight: bold; font-size: 0.85em;">— [66人才修辦條例-46頁.pdf 第29頁]</span>
           </div>
@@ -401,9 +435,9 @@
       </div>
     </section>
 
-<!-- 頁9：即時問卷 -->
+    <!-- 頁9：即時問卷 -->
     <section id="slide-poll"
-             data-background-image="../assets/images/kill_bg.jpg"
+             data-background-image="assets/images/kill_cover.jpg"
              data-background-opacity="0.08"
              data-background-size="cover">
       <h2>生活微細殺業大調查</h2>
@@ -435,8 +469,8 @@
     </section>
 
     <!-- 頁10：總結與勉勵 -->
-    <section data-background-image="../assets/images/kill_bg.jpg"
-             data-background-opacity="0.35"
+    <section data-background-image="assets/images/kill_cover.jpg"
+             data-background-opacity="0.3"
              data-background-size="cover">
       <div style="margin-top: 50px;">
         <h2 style="border:none; margin-bottom: 10px; font-size: 1.6em;">清口茹素 • 萬物同體</h2>
@@ -459,7 +493,7 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
 <script>
   Reveal.initialize({
     hash: true,
@@ -469,7 +503,9 @@
     center: true,
     progress: true,
     controls: true,
-    slideNumber: 'c/t'
+    slideNumber: 'c/t',
+    touch: true,
+    controlsLayout: 'bottom-right',
   });
 </script>
 

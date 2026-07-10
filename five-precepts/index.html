@@ -2,34 +2,44 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>活佛師尊啟示-五戒現代心法</title>
+  <title>活佛師尊啟示｜五戒之真義與現代心法</title>
   <meta name="description" content="一貫道五戒課件簡報 - 降伏自我，解脫生死的修行軌道">
 
-  <!-- Reveal.js 樣式引入 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/night.css" id="theme">
+  <!-- Reveal.js -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/night.css" id="theme">
 
-  <!-- Google Fonts & FontAwesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- WordCloud2.js 引入 -->
+  <!-- WordCloud2.js -->
   <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.2.2/src/wordcloud2.min.js"></script>
 
-  <!-- 客製化暗霓虹美學樣式 -->
   <style>
+    /* ============================================================
+       CSS 變數與全域
+    ============================================================ */
     :root {
-      --accent:  #ffb74d;   /* 溫暖金黃 (主強調) */
-      --accent2: #81c784;   /* 翡翠綠 (智與解脫) */
-      --accent3: #e8643a;   /* 橘紅 (殺戒與警示) */
-      --accent4: #ce93d8;   /* 亮紫 (自律防線) */
-      --accent5: #4fc3f7;   /* 水藍 (清口真義) */
-      --bg-dark: #0d1117;
-      --card-bg: rgba(255, 255, 255, 0.03);
-      --card-border: rgba(255, 255, 255, 0.06);
+      --accent:   #ffb74d;  /* 溫暖金黃 (主強調) */
+      --accent2:  #81c784;  /* 翡翠綠 (解脫/酒戒) */
+      --accent3:  #e8643a;  /* 橘紅 (殺戒與警示) */
+      --accent4:  #ce93d8;  /* 亮紫 (淫戒/自律) */
+      --accent5:  #4fc3f7;  /* 水藍 (盜戒/清口) */
+      --bg-dark:  #0d1117;
+      --card-bg:  rgba(255,255,255,0.04);
+      --card-border: rgba(255,255,255,0.09);
+      --text-card: #cdd5e0;
+
+      /* 字型尺寸（固定px，防止Reveal.js縮放破壞） */
+      --fs-xs:   clamp(11px, 1.5vw, 13px);
+      --fs-sm:   clamp(12px, 1.8vw, 14px);
+      --fs-base: clamp(14px, 2vw, 16px);
+      --fs-md:   clamp(15px, 2.2vw, 18px);
+      --fs-lg:   clamp(17px, 2.5vw, 21px);
     }
 
     body {
@@ -40,134 +50,177 @@
 
     .reveal {
       font-family: 'Noto Sans TC', sans-serif;
+      font-size: 24px; /* 基礎字型 - Reveal.js 會依視窗縮放此值 */
     }
 
-    /* 標題與文字微調 */
+    /* 標題 */
     .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
-      font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+      font-family: 'Noto Serif TC', 'Outfit', 'Noto Sans TC', sans-serif;
       font-weight: 700;
       text-transform: none;
-      text-shadow: 0 0 15px rgba(255, 183, 77, 0.2);
+      letter-spacing: 0.02em;
     }
 
     .reveal h1 {
-      font-size: 2.1em;
+      font-size: clamp(24px, 4vw, 46px);
+      font-weight: 900;
       background: linear-gradient(135deg, #fff 30%, var(--accent) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 20px;
+      background-clip: text;
+      text-shadow: none;
+      margin-bottom: 16px;
+      line-height: 1.25;
     }
 
     .reveal h2 {
-      font-size: 1.45em;
-      color: #ffffff;
-      border-bottom: 2px solid rgba(255, 183, 77, 0.1);
-      padding-bottom: 8px;
-      margin-bottom: 20px;
+      font-size: clamp(18px, 3vw, 32px);
+      color: #fff;
+      border-bottom: 2px solid rgba(255,183,77,0.15);
+      padding-bottom: 10px;
+      margin-bottom: 18px;
+      text-shadow: 0 0 20px rgba(255,183,77,0.1);
     }
 
-    /* 卡片式元件設計 */
+    /* ── 卡片元件 ── */
     .card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 18px;
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.4);
       backdrop-filter: blur(8px);
-      transition: all 0.3s ease;
+      -webkit-backdrop-filter: blur(8px);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
       display: flex;
       flex-direction: column;
     }
 
     .card:hover {
-      border-color: rgba(255, 183, 77, 0.25);
-      box-shadow: 0 8px 32px 0 rgba(255, 183, 77, 0.05);
+      border-color: rgba(255,183,77,0.22);
+      box-shadow: 0 8px 32px rgba(255,183,77,0.06);
     }
 
     .card-title {
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 0.52em;
+      gap: 8px;
+      font-size: var(--fs-md);
+      line-height: 1.3;
     }
 
     .card-content {
-      color: #ccc;
-      line-height: 1.5;
-      text-align: left;
-      font-size: 0.36em;
+      color: var(--text-card);
+      line-height: 1.75;
+      font-size: var(--fs-sm);
     }
 
-    /* 警示與金句方塊 */
+    /* ── 引用框 ── */
     .quote-box {
-      border-left: 5px solid var(--accent);
-      background: rgba(255, 183, 77, 0.04);
-      padding: 12px 18px;
-      border-radius: 0 8px 8px 0;
-      text-align: left;
+      border-left: 4px solid var(--accent);
+      background: rgba(255,183,77,0.05);
+      padding: 14px 20px;
+      border-radius: 0 10px 10px 0;
       font-style: italic;
-      color: #eee;
-      font-size: 0.8em;
-      margin-bottom: 15px;
+      color: #e8eaf0;
+      font-size: var(--fs-base);
+      line-height: 1.75;
+      margin-bottom: 16px;
+      text-align: left;
     }
 
-    .quote-box.blue {
-      border-left-color: var(--accent5);
-      background: rgba(79, 195, 247, 0.04);
-    }
-    
-    .quote-box.purple {
-      border-left-color: var(--accent4);
-      background: rgba(206, 147, 216, 0.04);
+    .quote-box.blue   { border-left-color: var(--accent5); background: rgba(79,195,247,0.05); }
+    .quote-box.purple { border-left-color: var(--accent4); background: rgba(206,147,216,0.05); }
+    .quote-box.green  { border-left-color: var(--accent2); background: rgba(129,199,132,0.05); }
+    .quote-box.red    { border-left-color: var(--accent3); background: rgba(232,100,58,0.05); }
+
+    /* ── 網格排版 ── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+    /* 手機：三欄 → 單欄 */
+    @media (max-width: 700px) {
+      .grid-3 { grid-template-columns: 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
     }
 
-    .quote-box.green {
-      border-left-color: var(--accent2);
-      background: rgba(129, 199, 132, 0.04);
+    /* ── 標章 ── */
+    .badge {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 5px;
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      vertical-align: middle;
+      margin-left: 8px;
+    }
+    .badge.red    { background: var(--accent3); color: #fff; }
+    .badge.purple { background: var(--accent4); color: #fff; }
+    .badge.blue   { background: var(--accent5); color: #0d1117; }
+    .badge.green  { background: var(--accent2); color: #0d1117; }
+
+    /* ── 子頁導航按鈕 ── */
+    .nav-to-sub {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      color: #fff;
+      font-size: var(--fs-sm);
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 14px;
     }
 
-    /* VIZ 滑桿對比元件 */
+    /* ── 投票元件 ── */
+    .poll-btn {
+      width: 100%;
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      color: #fff;
+      font-size: var(--fs-sm);
+      cursor: pointer;
+      font-family: inherit;
+      text-align: left;
+      outline: none;
+      transition: all 0.25s ease;
+      position: relative;
+      z-index: 100;
+      margin-bottom: 6px;
+    }
+
+    /* ── 文字雲滑桿 ── */
     .slider-container {
       position: relative;
       width: 100%;
-      height: 380px;
-      border-radius: 12px;
+      height: 340px;
+      border-radius: 14px;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
     }
 
     .slider-pane {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      padding: 30px 40px;
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      padding: 28px 36px;
       box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      display: flex; flex-direction: column; justify-content: center;
       text-align: left;
     }
 
-    .slider-pane.left {
-      background: rgba(232, 100, 58, 0.05);
-    }
-
-    .slider-pane.right {
-      background: rgba(129, 199, 132, 0.1);
-      clip-path: inset(0 0 0 100%);
-    }
+    .slider-pane.left  { background: rgba(232,100,58,0.05); }
+    .slider-pane.right { background: rgba(129,199,132,0.1); clip-path: inset(0 0 0 100%); }
 
     .slider-handle {
-      position: absolute;
-      top: 0;
-      left: 100%;
-      width: 4px;
-      height: 100%;
+      position: absolute; top: 0; left: 100%;
+      width: 3px; height: 100%;
       background: linear-gradient(to bottom, transparent, var(--accent2), transparent);
       box-shadow: 0 0 10px var(--accent2);
       pointer-events: none;
@@ -175,170 +228,172 @@
     }
 
     .slider-knob {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 28px;
-      height: 28px;
-      background: var(--accent2);
-      border-radius: 50%;
+      position: absolute; top: 50%; left: 50%;
+      width: 28px; height: 28px;
+      background: var(--accent2); border-radius: 50%;
       transform: translate(-50%, -50%);
-      box-shadow: 0 0 15px var(--accent2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #0d1117;
-      font-size: 10px;
+      box-shadow: 0 0 14px var(--accent2);
+      display: flex; align-items: center; justify-content: center;
+      color: #0d1117; font-size: 10px;
     }
 
     .slider-range-input {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      cursor: ew-resize;
-      z-index: 10;
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      opacity: 0; cursor: ew-resize; z-index: 10;
     }
 
-    /* 排版輔助 */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 12px;
-    }
-
-    /* 醒目小標章 */
-    .badge {
-      display: inline-block;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 0.35em;
-      font-weight: 700;
-      vertical-align: middle;
-      margin-left: 6px;
-    }
-    .badge.red { background: var(--accent3); color: #fff; }
-    .badge.purple { background: var(--accent4); color: #fff; }
-    .badge.blue { background: var(--accent5); color: #0d1117; }
-    .badge.green { background: var(--accent2); color: #0d1117; }
-
-    /* 動畫效果 */
+    /* ── 動畫 ── */
     @keyframes pulse {
-      0% { transform: scale(1); opacity: 0.9; }
-      50% { transform: scale(1.05); opacity: 1; text-shadow: 0 0 15px var(--accent); }
-      100% { transform: scale(1); opacity: 0.9; }
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.04); opacity: 1; text-shadow: 0 0 12px var(--accent); }
+    }
+    .pulse-text { animation: pulse 2.5s ease-in-out infinite; }
+
+    @keyframes live-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+    /* ── 浮動返回按鈕 ── */
+    .back-btn {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: rgba(15,20,35,0.88);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 30px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
     }
 
-    .pulse-text {
-      animation: pulse 2s infinite ease-in-out;
+    .back-btn:hover {
+      background: rgba(255,183,77,0.2);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── 封面輔助 ── */
+    .cover-accent-line {
+      width: 80px; height: 3px;
+      background: var(--accent);
+      margin: 22px auto;
+      border-radius: 2px;
     }
   </style>
 </head>
 <body>
+
+<!-- 浮動返回按鈕 -->
+<a href="../" class="back-btn">
+  <i class="fa-solid fa-chevron-left"></i> 返回導航
+</a>
 
 <div class="reveal">
   <div class="slides">
 
     <!-- 頁1：封面 -->
     <section data-background-image="assets/images/cover_bg.jpg"
-             data-background-opacity="0.4"
+             data-background-opacity="0.35"
              data-background-size="cover">
-      <div style="margin-top: 50px;">
-        <span style="color: var(--accent); font-size: 0.7em; font-weight: 800; letter-spacing: 4px; text-transform: uppercase;" class="pulse-text">活佛師尊啟示</span>
-        <h1 style="margin-top: 15px; font-size: 2.1em; font-weight: 900; letter-spacing: 2px;">五戒之真義與現代心法</h1>
-        <div style="width: 80px; height: 3px; background: var(--accent); margin: 25px auto;"></div>
-        <p style="font-size: 0.52em; color: #aaa; letter-spacing: 1px; max-width: 650px; margin: 0 auto; line-height: 1.6;">
+      <div style="margin-top:40px; padding: 0 20px;">
+        <span style="color:var(--accent); font-size:clamp(12px,2vw,15px); font-weight:800; letter-spacing:4px; text-transform:uppercase;" class="pulse-text">活佛師尊啟示</span>
+        <h1 style="margin-top:16px;">五戒之真義<br>與現代心法</h1>
+        <div class="cover-accent-line"></div>
+        <p style="font-size:var(--fs-base); color:#bbb; letter-spacing:1px; max-width:600px; margin:0 auto; line-height:1.8;">
           「持戒即是降伏自己，走向無上菩薩道。<br>它不是前行的束縛，而是解脫生死的保護軌道。」
         </p>
+        <div style="margin-top:28px; font-size:var(--fs-xs); color:rgba(255,183,77,0.6); letter-spacing:2px;">
+          殺 · 盜 · 淫 · 妄 · 酒
+        </div>
       </div>
     </section>
 
     <!-- 頁2：課前破冰 (文字雲) -->
     <section id="slide-wordcloud"
              data-background-image="assets/images/cover_bg.jpg"
-             data-background-opacity="0.12"
+             data-background-opacity="0.1"
              data-background-size="cover">
       <h2>「戒律」對你而言是什麼？</h2>
-      
-      <div style="display: grid; grid-template-columns: 260px 1fr; gap: 20px; height: 450px;">
-        <!-- 左欄：說明與輸入 -->
-        <div style="display: flex; flex-direction: column; justify-content: space-between; text-align: left;">
-          <div class="card" style="padding: 16px; background: rgba(255,255,255,0.02);">
-            <div class="card-title" style="color: var(--accent); font-size: 0.52em;"><i class="fa-solid fa-compass"></i> 心靈直覺</div>
-            <div class="card-content" style="font-size: 0.36em; line-height: 1.5;">
-              聽到「戒律」這兩個字，你腦海中浮現的第一個感受是什麼？是規矩、限制，還是安全、平靜？
-              <br><br>
-              請提交一個 2-4 字的詞彙，讓我們一起看看大家的集體意識心境。
+
+      <div style="display:grid; grid-template-columns:clamp(200px,28%,280px) 1fr; gap:16px; height:420px;">
+        <!-- 左欄 -->
+        <div style="display:flex; flex-direction:column; gap:12px; text-align:left;">
+          <div class="card" style="flex:1; padding:16px;">
+            <div class="card-title" style="color:var(--accent); font-size:var(--fs-md);">
+              <i class="fa-solid fa-compass"></i> 心靈直覺
+            </div>
+            <div class="card-content">
+              聽到「戒律」這兩個字，你腦海中浮現的第一個感受是什麼？是規矩、限制，還是安全、平靜？<br><br>
+              請提交一個 2–4 字的詞彙。
             </div>
           </div>
-          
-          <!-- 文字雲控制端 -->
-          <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255, 183, 77, 0.2); border-radius: 10px; padding: 12px; margin-top: 10px; position: relative; z-index: 1000;">
-            <div style="font-size: 0.34em; color: var(--accent); font-weight: 700; margin-bottom: 6px;">提交你的直覺</div>
+
+          <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,183,77,0.2); border-radius:12px; padding:14px; position:relative; z-index:1000;">
+            <div style="font-size:var(--fs-xs); color:var(--accent); font-weight:700; margin-bottom:8px;">提交你的直覺</div>
             <input id="wc-input" type="text" placeholder="例：限制、安全、規矩..." maxlength="15"
-              style="width:100%; padding:6px 10px; border-radius:6px; border:1px solid rgba(255,255,255,0.15);
-                     background:rgba(255,255,255,0.08); color:#fff; font-size:12px;
-                     box-sizing:border-box; outline:none; position: relative; z-index: 1000;" />
+              style="width:100%; padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.15);
+                     background:rgba(255,255,255,0.08); color:#fff; font-size:14px;
+                     box-sizing:border-box; outline:none; position:relative; z-index:1000;" />
             <button id="wc-btn"
-              style="width:100%; margin-top:6px; padding:7px; background:var(--accent); color:#0d1117;
-                     border:none; border-radius:6px; font-weight:700; font-size:12px; cursor:pointer; position: relative; z-index: 1000;">
+              style="width:100%; margin-top:8px; padding:9px; background:var(--accent); color:#0d1117;
+                     border:none; border-radius:8px; font-weight:700; font-size:14px; cursor:pointer; position:relative; z-index:1000;">
               送出 ↵
             </button>
           </div>
         </div>
 
-        <!-- 右欄：文字雲畫布 -->
-        <div style="background: rgba(255,255,255,0.02); border-radius: 12px; overflow: hidden;
-                    position: relative; border: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column;">
-          <div style="padding: 10px 16px; background: rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.4em; color: #aaa; font-weight: 600;">大眾心靈直覺即時圖譜</span>
-            <span style="background: #ff4757; color: #fff; padding: 2px 6px; border-radius: 8px; font-size: 0.35em; font-weight: 700; animation: pulse 1.5s infinite;">LIVE</span>
+        <!-- 右欄：文字雲 -->
+        <div style="background:rgba(255,255,255,0.02); border-radius:14px; overflow:hidden;
+                    position:relative; border:1px solid rgba(255,255,255,0.06); display:flex; flex-direction:column;">
+          <div style="padding:10px 16px; background:rgba(255,255,255,0.02); border-bottom:1px solid rgba(255,255,255,0.05); display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:var(--fs-xs); color:#aaa; font-weight:600;">大眾心靈直覺即時圖譜</span>
+            <span style="background:#ff4757; color:#fff; padding:3px 8px; border-radius:8px; font-size:11px; font-weight:700; animation:live-blink 1.5s infinite;">LIVE</span>
           </div>
-          <div style="flex: 1; position: relative;">
+          <div style="flex:1; position:relative;">
             <canvas id="wc-canvas" style="width:100%; height:100%; display:block;"></canvas>
-            <div id="wc-empty" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-                                       color: #555; font-size: 0.45em; text-align: center; line-height: 1.8;">
-              <i class="fa-solid fa-cloud" style="font-size: 2em; margin-bottom: 10px; color: #333;"></i><br>
+            <div id="wc-empty" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:#555; font-size:var(--fs-sm); text-align:center; line-height:1.8;">
+              <i class="fa-solid fa-cloud" style="font-size:2em; margin-bottom:8px; color:#333;"></i><br>
               等待第一筆直覺資料提交...
             </div>
           </div>
-          <div style="padding: 8px 16px; background: rgba(0,0,0,0.2); border-top: 1px solid rgba(255,255,255,0.03); display: flex; justify-content: space-around; font-size: 0.35em; color: #888;">
-            <span>已提交總數: <strong id="wc-total" style="color:var(--accent);">0</strong></span>
-            <span>獨特觀點數: <strong id="wc-unique" style="color:var(--accent);">0</strong></span>
+          <div style="padding:8px 16px; background:rgba(0,0,0,0.2); border-top:1px solid rgba(255,255,255,0.03); display:flex; justify-content:space-around; font-size:var(--fs-xs); color:#888;">
+            <span>已提交：<strong id="wc-total" style="color:var(--accent);">0</strong></span>
+            <span>獨特觀點：<strong id="wc-unique" style="color:var(--accent);">0</strong></span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 頁3：何謂戒律 (三學以戒為首) -->
+    <!-- 頁3：何謂戒律 -->
     <section>
       <h2>何謂戒律：解脫生死的無漏軌道</h2>
-      <div class="quote-box" style="margin-bottom: 15px;">
+      <div class="quote-box" style="margin-bottom:16px;">
         「戒律好比火車的軌道，出軌就很危險。求道是入門，持戒才是行善斷惡的根本。」—— 活佛師尊
       </div>
       <div class="grid-3">
         <div class="card">
-          <div class="card-title" style="color: var(--accent);"><i class="fa-solid fa-glass-water-droplet"></i> 有漏之水杯</div>
+          <div class="card-title" style="color:var(--accent);"><i class="fa-solid fa-glass-water-droplet"></i> 有漏之水杯</div>
           <div class="card-content">
             在廚房大汗流、小汗流修福，但不守戒律就像<strong>水杯有漏洞</strong>。漏了功德，來世福報減少，回天終究只是修煉員。
           </div>
         </div>
         <div class="card">
-          <div class="card-title" style="color: var(--accent);"><i class="fa-solid fa-snowflake"></i> 忌發露水道心</div>
+          <div class="card-title" style="color:var(--accent);"><i class="fa-solid fa-snowflake"></i> 忌發露水道心</div>
           <div class="card-content">
             發心不要像清晨的露水，陽光一照射馬上就消失了。修行持戒必須發出<strong>恆久之心</strong>，按部就班調伏習氣。
           </div>
         </div>
         <div class="card">
-          <div class="card-title" style="color: var(--accent);"><i class="fa-solid fa-compass"></i> 以戒為師</div>
+          <div class="card-title" style="color:var(--accent);"><i class="fa-solid fa-compass"></i> 以戒為師</div>
           <div class="card-content">
             末法眾生根基較鈍，若不能自性覺照，必須<strong>以戒為師</strong>。戒是劃定生命界限的紅燈，保護我們不受無形業力牽纏。
           </div>
@@ -351,31 +406,28 @@
              data-background-opacity="0.15"
              data-background-size="cover">
       <h2>一、殺戒：不殺生而仁愛 (儒家：仁) <span class="badge red">性戒</span></h2>
-      <div class="quote-box" style="margin-bottom: 12px; border-left-color: var(--accent3);">
+      <div class="quote-box red" style="margin-bottom:12px;">
         「毛搓一搓，它瞪著眼看你！動物亦有天倫之樂，殺食之實在殘忍。」—— 活佛師尊
       </div>
       <div class="grid-3">
         <div class="card">
-          <div class="card-title" style="color: var(--accent3);"><i class="fa-solid fa-bug"></i> 農業共業與見濁隨喜</div>
-          <div class="card-content">
-            灑藥、販藥或發明屠宰設備皆助殺無量命，仍背因果。到親友家作客，務必先聲明「不要為我殺生」，防範「見濁隨喜」之惡業。
-          </div>
+          <div class="card-title" style="color:var(--accent3);"><i class="fa-solid fa-bug"></i> 農業共業與見濁隨喜</div>
+          <div class="card-content">灑藥、販藥或發明屠宰設備皆助殺無量命，仍背因果。到親友家作客，務必先聲明「不要為我殺生」，防範「見濁隨喜」之惡業。</div>
         </div>
         <div class="card">
-          <div class="card-title" style="color: var(--accent3);"><i class="fa-solid fa-skull-crossbones"></i> 自殺惡報與珍惜身命</div>
-          <div class="card-content">
-            人身難得、五重恩未報，自殺在意識中種下種子，最少將招致來世七次連續自殺之報。修行者務必防範消極輕生念頭。
-          </div>
+          <div class="card-title" style="color:var(--accent3);"><i class="fa-solid fa-skull-crossbones"></i> 自殺惡報與珍惜身命</div>
+          <div class="card-content">人身難得、五重恩未報，自殺在意識中種下種子，最少將招致來世七次連續自殺之報。修行者務必防範消極輕生念頭。</div>
         </div>
         <div class="card">
-          <div class="card-title" style="color: var(--accent3);"><i class="fa-solid fa-moon"></i> 寐覺快樂與無畏施</div>
-          <div class="card-content">
-            持戒不吃肉、心無殺氣者，能給眾生<strong>無畏施</strong>。來世感召健康長壽，今生善神守護，無有惡夢，睡覺一覺到天亮。
-          </div>
+          <div class="card-title" style="color:var(--accent3);"><i class="fa-solid fa-moon"></i> 寐覺快樂與無畏施</div>
+          <div class="card-content">持戒不吃肉、心無殺氣者，能給眾生<strong>無畏施</strong>。來世感召健康長壽，今生善神守護，無有惡夢，睡覺一覺到天亮。</div>
         </div>
       </div>
-      <div style="margin-top: 15px; text-align: center;">
-        <a href="kill/" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; background: rgba(232, 100, 58, 0.12); border: 1px solid var(--accent3); border-radius: 8px; color: #fff; font-size: 0.38em; text-decoration: none; font-weight: bold; transition: all 0.3s; box-shadow: 0 0 10px rgba(232, 100, 58, 0.15);" onmouseover="this.style.background='var(--accent3)'; this.style.color='#0d1117';" onmouseout="this.style.background='rgba(232, 100, 58, 0.12)'; this.style.color='#fff';">
+      <div style="margin-top:16px; text-align:center;">
+        <a href="kill/" class="nav-to-sub"
+           style="background:rgba(232,100,58,0.12); border:1px solid var(--accent3); box-shadow:0 0 12px rgba(232,100,58,0.15);"
+           onmouseover="this.style.background='var(--accent3)';this.style.color='#0d1117';"
+           onmouseout="this.style.background='rgba(232,100,58,0.12)';this.style.color='#fff';">
           <i class="fa-solid fa-arrow-up-right-from-square"></i> 進入「不殺生而仁愛」50分鐘專題簡報
         </a>
       </div>
@@ -384,31 +436,28 @@
     <!-- 頁5：第二戒：盜戒 -->
     <section>
       <h2>二、盜戒：不偷盜而義立 (儒家：義) <span class="badge red">性戒</span></h2>
-      <div class="quote-box blue" style="margin-bottom: 12px;">
+      <div class="quote-box blue" style="margin-bottom:12px;">
         「三寶門中好修福，造業也最容易；若貪圖方便，最易漏掉福報。」—— 活佛師尊
       </div>
       <div class="grid-3">
         <div class="card">
-          <div class="card-title" style="color: var(--accent5);"><i class="fa-solid fa-filter"></i> 專款專用與佛堂清淨</div>
-          <div class="card-content">
-            功德款（月助、開荒、印書）必須分明，不可混用。佛堂掃具勿與廁所混用；供花不可拿鼻子去聞，聞過便不清淨。
-          </div>
+          <div class="card-title" style="color:var(--accent5);"><i class="fa-solid fa-filter"></i> 專款專用與佛堂清淨</div>
+          <div class="card-content">功德款（月助、開荒、印書）必須分明，不可混用。佛堂掃具勿與廁所混用；供花不可拿鼻子去聞，聞過便不清淨。</div>
         </div>
         <div class="card">
-          <div class="card-title" style="color: var(--accent5);"><i class="fa-solid fa-receipt"></i> 漏稅與盜取國庫</div>
-          <div class="card-content">
-            上班私用公物、坐車船逃票、寄印刷品夾帶信件、買賣為圖便宜講好不開發票逃漏稅，皆屬「盜取國庫」，對全民負債。
-          </div>
+          <div class="card-title" style="color:var(--accent5);"><i class="fa-solid fa-receipt"></i> 漏稅與盜取國庫</div>
+          <div class="card-content">上班私用公物、坐車船逃票、寄印刷品夾帶信件、買賣為圖便宜講好不開發票逃漏稅，皆屬「盜取國庫」，對全民負債。</div>
         </div>
         <div class="card">
-          <div class="card-title" style="color: var(--accent5);"><i class="fa-solid fa-check-double"></i> 偷盜之五種開緣</div>
-          <div class="card-content">
-            <strong>己有想</strong>、<strong>與己想</strong>（誤為送禮）、<strong>畚帚想</strong>（當垃圾撿）、<strong>暫用想</strong>（借用歸還）、<strong>親厚想</strong>（熟友豁免，但防方便出下流）。
-          </div>
+          <div class="card-title" style="color:var(--accent5);"><i class="fa-solid fa-check-double"></i> 偷盜之五種開緣</div>
+          <div class="card-content"><strong>己有想</strong>、<strong>與己想</strong>（誤為送禮）、<strong>畚帚想</strong>（當垃圾撿）、<strong>暫用想</strong>（借用歸還）、<strong>親厚想</strong>（熟友豁免，但防方便出下流）。</div>
         </div>
       </div>
-      <div style="margin-top: 15px; text-align: center;">
-        <a href="steal/" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; background: rgba(79, 195, 247, 0.12); border: 1px solid var(--accent5); border-radius: 8px; color: #fff; font-size: 0.38em; text-decoration: none; font-weight: bold; transition: all 0.3s; box-shadow: 0 0 10px rgba(79, 195, 247, 0.15);" onmouseover="this.style.background='var(--accent5)'; this.style.color='#0d1117';" onmouseout="this.style.background='rgba(79, 195, 247, 0.12)'; this.style.color='#fff';">
+      <div style="margin-top:16px; text-align:center;">
+        <a href="steal/" class="nav-to-sub"
+           style="background:rgba(79,195,247,0.12); border:1px solid var(--accent5); box-shadow:0 0 12px rgba(79,195,247,0.15);"
+           onmouseover="this.style.background='var(--accent5)';this.style.color='#0d1117';"
+           onmouseout="this.style.background='rgba(79,195,247,0.12)';this.style.color='#fff';">
           <i class="fa-solid fa-arrow-up-right-from-square"></i> 進入「不偷盜而義立」50分鐘專題簡報
         </a>
       </div>
@@ -419,190 +468,205 @@
              data-background-opacity="0.15"
              data-background-size="cover">
       <h2>三、淫戒：不邪淫而禮節 (儒家：禮) <span class="badge red">性戒</span></h2>
-      <div class="quote-box purple" style="margin-bottom: 12px;">
+      <div class="quote-box purple" style="margin-bottom:12px;">
         「宇宙間最束縛人的就是淫。邪淫妄念為社會禍亂之根，修行人必戒。」
       </div>
       <div class="grid-3">
         <div class="card">
-          <div class="card-title" style="color: var(--accent4);"><i class="fa-solid fa-eye-slash"></i> 守護眼根與淨心</div>
-          <div class="card-content">
-            問題家庭常來自一雙不守規矩的眼睛。遠離遐思書刊電影。淫念升起時，急誦《清靜經》、《心經》或《彌勒真經》降服。
-          </div>
+          <div class="card-title" style="color:var(--accent4);"><i class="fa-solid fa-eye-slash"></i> 守護眼根與淨心</div>
+          <div class="card-content">問題家庭常來自一雙不守規矩的眼睛。遠離遐思書刊電影。淫念升起時，急誦《清靜經》、《心經》或《彌勒真經》降服。</div>
         </div>
         <div class="card">
-          <div class="card-title" style="color: var(--accent4);"><i class="fa-solid fa-wind"></i> 飽暖思淫與腳底涼</div>
-          <div class="card-content">
-            日常切忌暴飲暴食（飽暖思淫慾）。在家建議<strong>打赤腳</strong>，讓腳底板涼涼的，有助於降低生理火氣，淡化慾望。
-          </div>
+          <div class="card-title" style="color:var(--accent4);"><i class="fa-solid fa-wind"></i> 飽暖思淫與腳底涼</div>
+          <div class="card-content">日常切忌暴飲暴食（飽暖思淫慾）。在家建議<strong>打赤腳</strong>，讓腳底板涼涼的，有助於降低生理火氣，淡化慾望。</div>
         </div>
         <div class="card">
-          <div class="card-title" style="color: var(--accent4);"><i class="fa-solid fa-house-chimney-user"></i> 乾清坤潔與經營家庭</div>
-          <div class="card-content">
-            男女交往與相處須嚴守「乾清坤潔」分明界線。修道非逃避家累，坤道嫁入非素家庭要有「我不入地獄」之勇氣以成全親族。
-          </div>
+          <div class="card-title" style="color:var(--accent4);"><i class="fa-solid fa-house-chimney-user"></i> 乾清坤潔與經營家庭</div>
+          <div class="card-content">男女交往與相處須嚴守「乾清坤潔」分明界線。修道非逃避家累，坤道嫁入非素家庭要有「我不入地獄」之勇氣以成全親族。</div>
         </div>
       </div>
-      <div style="margin-top: 15px; text-align: center;">
-        <a href="lust/" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; background: rgba(206, 147, 216, 0.12); border: 1px solid var(--accent4); border-radius: 8px; color: #fff; font-size: 0.38em; text-decoration: none; font-weight: bold; transition: all 0.3s; box-shadow: 0 0 10px rgba(206, 147, 216, 0.15);" onmouseover="this.style.background='var(--accent4)'; this.style.color='#0d1117';" onmouseout="this.style.background='rgba(206, 147, 216, 0.12)'; this.style.color='#fff';">
+      <div style="margin-top:16px; text-align:center;">
+        <a href="lust/" class="nav-to-sub"
+           style="background:rgba(206,147,216,0.12); border:1px solid var(--accent4); box-shadow:0 0 12px rgba(206,147,216,0.15);"
+           onmouseover="this.style.background='var(--accent4)';this.style.color='#0d1117';"
+           onmouseout="this.style.background='rgba(206,147,216,0.12)';this.style.color='#fff';">
           <i class="fa-solid fa-arrow-up-right-from-square"></i> 進入「萬惡淫為首」50分鐘專題簡報
         </a>
       </div>
     </section>
 
-
+    <!-- 頁7：現代誘惑投票 -->
+    <section>
+      <h2>現代修行最大考驗：你的誘惑是哪一個？</h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; height:420px;">
+        <!-- 左欄：投票 -->
+        <div style="display:flex; flex-direction:column; text-align:left;">
+          <div style="font-size:var(--fs-sm); color:#aaa; margin-bottom:14px;">
+            <i class="fa-solid fa-square-poll-vertical" style="color:var(--accent); margin-right:6px;"></i>
+            選出你認為現代人最難抵擋的誘惑（單選）：
+          </div>
+          <div id="poll-options" style="display:flex; flex-direction:column; gap:8px; position:relative; z-index:100;"></div>
+          <div style="margin-top:16px; font-size:var(--fs-xs); color:#666;">
+            即時投票人數：<strong id="poll-total" style="color:var(--accent);">0</strong> 人
+          </div>
+        </div>
+        <!-- 右欄：顏回食粥對比滑桿 -->
+        <div style="display:flex; flex-direction:column;">
+          <div style="font-size:var(--fs-sm); color:#aaa; margin-bottom:10px; text-align:left;">
+            <i class="fa-solid fa-arrows-left-right" style="color:var(--accent2); margin-right:6px;"></i>
+            VIZ 對比：顏回食粥的真義
+          </div>
+          <div class="slider-container" style="flex:1;">
+            <div class="slider-pane left">
+              <div style="font-size:var(--fs-xs); color:var(--accent3); font-weight:700; margin-bottom:10px; text-transform:uppercase; letter-spacing:2px;">❌ 世俗眼光</div>
+              <div style="font-size:var(--fs-sm); color:#ccc; line-height:1.7;">
+                「顏回住破巷陋室，吃的是一簞食、一瓢飲，生活如此貧窮困頓，實在令人同情憐憫！」
+              </div>
+            </div>
+            <div id="slider-reveal-pane" class="slider-pane right">
+              <div style="font-size:var(--fs-xs); color:var(--accent2); font-weight:700; margin-bottom:10px; text-transform:uppercase; letter-spacing:2px;">✅ 孔子眼中</div>
+              <div style="font-size:var(--fs-sm); color:#ccc; line-height:1.7;">
+                「顏回不改其樂！他已突破物質的束縛，心靈中的大富足——道的快樂，遠勝一切享受。」
+              </div>
+            </div>
+            <div id="slider-handle" class="slider-handle">
+              <div class="slider-knob">⟺</div>
+            </div>
+            <input id="slider-range" type="range" min="0" max="100" value="100" class="slider-range-input">
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- 頁8：第四戒：妄語戒 -->
     <section>
       <h2>四、妄語戒：不妄語而誠信 (儒家：信) <span class="badge red">性戒</span></h2>
-      <div class="quote-box" style="margin-bottom: 12px;">
+      <div class="quote-box" style="margin-bottom:12px;">
         「妄語是一切罪惡的開端。三世不妄語者，舌頭伸出可觸及鼻子。」—— 活佛師尊
       </div>
       <div class="grid-3">
         <div class="card">
-          <div class="card-title" style="color: var(--accent);"><i class="fa-solid fa-comments"></i> 生意與度人的口業</div>
-          <div class="card-content">
-            生意人最易打妄語（哄抬物價）。度人設佛堂不可誇大開空頭支票（如「求道設佛堂癌症就會好」），須腳踏實地成全。
-          </div>
+          <div class="card-title" style="color:var(--accent);"><i class="fa-solid fa-comments"></i> 生意與度人的口業</div>
+          <div class="card-content">生意人最易打妄語（哄抬物價）。度人設佛堂不可誇大開空頭支票（如「求道設佛堂癌症就會好」），須腳踏實地成全。</div>
         </div>
         <div class="card">
-          <div class="card-title" style="color: var(--accent);"><i class="fa-solid fa-scale-unbalanced-flip"></i> 行業是非與惡口</div>
-          <div class="card-content">
-            律師、算命、風水師易在權勢上論是非，鐵斷未來刺傷人，招致惡口之罪；修道人切忌揭發他人隱私或離婚等辛酸史。
-          </div>
+          <div class="card-title" style="color:var(--accent);"><i class="fa-solid fa-scale-unbalanced-flip"></i> 行業是非與惡口</div>
+          <div class="card-content">律師、算命、風水師易在權勢上論是非，鐵斷未來刺傷人，招致惡口之罪；修道人切忌揭發他人隱私或離婚等辛酸史。</div>
         </div>
         <div class="card">
-          <div class="card-title" style="color: var(--accent);"><i class="fa-solid fa-wind"></i> 妄語之感召果報</div>
-          <div class="card-content">
-            犯妄語者來世多被譭謗、名譽受損；生來兔唇、講話漏風不清（語不明瞭）；種不得善果，或感召口氣天生惡臭。
-          </div>
+          <div class="card-title" style="color:var(--accent);"><i class="fa-solid fa-wind"></i> 妄語之感召果報</div>
+          <div class="card-content">犯妄語者來世多被譭謗、名譽受損；生來兔唇、講話漏風不清（語不明瞭）；種不得善果，或感召口氣天生惡臭。</div>
         </div>
       </div>
-      <div style="margin-top: 15px; text-align: center;">
-        <a href="lie/" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; background: rgba(255, 183, 77, 0.12); border: 1px solid var(--accent); border-radius: 8px; color: #fff; font-size: 0.38em; text-decoration: none; font-weight: bold; transition: all 0.3s; box-shadow: 0 0 10px rgba(255, 183, 77, 0.15);" onmouseover="this.style.background='var(--accent)'; this.style.color='#0d1117';" onmouseout="this.style.background='rgba(255, 183, 77, 0.12)'; this.style.color='#fff';">
+      <div style="margin-top:16px; text-align:center;">
+        <a href="lie/" class="nav-to-sub"
+           style="background:rgba(255,183,77,0.12); border:1px solid var(--accent); box-shadow:0 0 12px rgba(255,183,77,0.15);"
+           onmouseover="this.style.background='var(--accent)';this.style.color='#0d1117';"
+           onmouseout="this.style.background='rgba(255,183,77,0.12)';this.style.color='#fff';">
           <i class="fa-solid fa-arrow-up-right-from-square"></i> 進入「不妄語而誠信」50分鐘專題簡報
         </a>
       </div>
     </section>
 
-
-
-    <!-- 頁10：第五戒：酒戒 -->
+    <!-- 頁9：第五戒：酒戒 -->
     <section data-background-image="assets/images/alcohol_bg.jpg"
              data-background-opacity="0.15"
              data-background-size="cover">
       <h2>五、酒戒：不飲酒而調善身心 (儒家：智) <span class="badge purple">遮戒</span></h2>
-      <div class="quote-box green" style="margin-bottom: 12px;">
+      <div class="quote-box green" style="margin-bottom:12px;">
         「酒能衍生一切諸惡。要正神擁護，身上決不能有酒肉味。」—— 活佛師尊
       </div>
       <div class="grid-3">
         <div class="card">
-          <div class="card-title" style="color: var(--accent2);"><i class="fa-solid fa-ban"></i> 遮戒之首與李白之死</div>
-          <div class="card-content">
-            酒雖非葷，但喝醉喪失理智，殺盜淫妄皆會犯下。唐朝詩人李白，最終就是因昏沉沉跳水抓月而溺死，切莫學時髦。
-          </div>
+          <div class="card-title" style="color:var(--accent2);"><i class="fa-solid fa-ban"></i> 遮戒之首與李白之死</div>
+          <div class="card-content">酒雖非葷，但喝醉喪失理智，殺盜淫妄皆會犯下。唐朝詩人李白，最終就是因昏沉沉跳水抓月而溺死，切莫學時髦。</div>
         </div>
         <div class="card">
-          <div class="card-title" style="color: var(--accent2);"><i class="fa-solid fa-hand-holding-medical"></i> 助人飲酒感召無手</div>
-          <div class="card-content">
-            自己不喝，但買酒送人、勸酒，或出國幫人攜帶酒類過關，此微細漏洞會感召<strong>五百世無手之報</strong>，必須戒絕。
-          </div>
+          <div class="card-title" style="color:var(--accent2);"><i class="fa-solid fa-hand-holding-medical"></i> 助人飲酒感召無手</div>
+          <div class="card-content">自己不喝，但買酒送人、勸酒，或出國幫人攜帶酒類過關，此微細漏洞會感召<strong>五百世無手之報</strong>，必須戒絕。</div>
         </div>
         <div class="card">
-          <div class="card-title" style="color: var(--accent2);"><i class="fa-solid fa-martini-glass-empty"></i> 供品避酒與保身</div>
-          <div class="card-content">
-            拜拜用三牲酒禮，正神善神聞到即會遠離。持酒戒、不沾肉者，身心保持清淨，身上常散發檀香，善神容易護庇。
-          </div>
+          <div class="card-title" style="color:var(--accent2);"><i class="fa-solid fa-martini-glass-empty"></i> 供品避酒與保身</div>
+          <div class="card-content">拜拜用三牲酒禮，正神善神聞到即會遠離。持酒戒、不沾肉者，身心保持清淨，身上常散發檀香，善神容易護庇。</div>
         </div>
       </div>
-      <div style="margin-top: 15px; text-align: center;">
-        <a href="alcohol/" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; background: rgba(129, 199, 132, 0.12); border: 1px solid var(--accent2); border-radius: 8px; color: #fff; font-size: 0.38em; text-decoration: none; font-weight: bold; transition: all 0.3s; box-shadow: 0 0 10px rgba(129, 199, 132, 0.15);" onmouseover="this.style.background='var(--accent2)'; this.style.color='#0d1117';" onmouseout="this.style.background='rgba(129, 199, 132, 0.12)'; this.style.color='#fff';">
+      <div style="margin-top:16px; text-align:center;">
+        <a href="alcohol/" class="nav-to-sub"
+           style="background:rgba(129,199,132,0.12); border:1px solid var(--accent2); box-shadow:0 0 12px rgba(129,199,132,0.15);"
+           onmouseover="this.style.background='var(--accent2)';this.style.color='#0d1117';"
+           onmouseout="this.style.background='rgba(129,199,132,0.12)';this.style.color='#fff';">
           <i class="fa-solid fa-arrow-up-right-from-square"></i> 進入「不飲酒而調善身心」50分鐘專題簡報
         </a>
       </div>
     </section>
 
-        <!-- 頁10-2：白陽仙佛聖訓對照 -->
+    <!-- 頁10：白陽仙佛聖訓對照 -->
     <section>
-      <h2>白陽修辦之戒律證道 (五戒總論)</h2>
-      <div class="quote-box" style="border-left-color: var(--accent); background: rgba(255, 183, 77, 0.04);">
+      <h2>白陽修辦之戒律證道（五戒總論）</h2>
+      <div class="quote-box" style="border-left-color:var(--accent); background:rgba(255,183,77,0.05);">
         「把五戒守好，智慧就會開；把毛病脾氣改掉，善緣就會來。」—— 活佛師尊
       </div>
       <div class="grid-3">
-        <div class="card" style="border-color: rgba(255, 183, 77, 0.2);">
-          <div class="card-title" style="color: var(--accent); font-size: 0.45em;">
-            <i class="fa-solid fa-key"></i> 濟公活佛談守五戒
-          </div>
-          <div class="card-content" style="font-size: 0.32em; line-height: 1.5;">
-            「修道最難的是什麼？濟公活佛說五戒，最難的是自動、自發、自律，能夠自己要求自己，還有反省的功夫。」
-            <br><span style="color: var(--accent); font-weight: bold;">[66人才條例第1頁]</span>
-          </div>
+        <div class="card" style="border-color:rgba(255,183,77,0.2);">
+          <div class="card-title" style="color:var(--accent);"><i class="fa-solid fa-key"></i> 濟公活佛談守五戒</div>
+          <div class="card-content">「修道最難的是什麼？最難的是自動、自發、自律，能夠自己要求自己，還有反省的功夫。」<br><span style="color:var(--accent); font-weight:bold; font-size:var(--fs-xs);">[66人才條例第1頁]</span></div>
         </div>
-        <div class="card" style="border-color: rgba(255, 183, 77, 0.2);">
-          <div class="card-title" style="color: var(--accent); font-size: 0.45em;">
-            <i class="fa-solid fa-circle-exclamation"></i> 佛規禮節的精神
-          </div>
-          <div class="card-content" style="font-size: 0.32em; line-height: 1.5;">
-            「何為佛規禮節的精神？就是收束身心...所以要學習持戒，尤其要守住五戒...五戒不守五蘊不空，只有業隨身輪迴六道。」
-            <br><span style="color: var(--accent); font-weight: bold;">[55師尊慈訓第58頁]</span>
-          </div>
+        <div class="card" style="border-color:rgba(255,183,77,0.2);">
+          <div class="card-title" style="color:var(--accent);"><i class="fa-solid fa-circle-exclamation"></i> 佛規禮節的精神</div>
+          <div class="card-content">「何為佛規禮節的精神？就是收束身心…所以要學習持戒，尤其要守住五戒…五戒不守五蘊不空，只有業隨身輪迴六道。」<br><span style="color:var(--accent); font-weight:bold; font-size:var(--fs-xs);">[55師尊慈訓第58頁]</span></div>
         </div>
-        <div class="card" style="border-color: rgba(255, 183, 77, 0.2);">
-          <div class="card-title" style="color: var(--accent); font-size: 0.45em;">
-            <i class="fa-solid fa-cloud"></i> 往生兜率天資糧
-          </div>
-          <div class="card-content" style="font-size: 0.32em; line-height: 1.5;">
-            彌勒佛慈悲訓，往生兜率天的六事法之二為：「威儀不缺。有戒律的人俱有威儀相，例如五戒。」
-            <br><span style="color: var(--accent); font-weight: bold;">[66人才條例第6頁]</span>
-          </div>
+        <div class="card" style="border-color:rgba(255,183,77,0.2);">
+          <div class="card-title" style="color:var(--accent);"><i class="fa-solid fa-cloud"></i> 往生兜率天資糧</div>
+          <div class="card-content">彌勒佛慈悲訓，往生兜率天的六事法之二為：「威儀不缺。有戒律的人俱有威儀相，例如五戒。」<br><span style="color:var(--accent); font-weight:bold; font-size:var(--fs-xs);">[66人才條例第6頁]</span></div>
         </div>
       </div>
     </section>
 
-<!-- 頁11：總結：五戒與五常 -->
+    <!-- 頁11：結論：五戒與五常 -->
     <section>
       <h2>結論：五戒與五常的圓滿合一</h2>
-      <div class="quote-box blue" style="margin-bottom: 20px;">
+      <div class="quote-box blue" style="margin-bottom:18px;">
         南海古佛慈訓：「不殺生而仁愛，不偷盜而義立，不邪淫而禮節，不妄語而誠信，不飲酒而調善身心。」
       </div>
-      <div class="grid-3" style="font-size: 0.9em; gap: 10px;">
-        <div class="card" style="padding: 12px;">
-          <div style="font-weight: 700; color: var(--accent3); font-size: 0.5em; margin-bottom: 6px;"><i class="fa-solid fa-heart"></i> 不殺生 ➔ 仁</div>
-          <div style="font-size: 0.34em; color: #ccc;">推行無畏施與大悲，仁愛遍及一切生命，少病長壽。</div>
+      <div class="grid-3">
+        <div class="card" style="padding:14px;">
+          <div style="font-weight:700; color:var(--accent3); font-size:var(--fs-md); margin-bottom:8px;"><i class="fa-solid fa-heart"></i> 不殺生 ➔ 仁</div>
+          <div style="font-size:var(--fs-sm); color:#ccc; line-height:1.7;">推行無畏施與大悲，仁愛遍及一切生命，少病長壽。</div>
         </div>
-        <div class="card" style="padding: 12px;">
-          <div style="font-weight: 700; color: var(--accent2); font-size: 0.5em; margin-bottom: 6px;"><i class="fa-solid fa-scale-unbalanced"></i> 不偷盜 ➔ 義</div>
-          <div style="font-size: 0.34em; color: #ccc;">守分安命，不占公家與佛堂的便宜，財產盈積。</div>
+        <div class="card" style="padding:14px;">
+          <div style="font-weight:700; color:var(--accent2); font-size:var(--fs-md); margin-bottom:8px;"><i class="fa-solid fa-scale-unbalanced"></i> 不偷盜 ➔ 義</div>
+          <div style="font-size:var(--fs-sm); color:#ccc; line-height:1.7;">守分安命，不占公家與佛堂的便宜，財產盈積。</div>
         </div>
-        <div class="card" style="padding: 12px;">
-          <div style="font-weight: 700; color: var(--accent4); font-size: 0.5em; margin-bottom: 6px;"><i class="fa-solid fa-hands-praying"></i> 不邪淫 ➔ 禮</div>
-          <div style="font-size: 0.34em; color: #ccc;">端莊自持，相敬如賓，遵守家庭人倫與禮節。</div>
+        <div class="card" style="padding:14px;">
+          <div style="font-weight:700; color:var(--accent4); font-size:var(--fs-md); margin-bottom:8px;"><i class="fa-solid fa-hands-praying"></i> 不邪淫 ➔ 禮</div>
+          <div style="font-size:var(--fs-sm); color:#ccc; line-height:1.7;">端莊自持，相敬如賓，遵守家庭人倫與禮節。</div>
         </div>
       </div>
-      <div class="grid-2" style="margin-top: 10px; font-size: 0.9em;">
-        <div class="card" style="padding: 12px;">
-          <div style="font-weight: 700; color: var(--accent); font-size: 0.5em; margin-bottom: 6px;"><i class="fa-solid fa-award"></i> 不妄語 ➔ 信</div>
-          <div style="font-size: 0.34em; color: #ccc;">口出善思語，不挑是非，言而有信，敬人敬重。</div>
+      <div class="grid-2" style="margin-top:12px;">
+        <div class="card" style="padding:14px;">
+          <div style="font-weight:700; color:var(--accent); font-size:var(--fs-md); margin-bottom:8px;"><i class="fa-solid fa-award"></i> 不妄語 ➔ 信</div>
+          <div style="font-size:var(--fs-sm); color:#ccc; line-height:1.7;">口出善思語，不挑是非，言而有信，敬人敬重。</div>
         </div>
-        <div class="card" style="padding: 12px;">
-          <div style="font-weight: 700; color: #4fc3f7; font-size: 0.5em; margin-bottom: 6px;"><i class="fa-solid fa-brain"></i> 不飲酒 ➔ 智</div>
-          <div style="font-size: 0.34em; color: #ccc;">遠離昏沉迷惘，神智清明以調善身心，不受愚痴果報。</div>
+        <div class="card" style="padding:14px;">
+          <div style="font-weight:700; color:var(--accent5); font-size:var(--fs-md); margin-bottom:8px;"><i class="fa-solid fa-brain"></i> 不飲酒 ➔ 智</div>
+          <div style="font-size:var(--fs-sm); color:#ccc; line-height:1.7;">遠離昏沉迷惘，神智清明以調善身心，不受愚痴果報。</div>
         </div>
       </div>
     </section>
 
-    <!-- 頁12：封底/CTA -->
+    <!-- 頁12：封底 -->
     <section data-background-image="assets/images/cover_bg.jpg"
-             data-background-opacity="0.4"
+             data-background-opacity="0.38"
              data-background-size="cover">
-      <div style="margin-top: 50px;">
-        <h2 style="border:none; margin-bottom: 10px; font-size: 1.6em;">持戒即是解脫，降伏自我得清淨</h2>
-        <div style="width: 60px; height: 2px; background: var(--accent); margin: 20px auto;"></div>
-        <p style="font-size: 0.52em; color: #ccc; line-height: 1.8; max-width: 650px; margin: 0 auto;">
+      <div style="margin-top:40px; padding:0 20px;">
+        <h2 style="border:none; margin-bottom:10px; font-size:clamp(20px,3.5vw,38px);">持戒即是解脫，降伏自我得清淨</h2>
+        <div class="cover-accent-line"></div>
+        <p style="font-size:var(--fs-base); color:#ccc; line-height:1.9; max-width:600px; margin:0 auto;">
           修菩薩行的人不怕麻煩，德行的成就始於克己修持。<br>
           每持一戒即有善神守護，願我們共同精進，走向無上菩提道。
         </p>
-        <div style="margin-top: 35px; font-size: 0.42em; color: var(--accent); font-weight: 800; letter-spacing: 2px;">
-          理可頓悟 • 事須漸修
+        <div style="margin-top:32px; font-size:var(--fs-md); color:var(--accent); font-weight:800; letter-spacing:3px;">
+          理可頓悟 · 事須漸修
         </div>
       </div>
     </section>
@@ -610,10 +674,9 @@
   </div>
 </div>
 
-<!-- Reveal.js JS 引入 -->
-<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<!-- Reveal.js -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
 
-<!-- Initialize Reveal.js -->
 <script>
   Reveal.initialize({
     hash: true,
@@ -623,19 +686,21 @@
     center: true,
     progress: true,
     controls: true,
+    controlsLayout: 'bottom-right',
     slideNumber: 'c/t',
+    touch: true,
+    disableLayout: false,
     plugins: []
   });
 </script>
 
-<!-- Firebase SDK 與互動功能 -->
+<!-- Firebase 互動功能 -->
 <script type="module">
   import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js';
   import {
     getFirestore, doc, setDoc, onSnapshot, collection, addDoc, query, orderBy
   } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js';
 
-  // 使用使用者專屬 Firebase 專案配置 (my-teaching-tools-01)
   const firebaseConfig = {
     apiKey: ["AIzaSy", "C48oAqalT77SPpYVtCupYfV5hd6_ZrD2I"].join(""),
     authDomain: "my-teaching-tools-01.firebaseapp.com",
@@ -648,12 +713,10 @@
   const app = initializeApp(firebaseConfig);
   const fdb = getFirestore(app);
 
-  // ==========================================
-  // 1. VIZ 滑桿對比元件實作
-  // ==========================================
+  // ── 1. 對比滑桿 ──
   const rangeInput = document.getElementById('slider-range');
   const revealPane = document.getElementById('slider-reveal-pane');
-  const handle = document.getElementById('slider-handle');
+  const handle     = document.getElementById('slider-handle');
 
   if (rangeInput && revealPane && handle) {
     rangeInput.addEventListener('input', (e) => {
@@ -663,9 +726,7 @@
     });
   }
 
-  // ==========================================
-  // 2. 互動文字雲 (WordCloud)
-  // ==========================================
+  // ── 2. 文字雲 ──
   const wordsRef = collection(fdb, 'wujie_wordcloud');
   const COLORS = ['#ffb74d','#81c784','#e8643a','#ce93d8','#80deea','#f48fb1','#4fc3f7'];
   let wcData = [];
@@ -679,37 +740,25 @@
     try {
       await addDoc(wordsRef, { word, created_at: new Date() });
       input.value = '';
-    } catch(e) {
-      console.error("提交文字失敗:", e);
-    } finally {
-      btn.disabled = false;
-    }
+    } catch(e) { console.error(e); }
+    finally { btn.disabled = false; }
   };
 
-  document.getElementById('wc-input')?.addEventListener('keypress', e => {
-    if (e.key === 'Enter') window.wcSubmit();
-  });
+  document.getElementById('wc-input')?.addEventListener('keypress', e => { if (e.key === 'Enter') window.wcSubmit(); });
   document.getElementById('wc-btn')?.addEventListener('click', window.wcSubmit);
 
-  // 阻止 Reveal.js 攔截鍵盤輸入
   document.querySelectorAll('input, textarea').forEach(el => {
-    ['keydown', 'keyup', 'keypress'].forEach(event => {
-      el.addEventListener(event, e => {
-        e.stopPropagation();
-      });
-    });
+    ['keydown','keyup','keypress'].forEach(ev => el.addEventListener(ev, e => e.stopPropagation()));
   });
 
   onSnapshot(query(wordsRef, orderBy('created_at', 'asc')), snap => {
     const words = [];
-    snap.forEach(doc => words.push(doc.data().word));
+    snap.forEach(d => words.push(d.data().word));
     const counts = {};
     words.forEach(w => counts[w] = (counts[w] || 0) + 1);
     wcData = Object.entries(counts).sort((a, b) => b[1] - a[1]);
-
     document.getElementById('wc-total').textContent = words.length;
     document.getElementById('wc-unique').textContent = wcData.length;
-
     const empty = document.getElementById('wc-empty');
     if (empty) empty.style.display = wcData.length > 0 ? 'none' : '';
     drawWordCloud();
@@ -720,14 +769,12 @@
     if (!canvas || typeof WordCloud === 'undefined') return;
     const rect = canvas.getBoundingClientRect();
     if (rect.width < 10 || rect.height < 10) return;
-    canvas.width = rect.width;
+    canvas.width  = rect.width;
     canvas.height = rect.height;
     if (wcData.length === 0) return;
     const maxCount = wcData[0][1];
-    
-    // 渲染文字雲
     WordCloud(canvas, {
-      list: wcData.map(([w, c]) => [w, Math.max(16, Math.round((c / maxCount) * 45))]),
+      list: wcData.map(([w, c]) => [w, Math.max(14, Math.round((c / maxCount) * 42))]),
       gridSize: 8,
       weightFactor: 1,
       fontFamily: '"Microsoft JhengHei", "Noto Sans TC", sans-serif',
@@ -738,42 +785,35 @@
     });
   }
 
-  // ==========================================
-  // 3. 即時單選投票 (Poll)
-  // ==========================================
+  // ── 3. 投票 ──
   const OPTIONS = [
-    { id: 'a', label: '手機與社群成癮 (沉迷虛擬世界)' },
-    { id: 'b', label: '名利誘惑與婚外情 (邪淫破壞倫常)' },
-    { id: 'c', label: '口腹之慾與美食享受 (消福且易犯殺戒)' },
-    { id: 'd', label: '閒談八卦與搬弄是非 (口業是非不絕)' }
+    { id: 'a', label: '手機與社群成癮（沉迷虛擬世界）' },
+    { id: 'b', label: '名利誘惑與婚外情（邪淫破壞倫常）' },
+    { id: 'c', label: '口腹之慾與美食享受（消福且易犯殺戒）' },
+    { id: 'd', label: '閒談八卦與搬弄是非（口業是非不絕）' }
   ];
   const pollRef = doc(fdb, 'wujie_poll', 'results');
-  const userId = 'user_' + Math.random().toString(36).slice(2, 9);
+  const userId  = 'user_' + Math.random().toString(36).slice(2, 9);
   let myVote = null;
 
-  // 渲染投票按鈕
   const pollContainer = document.getElementById('poll-options');
   if (pollContainer) {
     OPTIONS.forEach(opt => {
       const btn = document.createElement('button');
       btn.id = `poll-btn-${opt.id}`;
+      btn.className = 'poll-btn';
       btn.innerHTML = `
-        <div style="display:flex;align-items:center;gap:12px;width:100%;height:100%;">
-          <span style="flex:0 0 20px;height:20px;border-radius:50%;border:2px solid rgba(255,255,255,0.3);
-                       display:flex;align-items:center;justify-content:center;font-size:10px;box-sizing:border-box;"
+        <div style="display:flex;align-items:center;gap:10px;width:100%;">
+          <span style="flex:0 0 18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,0.3);
+                       display:flex;align-items:center;justify-content:center;font-size:9px;box-sizing:border-box;"
                 id="poll-check-${opt.id}"></span>
-          <span style="flex:1;text-align:left;font-size:0.95em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${opt.label}</span>
-          <span id="poll-bar-wrap-${opt.id}"
-                style="flex:0 0 80px;height:8px;background:rgba(255,255,255,0.1);border-radius:4px;overflow:hidden;">
-            <div id="poll-bar-${opt.id}" style="height:100%;width:0;background:var(--accent);border-radius:4px;transition:width 0.4s;"></div>
+          <span style="flex:1;text-align:left;line-height:1.4;">${opt.label}</span>
+          <span id="poll-bar-wrap-${opt.id}" style="flex:0 0 60px;height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;">
+            <div id="poll-bar-${opt.id}" style="height:100%;width:0;background:var(--accent);border-radius:3px;transition:width 0.4s;"></div>
           </span>
-          <span id="poll-pct-${opt.id}" style="flex:0 0 32px;text-align:right;font-size:0.85em;color:#888;">0%</span>
+          <span id="poll-pct-${opt.id}" style="flex:0 0 30px;text-align:right;font-size:12px;color:#888;">0%</span>
         </div>
       `;
-      btn.style.cssText = `width:100%;padding:10px 14px;background:rgba(255,255,255,0.04);
-        border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;
-        font-size:0.42em;cursor:pointer;font-family:inherit;text-align:left;outline:none;
-        position: relative; z-index: 1000;`;
       btn.onclick = () => vote(opt.id);
       pollContainer.appendChild(btn);
     });
@@ -781,71 +821,47 @@
 
   async function vote(optId) {
     myVote = optId;
-    const data = {
-      votes: {
-        [userId]: optId
-      },
-      updated_at: new Date()
-    };
     try {
-      await setDoc(pollRef, data, { merge: true });
-    } catch (err) {
-      console.error("投票失敗:", err);
-    }
+      await setDoc(pollRef, { votes: { [userId]: optId }, updated_at: new Date() }, { merge: true });
+    } catch(err) { console.error(err); }
   }
 
   onSnapshot(pollRef, snap => {
-    const data = snap.data() || {};
-    const votes = data.votes || {};
+    const data  = snap.data() || {};
+    const votes = data.votes  || {};
     const counts = {};
     OPTIONS.forEach(o => counts[o.id] = 0);
-    Object.values(votes).forEach(v => {
-      if (counts[v] !== undefined) counts[v]++;
-    });
+    Object.values(votes).forEach(v => { if (counts[v] !== undefined) counts[v]++; });
     const total = Object.values(counts).reduce((a, b) => a + b, 0);
-
     document.getElementById('poll-total').textContent = total;
     OPTIONS.forEach(opt => {
-      const pct = total > 0 ? Math.round((counts[opt.id] / total) * 100) : 0;
-      const bar = document.getElementById(`poll-bar-${opt.id}`);
+      const pct  = total > 0 ? Math.round((counts[opt.id] / total) * 100) : 0;
+      const bar  = document.getElementById(`poll-bar-${opt.id}`);
       const pctTxt = document.getElementById(`poll-pct-${opt.id}`);
-      const check = document.getElementById(`poll-check-${opt.id}`);
-      const btn = document.getElementById(`poll-btn-${opt.id}`);
-
+      const check  = document.getElementById(`poll-check-${opt.id}`);
+      const btn    = document.getElementById(`poll-btn-${opt.id}`);
       if (bar) bar.style.width = pct + '%';
       if (pctTxt) pctTxt.textContent = pct + '%';
-      
       if (check && btn) {
         if (myVote === opt.id) {
-          check.innerHTML = '✓';
-          check.style.background = 'var(--accent)';
-          check.style.borderColor = 'var(--accent)';
-          btn.style.borderColor = 'var(--accent)';
-          btn.style.background = 'rgba(255, 183, 77, 0.08)';
+          check.innerHTML = '✓'; check.style.background = 'var(--accent)'; check.style.borderColor = 'var(--accent)';
+          btn.style.borderColor = 'var(--accent)'; btn.style.background = 'rgba(255,183,77,0.1)';
         } else {
-          check.innerHTML = '';
-          check.style.background = 'transparent';
-          check.style.borderColor = 'rgba(255,255,255,0.3)';
-          btn.style.borderColor = 'rgba(255,255,255,0.1)';
-          btn.style.background = 'rgba(255,255,255,0.04)';
+          check.innerHTML = ''; check.style.background = 'transparent'; check.style.borderColor = 'rgba(255,255,255,0.3)';
+          btn.style.borderColor = 'rgba(255,255,255,0.1)'; btn.style.background = 'rgba(255,255,255,0.04)';
         }
       }
     });
   });
 
-  // ==========================================
-  // 4. Reveal.js 切換頁面重繪監聽
-  // ==========================================
+  // ── 4. Reveal 事件 ──
   Reveal.on('slidechanged', e => {
     if (e.currentSlide?.id === 'slide-wordcloud' || e.currentSlide?.querySelector('#wc-canvas')) {
       setTimeout(drawWordCloud, 250);
     }
   });
-
   window.addEventListener('resize', () => {
-    if (document.querySelector('.present canvas#wc-canvas')) {
-      drawWordCloud();
-    }
+    if (document.querySelector('.present canvas#wc-canvas')) drawWordCloud();
   });
 </script>
 </body>

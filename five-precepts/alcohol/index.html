@@ -2,14 +2,14 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>五戒專題：不飲酒而調善身心</title>
   <meta name="description" content="一貫道五戒專題課件 - 飲酒因果與清明智慧之道">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/night.css" id="theme">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/night.css" id="theme">
 
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -120,16 +120,82 @@
       50% { transform: scale(1.05); opacity: 1; text-shadow: 0 0 15px var(--accent-alcohol); }
       100% { transform: scale(1); opacity: 0.9; }
     }
+
+/* === RWD 修正（2026-07-10優化）=== */
+:root {
+  --fs-xs:   clamp(11px, 1.5vw, 13px);
+  --fs-sm:   clamp(12px, 1.8vw, 14px);
+  --fs-base: clamp(14px, 2vw, 16px);
+  --fs-md:   clamp(15px, 2.2vw, 18px);
+}
+.reveal {
+  font-size: 24px;
+}
+.card-title {
+  font-size: var(--fs-md) !important;
+  line-height: 1.3;
+}
+.card-content {
+  font-size: var(--fs-sm) !important;
+  line-height: 1.75 !important;
+  color: #cdd5e0 !important;
+}
+.quote-box {
+  font-size: var(--fs-base) !important;
+  line-height: 1.8 !important;
+}
+.reveal h1 {
+  font-size: clamp(22px, 4vw, 46px) !important;
+  font-family: 'Noto Serif TC', 'Outfit', 'Noto Sans TC', sans-serif !important;
+}
+.reveal h2 {
+  font-size: clamp(17px, 3vw, 32px) !important;
+  font-family: 'Noto Serif TC', 'Outfit', 'Noto Sans TC', sans-serif !important;
+}
+@media (max-width:700px) {
+  .grid-3 { grid-template-columns: 1fr !important; }
+  .grid-2 { grid-template-columns: 1fr !important; }
+}
+.back-btn {
+  position: fixed;
+  bottom: 24px; left: 24px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(15,20,35,0.88);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 30px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Noto Sans TC', sans-serif;
+  text-decoration: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.back-btn:hover {
+  background: rgba(255,183,77,0.2);
+  border-color: #ffb74d;
+  color: #ffb74d;
+}
   </style>
 </head>
 <body>
+
+<a href="../" class="back-btn">
+  &#9001; 返回五戒總覽
+</a>
 
 <div class="reveal">
   <div class="slides">
 
     <!-- 頁1：封面 -->
-    <section data-background-image="../assets/images/alcohol_bg.jpg"
-             data-background-opacity="0.35"
+    <section data-background-image="assets/images/alcohol_cover.jpg"
+             data-background-opacity="0.3"
              data-background-size="cover">
       <div style="margin-top: 50px;">
         <span style="color: var(--accent-alcohol); font-size: 0.7em; font-weight: 800; letter-spacing: 4px;" class="pulse-text">五戒專題研討 • 第五戒</span>
@@ -143,7 +209,7 @@
 
     <!-- 頁2：課前破冰 (文字雲) -->
     <section id="slide-wordcloud"
-             data-background-image="../assets/images/alcohol_bg.jpg"
+             data-background-image="assets/images/alcohol_cover.jpg"
              data-background-opacity="0.08"
              data-background-size="cover">
       <h2>提到「理智與清明」，你聯想到什麼？</h2>
@@ -347,7 +413,7 @@
 
 <!-- 頁8：即時問卷 -->
     <section id="slide-poll"
-             data-background-image="../assets/images/alcohol_bg.jpg"
+             data-background-image="assets/images/alcohol_cover.jpg"
              data-background-opacity="0.08"
              data-background-size="cover">
       <h2>生活/社交酒戒漏洞大調查</h2>
@@ -379,7 +445,7 @@
     </section>
 
     <!-- 頁9：總結與勉勵 -->
-    <section data-background-image="../assets/images/alcohol_bg.jpg"
+    <section data-background-image="assets/images/alcohol_cover.jpg"
              data-background-opacity="0.35"
              data-background-size="cover">
       <div style="margin-top: 50px;">
@@ -403,7 +469,7 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
 <script>
   Reveal.initialize({
     hash: true,
@@ -413,7 +479,9 @@
     center: true,
     progress: true,
     controls: true,
-    slideNumber: 'c/t'
+    slideNumber: 'c/t',
+    touch: true,
+    controlsLayout: 'bottom-right',
   });
 </script>
 
