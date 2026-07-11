@@ -200,7 +200,81 @@
       }
     }
 
-  </style>
+  
+  /* === RWD 修正與手機端字型最大化（2026-07-11優化）=== */
+  :root {
+    --fs-xs:   clamp(14px, 1.8vw, 17px) !important;
+    --fs-sm:   clamp(15px, 2vw, 19px) !important;
+    --fs-base: clamp(17px, 2.3vw, 21px) !important;
+    --fs-md:   clamp(19px, 2.6vw, 25px) !important;
+  }
+  .reveal {
+    font-size: 26px !important;
+  }
+  .card-title {
+    font-size: var(--fs-md) !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+  .card-content {
+    font-size: var(--fs-sm) !important;
+    line-height: 1.8 !important;
+    color: #cdd5e0 !important;
+  }
+  .quote-box {
+    font-size: var(--fs-base) !important;
+    line-height: 1.85 !important;
+  }
+  .reveal h1 {
+    font-size: clamp(28px, 4.5vw, 52px) !important;
+    font-family: 'Noto Serif TC', 'Outfit', 'Noto Sans TC', sans-serif !important;
+  }
+  .reveal h2 {
+    font-size: clamp(22px, 3.5vw, 36px) !important;
+    font-family: 'Noto Serif TC', 'Outfit', 'Noto Sans TC', sans-serif !important;
+  }
+  .reveal p {
+    font-size: var(--fs-base) !important;
+    line-height: 1.85 !important;
+  }
+  @media (max-width:700px) {
+    :root {
+      --fs-xs:   18px !important;
+      --fs-sm:   20px !important;
+      --fs-base: 22px !important;
+      --fs-md:   25px !important;
+    }
+    .reveal {
+      font-size: 30px !important;
+    }
+    .reveal h1 {
+      font-size: 36px !important;
+    }
+    .reveal h2 {
+      font-size: 30px !important;
+    }
+    .reveal p {
+      font-size: 20px !important;
+      line-height: 1.8 !important;
+    }
+    .grid-3 { 
+      grid-template-columns: 1fr !important; 
+      gap: 16px !important;
+    }
+    .grid-2 { 
+      grid-template-columns: 1fr !important; 
+      gap: 16px !important;
+    }
+    .card {
+      padding: 16px 20px !important;
+    }
+    .print-online-link {
+      font-size: 14px !important;
+      padding: 8px 12px !important;
+    }
+  }
+
+</style>
 </head>
 <body>
 
